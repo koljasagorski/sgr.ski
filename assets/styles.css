@@ -29,7 +29,6 @@
   --rule:        #e6e6e0;
   --chip-border: #dcdcd6;
   --chip-fg:     #6b756c;
-  --dot:         #3f9d78;
   --faint:       #a3a39c;
   --faint-text:  #73736e;
   --row-hover:   #f1f1ee;
@@ -48,7 +47,6 @@
     --rule:        #21262c;
     --chip-border: #2a3038;
     --chip-fg:     #8a978f;
-    --dot:         #4bb59a;
     --faint:       #5a616a;
     --faint-text:  #787d85;
     --row-hover:   #161a1f;
@@ -65,7 +63,6 @@
   --rule:        #21262c;
   --chip-border: #2a3038;
   --chip-fg:     #8a978f;
-  --dot:         #4bb59a;
   --faint:       #5a616a;
   --faint-text:  #787d85;
   --row-hover:   #161a1f;
@@ -170,14 +167,6 @@ body {
   letter-spacing: .1em;
   color: var(--chip-fg);
   white-space: nowrap;
-}
-
-.chip__dot {
-  width: 6px;
-  height: 6px;
-  flex: none;
-  border-radius: 50%;
-  background: var(--dot);
 }
 
 /* Progressive enhancement: only shown once theme.js has run */
