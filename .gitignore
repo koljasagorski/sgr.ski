@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Deploy artefact assembled by the workflow
+_site/

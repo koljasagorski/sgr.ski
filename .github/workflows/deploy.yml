@@ -1,0 +1,73 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Least privilege: read the repo, mint an OIDC token, publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never let two deploys race; queue instead of cancelling a live publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify CSP hash for inline JSON-LD
+        run: python3 .github/scripts/check-csp.py
+
+      - name: Assemble site
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          # An allow-list, deliberately: only these paths are ever published.
+          # A deny-list would let any stray file in the repo root (.DS_Store,
+          # an editor backup, a scratch note) reach the public web root.
+          # A missing entry fails the build rather than silently shipping less.
+          for path in \
+            index.html \
+            assets \
+            .well-known \
+            favicon.ico \
+            apple-touch-icon.png \
+            site.webmanifest \
+            robots.txt \
+            sitemap.xml \
+            kolja-sagorski.asc \
+            CNAME \
+            .nojekyll
+          do
+            if [ ! -e "$path" ]; then
+              echo "::error::expected to publish '$path' but it does not exist"
+              exit 1
+            fi
+            cp -R "$path" _site/
+          done
+          echo "── published tree ──"
+          find _site -type f | sort
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

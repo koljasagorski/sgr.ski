@@ -1,0 +1,13 @@
+{
+  "name": "Kolja Sagorski",
+  "short_name": "Sagorski",
+  "description": "Certified IT Security Analyst. 20+ years on both sides of the firewall.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fbfbfa",
+  "theme_color": "#fbfbfa",
+  "icons": [
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
