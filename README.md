@@ -15,7 +15,7 @@ assets/theme.js             three-state theme switch, render-blocking in <head>
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
 assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing film
 assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1 + H.264, no audio, no metadata
-assets/video/talk*          /workshops Formate background: blurred, slowed, ping-pong loop (see CLAUDE.md)
+assets/video/talk*          /workshops Formate background band (Kling 3 Pro via ElevenLabs): blurred, slowed, ping-pong loop
 ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/location); deployed with wrangler, not Pages
 assets/fonts/*.woff2        JetBrains Mono, self-hosted (variable, weight axis 100–800)
 assets/avatar.webp          224px source, rendered at 56px
