@@ -1,0 +1,15 @@
+// mta-sts.sgr.ski — serves the MTA-STS policy (RFC 8461) for mail to @sgr.ski.
+// Deployed separately with `wrangler deploy` from this folder; not part of Pages.
+// When changing the policy, also bump the id in the _mta-sts.sgr.ski TXT record.
+{
+  "name": "sgr-ski-mta-sts",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "account_id": "9a562df9759b0d525872d399986f10ef",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "mta-sts.sgr.ski", "custom_domain": true }
+  ],
+  "observability": { "enabled": false }
+}

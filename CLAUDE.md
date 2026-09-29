@@ -92,6 +92,15 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   Fehler. GitHub Pages kann keine HTTP-Header setzen, echter Clickjacking-Schutz ist damit nicht
   möglich.
 
+## DNS-Härtung (Stand 2026-09-29)
+
+DNSSEC aktiv. CAA: `issue letsencrypt.org` (GitHub Pages) + `pki.goog` (Cloudflare) + `iodef
+mailto:kolja@sagorski.org`; Cloudflare hängt für eigene Zertifikate automatisch weitere CAs an.
+Mail: SPF `-all`, DMARC `p=quarantine` (Reports an Cloudflare DMARC Management). MTA-STS im Modus
+`testing` über `mta-sts-worker/` (mta-sts.sgr.ski), TLS-RPT an kolja@sagorski.org. Nach ein paar
+sauberen Wochen TLS-Reports: Policy auf `enforce`, `max_age` hoch, `id` in `_mta-sts` hochzählen;
+DMARC dann auf `p=reject`. Details und Rückbau-Werte im Session-Memory `sgr-ski-dns-hosting`.
+
 ## Assets neu erzeugen
 
 Quelle des Portraits ist `~/Desktop/ich hacker.png` (2048×2048, Split Anzug/Hoodie). Der
