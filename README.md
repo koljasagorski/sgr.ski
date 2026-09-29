@@ -14,6 +14,7 @@ assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
 assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing demo
+ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/location); deployed with wrangler, not Pages
 assets/fonts/*.woff2        JetBrains Mono, self-hosted (variable, weight axis 100–800)
 assets/avatar.webp          224px source, rendered at 56px
 assets/og.png               1200×630 social card

@@ -1,7 +1,8 @@
 /* sgr.ski/workshops — Firewall-Linie, Scroll-Bühnen, Phishing-Demo.
    Läuft render-blocking im <head>, damit .js vor dem ersten Paint gesetzt ist
    und die Sticky-Bühnen nicht erst ausgeklappt und dann eingeklappt werden.
-   Alle Browserwerte bleiben lokal: nichts wird gesendet oder gespeichert. */
+   Browserwerte werden lokal ausgelesen. IP, Provider und Standort meldet
+   ip.sgr.ski (eigener Worker, ip-worker/) zurück — nichts wird gespeichert. */
 (function () {
   'use strict';
 
@@ -41,12 +42,67 @@
     for (var i = 0; i < raw.length; i++) { h ^= raw.charCodeAt(i); h = Math.imul(h, 16777619); }
     var hex = ('00000000' + (h >>> 0).toString(16)).slice(-8);
 
-    return { tz: tz, lang: lang, screen: scr, os: os, browser: br, fp: hex.slice(0, 4) + ' ' + hex.slice(4) + ' · lokal berechnet' };
+    /* Grafikkarte: über WebGL lesbar, eines der stärksten Fingerprint-Merkmale. */
+    var gpu = 'nicht auslesbar';
+    try {
+      var gl = document.createElement('canvas').getContext('webgl');
+      if (gl) {
+        var ext = gl.getExtension('WEBGL_debug_renderer_info');
+        var r = String(gl.getParameter(ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || '');
+        /* "ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)" → "Apple M2" */
+        var m = r.match(/Renderer:\s*([^,)]+)/) || r.match(/^ANGLE \([^,]+,\s*([^,(]+?)(?:\s*\(|,|\))/);
+        gpu = (m ? m[1] : r).trim() || gpu;
+      }
+    } catch (e) { /* blockiert */ }
+
+    var hw = [];
+    if (n.hardwareConcurrency) hw.push(n.hardwareConcurrency + ' Kerne');
+    if (n.deviceMemory) hw.push('≥ ' + n.deviceMemory + ' GB RAM');
+    if (n.maxTouchPoints > 0) hw.push('Touch');
+
+    return {
+      tz: tz, lang: lang, screen: scr, os: os, browser: br, gpu: gpu,
+      hw: hw.length ? hw.join(' · ') : 'nicht auslesbar',
+      fp: hex.slice(0, 4) + ' ' + hex.slice(4) + ' · lokal berechnet'
+    };
+  }
+
+  /* ── Was jeder Server sieht: IP, Netzbetreiber, ungefährer Standort ──── */
+  function network() {
+    if (!window.fetch) return;
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = ctrl && setTimeout(function () { ctrl.abort(); }, 5000);
+    fetch('https://ip.sgr.ski/', { cache: 'no-store', credentials: 'omit', signal: ctrl && ctrl.signal })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        var country = d.country;
+        try { country = new Intl.DisplayNames(['de'], { type: 'region' }).of(d.country) || d.country; } catch (e) { /* alt */ }
+        var place = [d.city, d.region, country].filter(Boolean).join(', ');
+        var prov = d.provider ? d.provider + (d.asn ? ' · AS' + d.asn : '') : '';
+        var conn = [d.httpProtocol, d.tlsVersion && d.tlsVersion.replace('TLSv', 'TLS ')].filter(Boolean).join(' · ');
+        var vals = {
+          ip: d.ip,
+          provider: prov,
+          location: place,
+          conn: conn,
+          network: [d.ip, d.provider, d.city].filter(Boolean).join(' · ')
+        };
+        $$('[data-net]').forEach(function (el) {
+          var v = vals[el.getAttribute('data-net')];
+          if (v) el.textContent = v;
+        });
+      })
+      .catch(function () {
+        /* Blockiert oder offline: die neutralen Platzhalter bleiben stehen. */
+        $$('[data-net="ip"]').forEach(function (el) { el.textContent = 'jedem Server bekannt'; });
+      })
+      .then(function () { if (timer) clearTimeout(timer); });
   }
 
   function init() {
     var bv = probe();
     $$('[data-bv]').forEach(function (el) { el.textContent = bv[el.getAttribute('data-bv')]; });
+    network();
 
     var t0 = Date.now();
     var sinceEls = $$('[data-since]');

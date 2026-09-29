@@ -10,7 +10,7 @@
 <meta name="author" content="Kolja Sagorski">
 <link rel="canonical" href="https://sgr.ski/workshops/">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-RfWkRBVT/qO23FErpqUtjMMUxThv/+JLIQLbXPWkq5c='; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-RfWkRBVT/qO23FErpqUtjMMUxThv/+JLIQLbXPWkq5c='; font-src 'self'; connect-src https://ip.sgr.ski; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="website">
@@ -98,6 +98,7 @@
           </div>
         </div>
         <div class="hero__probe">
+          <div class="kv"><span class="kv__k">IP-ADRESSE</span><span data-net="ip">wird ermittelt …</span></div>
           <div class="kv"><span class="kv__k">ZEITZONE</span><span data-bv="tz">—</span></div>
           <div class="kv"><span class="kv__k">SPRACHE</span><span data-bv="lang">—</span></div>
           <div class="kv"><span class="kv__k">BILDSCHIRM</span><span data-bv="screen">—</span></div>
@@ -268,7 +269,7 @@
           <div class="mock__field mock__field--exposed mock__field--gap"><span>sid=7f3a…c21e</span><span class="tag">SESSION</span></div>
           <div class="mock__foot mock__foot--rows">
             <div class="kv kv--sm"><span class="tag">GERÄT</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span></div>
-            <div class="kv kv--sm"><span class="tag">NETZWERK</span><span>IP-Adresse, Provider, Region</span></div>
+            <div class="kv kv--sm"><span class="tag">NETZWERK</span><span data-net="network">IP-Adresse, Provider, Region</span></div>
             <div class="kv kv--sm"><span class="tag">METADATEN</span><span>Zeitpunkt, Häufigkeit, Herkunft</span></div>
           </div>
         </div>
@@ -293,17 +294,21 @@
       <div class="talk__grid">
         <div class="probe">
           <span class="tag tag--faint probe__head">BROWSER-ANALYSE</span>
-          <div class="probe__row"><span class="muted">IP-ADRESSE</span><span>jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">BROWSER</span><span data-bv="browser">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">BETRIEBSSYSTEM</span><span data-bv="os">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">IP-ADRESSE</span><span data-net="ip">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">PROVIDER</span><span data-net="provider">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">STANDORT</span><span data-net="location">aus der IP ableitbar</span><span class="tag-plain">UNGEFÄHR</span></div>
+          <div class="probe__row"><span class="muted">VERBINDUNG</span><span data-net="conn">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">SYSTEM</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span><span class="tag-plain">ERKENNBAR</span></div>
           <div class="probe__row"><span class="muted">ZEITZONE</span><span data-bv="tz">—</span><span class="tag-plain">ERKENNBAR</span></div>
           <div class="probe__row"><span class="muted">SPRACHE</span><span data-bv="lang">—</span><span class="tag-plain">ERKENNBAR</span></div>
           <div class="probe__row"><span class="muted">BILDSCHIRM</span><span data-bv="screen">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">GRAFIKKARTE</span><span data-bv="gpu">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">HARDWARE</span><span data-bv="hw">—</span><span class="tag-plain">ERKENNBAR</span></div>
           <div class="probe__row"><span class="muted">FINGERPRINT</span><span data-bv="fp">—</span><span class="tag-plain tag-plain--bold">MÖGLICH</span></div>
         </div>
         <div class="talk__text">
           <p>Schon ein gewöhnlicher Seitenaufruf kann mehr Informationen preisgeben, als vielen Menschen bewusst ist.</p>
-          <p class="talk__small">Diese Werte liest dein Browser gerade selbst aus. Sie werden nicht gesendet, nicht gespeichert und nicht ausgewertet.</p>
+          <p class="talk__small">IP, Provider, Standort und Verbindung sieht jeder Server, den du aufrufst. Hier meldet sie ip.sgr.ski zurück. Alles andere liest dein Browser selbst aus. Nichts davon wird gespeichert oder ausgewertet.</p>
         </div>
       </div>
     </div>
@@ -317,7 +322,8 @@
     <div class="stage__layer stage__layer--mid">
       <div class="meta">
         <div class="meta__file">
-          <div class="meta__photo">foto</div>
+          <img class="meta__photo" src="/assets/observation.webp" width="800" height="533" loading="lazy" decoding="async"
+               alt="Observation aus einem geparkten Auto: Eine Person beobachtet einen Mann im Anzug durchs Fernglas, eine zweite fotografiert ihn mit einer Spiegelreflexkamera.">
           <span class="meta__name">IMG_2841.jpg</span>
         </div>
         <div class="stack stack--20">

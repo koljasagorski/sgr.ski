@@ -1,0 +1,19 @@
+// ip.sgr.ski — reflects what any web server sees about a visitor, for the
+// "Dein Browser redet" stage on /workshops. Deployed separately with
+// `wrangler deploy` from this folder; not part of the GitHub Pages site.
+{
+  "name": "sgr-ski-ip",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  "account_id": "9a562df9759b0d525872d399986f10ef",
+
+  // Only the custom domain, no *.workers.dev or preview URLs.
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "ip.sgr.ski", "custom_domain": true }
+  ],
+
+  // Nothing is logged or retained: the page promises it stores nothing.
+  "observability": { "enabled": false }
+}

@@ -226,6 +226,7 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 }
 .kv:last-child { border-bottom: 1px solid var(--rule); }
 .kv__k { color: var(--muted); }
+.kv > :last-child { text-align: right; overflow-wrap: anywhere; }
 .kv--sm { gap: 12px; }
 
 /* ── Hero ────────────────────────────────────────────────────────────────── */
@@ -307,7 +308,7 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 190px;
+  height: 225px;
   font-size: 12px;
 }
 
@@ -559,14 +560,13 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 }
 .meta__file { display: flex; flex-direction: column; gap: 10px; }
 .meta__photo {
+  display: block;
+  width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   max-height: 40vh;
-  display: flex;
-  align-items: flex-end;
-  padding: 14px;
-  background: repeating-linear-gradient(135deg, #f1f1ee 0 8px, #e6e6e0 8px 16px);
-  font-size: 11px;
-  color: var(--faint-text);
+  object-fit: cover;
+  background: var(--row-hover);
 }
 .meta__exif {
   aspect-ratio: 4 / 3;
@@ -896,6 +896,15 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
   font-size: 11px;
   letter-spacing: .08em;
   color: var(--faint-text);
+}
+
+/* Schmale Screens: die Bühne ist genau eine Bildschirmhöhe hoch. Der
+   einleitende Satz weicht, damit der Hinweis zur Datenherkunft sichtbar bleibt. */
+@media (max-width: 560px) {
+  .js .talk__text > p:first-child { display: none; }
+  .js .probe__row { padding: 5px 0; grid-template-columns: 96px minmax(0, 1fr); }
+  .js .probe__row > :nth-child(3) { display: none; }
+  .js .stage__layer--talk { gap: 16px; }
 }
 
 /* ── Motion / Druck ──────────────────────────────────────────────────────── */

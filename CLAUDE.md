@@ -24,8 +24,15 @@ Tagline 26 px, Chips 11 px mit `letter-spacing: .1em`, Trennlinien als 1-px-Haar
 `design/Workshops.dc.html` um; eigene `assets/workshops.css` / `workshops.js`. Hell = Nutzer-,
 dunkel = Angreiferperspektive — deshalb dort **kein** Theme-Schalter. Dynamische Werte (Linie,
 Bühnen) setzt das JS als Custom Properties per CSSOM (`style.setProperty`), das erlaubt die CSP
-anders als `style=""`. Ohne JS stehen alle Ebenen untereinander. Die Browserwerte werden nur lokal
-angezeigt, nie gesendet — daran nichts ändern.
+anders als `style=""`. Ohne JS stehen alle Ebenen untereinander.
+
+IP, Provider, Standort und Verbindung liefert der eigene Cloudflare Worker `ip.sgr.ski`
+(Quelle in `ip-worker/`, Deploy per `wrangler deploy` aus dem Ordner — **nicht** über Pages).
+Er wird beim Laden automatisch abgefragt (Entscheidung des Betreibers am 2026-09-29), speichert
+und loggt nichts (`observability` aus) und erlaubt CORS nur für sgr.ski. In der CSP steht dafür
+`connect-src https://ip.sgr.ski`. Das ist die einzige Ausnahme von „keine Dritt-Requests“ und
+bleibt auf der eigenen Domain; keine fremden IP-Dienste einbinden. Alle übrigen Werte liest der
+Browser lokal aus. Bilder für die Seite ohne Metadaten ablegen (`cwebp -metadata none`).
 
 ## Harte Regeln
 
