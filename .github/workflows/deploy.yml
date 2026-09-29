@@ -48,6 +48,7 @@ jobs:
             apple-touch-icon.png \
             site.webmanifest \
             robots.txt \
+            llms.txt \
             sitemap.xml \
             kolja-sagorski.asc \
             CNAME \

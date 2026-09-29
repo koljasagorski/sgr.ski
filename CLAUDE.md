@@ -63,6 +63,11 @@ Description ~150. Das OG-Bild `assets/og-workshops.png` ist in HTML gesetzt (Sei
 Hell/Dunkel-Split wie im Hero) und mit Chrome gerendert — nicht KI-generiert, damit die Schrift
 exakt ist. Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector nutzen).
 
+KI-Lesbarkeit: `/llms.txt` (Allow-List!) und `workshops/index.md` als Markdown-Spiegel der
+Workshop-Seite, verlinkt per `rel="alternate" type="text/markdown"`. **Inhaltliche Änderungen an
+`workshops/index.html` auch in `index.md` nachziehen** — sonst widersprechen sich die Fassungen.
+Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
+
 ## Harte Regeln
 
 - **Keine Inline-Styles, keine Inline-Scripts.** Die CSP ist `default-src 'none'`; alles andere

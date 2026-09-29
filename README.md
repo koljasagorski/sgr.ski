@@ -22,6 +22,7 @@ assets/avatar.webp          224px source, rendered at 56px
 assets/og.png               1200×630 social card
 assets/og-workshops.png     1200×630 social card for /workshops (HTML-set, rendered with Chrome)
 kolja-sagorski.asc          PGP public key, offered as a download
+llms.txt                    site summary for AI agents; workshops/index.md mirrors /workshops as Markdown
 .well-known/security.txt    RFC 9116
 .github/workflows/deploy.yml
 .github/scripts/check-csp.py

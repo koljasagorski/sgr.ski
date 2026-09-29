@@ -1,0 +1,23 @@
+# sgr.ski — Kolja Sagorski
+
+> Personal site of Kolja Sagorski, Certified IT Security Analyst with 20+ years on both sides of the firewall. Offers workshops and talks (in German) on digital self-defence and operational security (OPSEC) for journalists, whistleblowers, people in exile and anyone handling sensitive information — built around live demonstrations of real attacks.
+
+## Pages
+
+- [Home](https://sgr.ski/): Profile and contact — LinkedIn, e-mail, PGP key.
+- [Workshops Digitale Selbstverteidigung & OPSEC](https://sgr.ski/workshops/): Workshops and talks (German). Markdown version: [workshops/index.md](https://sgr.ski/workshops/index.md)
+- [Impressum](https://sgr.ski/impressum/): Legal notice (German).
+
+## Workshop facts
+
+- Language: German
+- Audience: journalists and newsrooms, investigative journalists, whistleblowers, people in exile and refugees, NGOs and human-rights organisations, lawyers, companies and executives, conferences
+- Topics: threat modeling, digital traces, private browsing (Tor, VPN, browser isolation, fingerprinting), secure communication (end-to-end encryption, Signal, PGP, metadata), device protection, identities and accounts (password managers, passkeys, MFA, hardware security keys), metadata, incident response
+- Method: attack → understand → protect → verify; controlled live demonstrations, each ending in the countermeasure
+- Formats: talk (45–90 min), workshop (3–4 h), full-day workshop (6–8 h), individual training (1:1 or small team)
+
+## Contact
+
+- E-mail: kolja@sagorski.org
+- PGP: 0x5EFB194EAD8BC39F — https://sgr.ski/kolja-sagorski.asc
+- LinkedIn: https://www.linkedin.com/in/koljasagorski/
