@@ -10,7 +10,7 @@
 <meta name="author" content="Kolja Sagorski">
 <link rel="canonical" href="https://sgr.ski/workshops/">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-RfWkRBVT/qO23FErpqUtjMMUxThv/+JLIQLbXPWkq5c='; font-src 'self'; connect-src https://ip.sgr.ski; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-RfWkRBVT/qO23FErpqUtjMMUxThv/+JLIQLbXPWkq5c='; font-src 'self'; media-src 'self'; connect-src https://ip.sgr.ski; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="website">
@@ -412,6 +412,22 @@
           <span>Was passiert mit Zugangsdaten oder Sessions?</span>
         </div>
       </div>
+      <figure class="film" data-film>
+        <video class="film__video" muted loop playsinline preload="none" width="1280" height="720"
+               poster="/assets/video/phishing-poster.webp" aria-describedby="film-steps">
+          <source src="/assets/video/phishing-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+          <source src="/assets/video/phishing.mp4" type='video/mp4; codecs="avc1.64001F"'>
+        </video>
+        <button class="film__toggle js-only" type="button" data-film-toggle aria-label="Video abspielen">
+          <span aria-hidden="true" data-film-icon>▶</span><span data-film-label>ABSPIELEN</span>
+        </button>
+        <figcaption class="film__steps" id="film-steps">
+          <span><span class="film__n">01</span>Eine Mail kommt. Ein Klick.</span>
+          <span><span class="film__n">02</span>Das Passwort wird eingegeben.</span>
+          <span><span class="film__n">03</span>Beim Angreifer kommen die Zugangsdaten an.</span>
+        </figcaption>
+      </figure>
+      <span class="label label--faint demo__try js-only">SELBST AUSPROBIEREN · OHNE UND MIT PASSKEY</span>
       <div class="demo__controls js-only">
         <button class="btn" type="button" data-demo-play><span aria-hidden="true">▶</span><span data-demo-play-label>DEMO ABSPIELEN</span></button>
         <div class="seg" role="group" aria-label="Schutzmaßnahme wählen">

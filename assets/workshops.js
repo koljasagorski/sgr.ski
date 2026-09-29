@@ -215,6 +215,56 @@
     window.addEventListener('resize', onScroll);
     update();
 
+    /* ── Phishing-Film ─────────────────────────────────────────────────────
+       Läuft stumm in Schleife, aber nur solange er sichtbar ist. Bei
+       reduzierter Bewegung startet er nie von selbst. Der Schalter erfüllt
+       WCAG 2.2.2 (Pause für bewegte Inhalte > 5 s). */
+    var film = $('[data-film]');
+    if (film) {
+      var video = $('video', film);
+      var toggle = $('[data-film-toggle]', film);
+      var fIcon = $('[data-film-icon]', film);
+      var fLabel = $('[data-film-label]', film);
+      var userPaused = reduced;
+
+      function paint() {
+        var playing = !video.paused;
+        fIcon.textContent = playing ? '❚❚' : '▶';
+        fLabel.textContent = playing ? 'PAUSE' : 'ABSPIELEN';
+        toggle.setAttribute('aria-label', playing ? 'Video anhalten' : 'Video abspielen');
+      }
+      function tryPlay() {
+        var pr = video.play();
+        if (pr && pr.catch) pr.catch(function () { paint(); });
+      }
+      /* Bildunterschrift folgt dem Film: 01 Klick · 02 Passwort · 03 Angreifer */
+      var steps = $$('.film__steps > span', film);
+      var CUTS = [3, 6.5];
+      var lastStep = -1;
+      video.addEventListener('timeupdate', function () {
+        var t = video.currentTime;
+        var i = t < CUTS[0] ? 0 : t < CUTS[1] ? 1 : 2;
+        if (i === lastStep) return;
+        lastStep = i;
+        steps.forEach(function (el, k) { el.classList.toggle('is-active', k === i); });
+      });
+      video.addEventListener('play', paint);
+      video.addEventListener('pause', paint);
+      toggle.addEventListener('click', function () {
+        if (video.paused) { userPaused = false; tryPlay(); }
+        else { userPaused = true; video.pause(); }
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+          var inView = entries[0].isIntersecting;
+          if (inView && !userPaused) tryPlay();
+          else if (!inView && !video.paused) video.pause();
+        }, { threshold: 0.35 }).observe(video);
+      }
+      paint();
+    }
+
     /* ── Phishing-Demo: reine Simulation ─────────────────────────────────── */
     var demo = $('#demo');
     if (demo) {

@@ -34,6 +34,12 @@ und loggt nichts (`observability` aus) und erlaubt CORS nur für sgr.ski. In der
 bleibt auf der eigenen Domain; keine fremden IP-Dienste einbinden. Alle übrigen Werte liest der
 Browser lokal aus. Bilder für die Seite ohne Metadaten ablegen (`cwebp -metadata none`).
 
+Der Phishing-Film (`assets/video/phishing*`) ist mit Higgsfield erzeugt (Startbild `gpt_image_2_5`,
+Video Kling 3.0, 10 s, ohne Ton) und selbst gehostet — nie von Higgsfield/CloudFront einbetten.
+Neu kodieren mit `ffmpeg -an -map_metadata -1` (AV1 zuerst, H.264 als Fallback, je mit
+`codecs=`-Angabe). Die CSP enthält dafür `media-src 'self'`. Er läuft nur im Sichtbereich, nie bei
+`prefers-reduced-motion`, und hat einen Pause-Schalter (WCAG 2.2.2).
+
 ## Harte Regeln
 
 - **Keine Inline-Styles, keine Inline-Scripts.** Die CSP ist `default-src 'none'`; alles andere

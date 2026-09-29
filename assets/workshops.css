@@ -696,6 +696,44 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .lines { display: flex; flex-direction: column; font-size: 14px; }
 .lines > span { padding: 8px 0; border-bottom: 1px solid var(--rule); }
 
+/* Phishing-Film: stumm, Schleife, startet erst im Sichtbereich */
+.film { position: relative; margin: 0; display: flex; flex-direction: column; background: #0e1013; }
+.film__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0e1013; }
+.film__toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 12px;
+  background: rgba(14, 16, 19, .72);
+  color: #e8eaec;
+  border: 1px solid #2a3038;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .1em;
+  cursor: pointer;
+  transition: border-color .15s ease;
+}
+.film__toggle:hover { border-color: #8a978f; }
+.js .film__toggle.js-only { display: flex !important; }
+.film__steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0 24px;
+  padding: 14px clamp(16px, 2.4vw, 24px) 16px;
+  color: #b9bdc1;
+  font-size: 13px;
+}
+.film__steps > span { display: flex; gap: 10px; padding: 6px 0; border-top: 1px solid #21262c; }
+.js .film__steps > span { transition: color .3s ease; }
+.js .film__steps:has(.is-active) > span:not(.is-active) { color: #787d85; }
+.js .film__steps > span.is-active { color: #e8eaec; }
+.film__n { color: #787d85; font-size: 11px; letter-spacing: .1em; padding-top: 1px; }
+.demo__try { margin-top: 8px; }
+.js .demo__try.js-only { display: block !important; }
+
 .demo__controls { flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
 
 .btn {
