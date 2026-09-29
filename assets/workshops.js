@@ -215,6 +215,18 @@
     window.addEventListener('resize', onScroll);
     update();
 
+    /* ── Hintergrundvideos: laufen nur, solange sie sichtbar sind ────────── */
+    if ('IntersectionObserver' in window) {
+      $$('[data-bgvideo]').forEach(function (v) {
+        new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            var pr = v.play();
+            if (pr && pr.catch) pr.catch(function () { /* blockiert: Poster bleibt */ });
+          } else if (!v.paused) v.pause();
+        }).observe(v);
+      });
+    }
+
     /* ── Phishing-Film ─────────────────────────────────────────────────────
        Autoplay, stumm, in Schleife — auch bei reduzierter Bewegung, auf
        ausdrücklichen Wunsch des Betreibers. Keine sichtbaren Bedienelemente:

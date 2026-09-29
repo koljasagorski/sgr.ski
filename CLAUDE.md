@@ -41,7 +41,18 @@ Neu kodieren mit `ffmpeg -an -map_metadata -1` (AV1 zuerst, H.264 als Fallback, 
 `prefers-reduced-motion` — Wunsch des Betreibers am 2026-09-29), pausiert außerhalb des
 Sichtbereichs. Bewusst **ohne** Bedienelemente (Wunsch des Betreibers): randlose
 dunkle Bühne, ein Klick aufs Bild hält an (WCAG 2.2.2). Unten ein großes Wort je Einstellung,
-synchron zu den Schnitten bei 3 s und 6,5 s (`SHOTS` in `workshops.js`) — bei neuem Film anpassen. Die drei
+synchron zu den Schnitten bei 3 s und 6,5 s (`SHOTS` in `workshops.js`) — bei neuem Film anpassen.
+
+Formate hat ein Hintergrundvideo (`assets/video/talk*`): Vortrag vor kleinem Team, bewusst so
+unscharf, dass niemand erkennbar ist (der Betreiber stand noch auf keiner Bühne — nichts
+behaupten, was das Bild nicht hergibt). **Stand 2026-09-29 ist es eine Übergangslösung:** eine
+langsame Kamerafahrt, aus dem Higgsfield-Startbild (Job `d41df290-9dc1-4e35-85fd-ef4adb6fc6dc`)
+per `ffmpeg` gerechnet, weil Kling am Tageslimit hing. Echtes Video später: Kling 3.0 mit diesem
+Startbild, dann dieselbe Kette — `setpts=2*PTS` (Zeitlupe), `scale=1280:-2`, `gblur=sigma=22`,
+vorwärts + `reverse` per concat (nahtlose Schleife), AV1 `-crf 42` + H.264 `-crf 30`,
+`-an -map_metadata -1`. Unschärfe gehört ins Video, nie als CSS-`filter`. Kontrast: der Schleier
+ist oben durchlässig, ab ~290 px dicht; nach jedem Tausch pro Textelement über die ganze
+Schleife messen (hellstes Hintergrundpixel), alle Texte ≥ 4.5:1. Die drei
 Einstellungen beschreibt eine `sr-only`-Liste für Screenreader.
 
 ## Harte Regeln

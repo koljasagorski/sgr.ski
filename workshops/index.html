@@ -465,7 +465,13 @@
 </section>
 
 <!-- ── Formate ─────────────────────────────────────────────────────────────── -->
-<section class="section" id="formate">
+<section class="section section--bgvideo dark" id="formate">
+  <video class="bgvideo" data-bgvideo autoplay muted loop playsinline preload="auto" width="1280" height="720"
+         poster="/assets/video/talk-poster.webp" aria-hidden="true" tabindex="-1">
+    <source src="/assets/video/talk-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+    <source src="/assets/video/talk.mp4" type='video/mp4; codecs="avc1.64001F"'>
+  </video>
+  <div class="bgvideo__veil" aria-hidden="true"></div>
   <div class="wrap stack stack--formats">
     <div class="stack stack--20">
       <span class="label">FORMATE</span>
@@ -482,7 +488,7 @@
 </section>
 
 <!-- ── Über mich ───────────────────────────────────────────────────────────── -->
-<section class="section section--flush-top">
+<section class="section">
   <div class="wrap split about">
     <div class="about__id">
       <img class="about__avatar" src="/assets/avatar.webp" width="96" height="96" loading="lazy"
