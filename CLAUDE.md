@@ -57,6 +57,12 @@ unteren Teil, die Formatzeilen auf ruhigem Dunkel. Nach jedem Tausch pro Textele
 ganze Schleife gegen das hellste Hintergrundpixel messen, alle Texte ≥ 4.5:1. Die drei
 Einstellungen beschreibt eine `sr-only`-Liste für Screenreader.
 
+SEO /workshops: Die H1 ist das kleine Label „WORKSHOPS · DIGITALE SELBSTVERTEIDIGUNG · OPSEC ·
+QUELLENSCHUTZ“ (Suchbegriffe); der große Slogan ist bewusst ein `<p>`. Titel ≤ 62 Zeichen,
+Description ~150. Das OG-Bild `assets/og-workshops.png` ist in HTML gesetzt (Seiten-Schrift,
+Hell/Dunkel-Split wie im Hero) und mit Chrome gerendert — nicht KI-generiert, damit die Schrift
+exakt ist. Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector nutzen).
+
 ## Harte Regeln
 
 - **Keine Inline-Styles, keine Inline-Scripts.** Die CSP ist `default-src 'none'`; alles andere
