@@ -184,6 +184,24 @@ body {
 :root[data-theme-pref="light"] .chip__icon--light,
 :root[data-theme-pref="dark"]  .chip__icon--dark { display: block; }
 
+/* Plain link chip (subpages: back link) */
+a.chip--link { text-decoration: none; transition: color .15s ease, border-color .15s ease; }
+a.chip--link:hover { color: var(--fg); border-color: var(--faint); }
+
+/* ── Legal text (/impressum) ─────────────────────────────────────────────── */
+.legal { display: flex; flex-direction: column; gap: 28px; line-height: 1.6; }
+.legal section { display: flex; flex-direction: column; gap: 8px; padding-top: 20px; border-top: 1px solid var(--rule); }
+.legal p { margin: 0; }
+.legal a { color: inherit; text-underline-offset: 3px; }
+.legal__h {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--chip-fg);
+}
+
 /* ── Tagline ─────────────────────────────────────────────────────────────── */
 .tagline {
   margin: 0;

@@ -36,8 +36,10 @@ angezeigt, nie gesendet — daran nichts ändern.
   und lässt sonst den Build fehlschlagen.
 - **Fonts bleiben selbst gehostet.** Kein Google-Fonts-CDN (DSGVO) und keine weiteren
   Dritt-Requests.
-- **Kein Impressum, keine Datenschutzseite.** Ausdrückliche Entscheidung des Betreibers am
-  2026-08-30 — nicht ungefragt wieder einbauen.
+- **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
+  am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
+  wie patchletter.com/de/impressum, verlinkt im Footer von `/workshops`). Eine Datenschutzseite
+  weiterhin nicht ungefragt einbauen.
 - **`--faint` und `--faint-text` sind nicht dasselbe.** `--faint` (#a3a39c / #5a616a) ist der
   Originalton des Entwurfs und bleibt den dekorativen, `aria-hidden`-Pfeilen vorbehalten.
   Sichtbarer Text nutzt `--faint-text`, das WCAG AA (4.5:1) erfüllt. Text nie auf `--faint`

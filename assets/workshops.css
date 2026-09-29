@@ -906,7 +906,8 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .about__fields { font-size: 13px; line-height: 1.8; color: var(--muted); }
 
 /* ── Anfrage ─────────────────────────────────────────────────────────────── */
-.closing { padding: clamp(120px, 20vh, 220px) var(--pad-x) 40px; }
+/* Unten Platz für den fixierten Perspektiv-Schalter, sonst verdeckt er den Footer. */
+.closing { padding: clamp(120px, 20vh, 220px) var(--pad-x) 104px; }
 .closing__title {
   margin: 0;
   font-size: clamp(34px, 6.4vw, 96px);

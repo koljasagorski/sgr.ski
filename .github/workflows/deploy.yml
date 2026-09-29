@@ -41,6 +41,7 @@ jobs:
           for path in \
             index.html \
             workshops \
+            impressum \
             assets \
             .well-known \
             favicon.ico \
