@@ -6,3 +6,6 @@
 
 # Deploy artefact assembled by the workflow
 _site/
+
+# wrangler local state (ip-worker/)
+.wrangler/
