@@ -237,16 +237,29 @@
         var pr = video.play();
         if (pr && pr.catch) pr.catch(function () { paint(); });
       }
-      /* Bildunterschrift folgt dem Film: 01 Klick · 02 Passwort · 03 Angreifer */
-      var steps = $$('.film__steps > span', film);
-      var CUTS = [3, 6.5];
-      var lastStep = -1;
+      /* Großes Wort je Einstellung, synchron zum Schnitt. Dünn ist ihre Seite,
+         fett die des Angreifers — dieselbe Gewichtsachse wie im Hero. */
+      var SHOTS = [
+        { until: 3,        word: 'EIN KLICK.',    line: 'Eine Mail kommt. Ein Klick.' },
+        { until: 6.5,      word: 'EIN PASSWORT.', line: 'Anmelden wie jeden Tag.' },
+        { until: Infinity, word: 'EIN ZUGANG.',   line: 'Beim Angreifer kommen die Zugangsdaten an.', heavy: true }
+      ];
+      var fWord = $('[data-film-word]', film);
+      var fLine = $('[data-film-line]', film);
+      var fCount = $('[data-film-count]', film);
+      var lastShot = 0;
       video.addEventListener('timeupdate', function () {
-        var t = video.currentTime;
-        var i = t < CUTS[0] ? 0 : t < CUTS[1] ? 1 : 2;
-        if (i === lastStep) return;
-        lastStep = i;
-        steps.forEach(function (el, k) { el.classList.toggle('is-active', k === i); });
+        var t = video.currentTime, i = 0;
+        while (t >= SHOTS[i].until) i++;
+        if (i === lastShot) return;
+        lastShot = i;
+        fWord.textContent = SHOTS[i].word;
+        fWord.classList.toggle('is-heavy', !!SHOTS[i].heavy);
+        fWord.classList.remove('is-in');
+        void fWord.offsetWidth; /* Animation neu starten */
+        fWord.classList.add('is-in');
+        fLine.textContent = SHOTS[i].line;
+        fCount.textContent = '0' + (i + 1) + ' / 03';
       });
       video.addEventListener('play', paint);
       video.addEventListener('pause', paint);

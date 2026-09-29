@@ -348,6 +348,8 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
   background: var(--bg);
 }
 .section--flush-top { padding-top: 0; }
+.section--lead { padding-bottom: clamp(48px, 8vh, 80px); }
+.section--follow { padding-top: clamp(64px, 10vh, 112px); }
 .section--tint { background: var(--row-hover); --rule: #dcdcd6; }
 
 /* Für wen */
@@ -696,44 +698,6 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .lines { display: flex; flex-direction: column; font-size: 14px; }
 .lines > span { padding: 8px 0; border-bottom: 1px solid var(--rule); }
 
-/* Phishing-Film: stumm, Schleife, startet erst im Sichtbereich */
-.film { position: relative; margin: 0; display: flex; flex-direction: column; background: #0e1013; }
-.film__video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0e1013; }
-.film__toggle {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  align-items: center;
-  gap: 8px;
-  min-height: 36px;
-  padding: 0 12px;
-  background: rgba(14, 16, 19, .72);
-  color: #e8eaec;
-  border: 1px solid #2a3038;
-  font-family: inherit;
-  font-size: 11px;
-  letter-spacing: .1em;
-  cursor: pointer;
-  transition: border-color .15s ease;
-}
-.film__toggle:hover { border-color: #8a978f; }
-.js .film__toggle.js-only { display: flex !important; }
-.film__steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-  gap: 0 24px;
-  padding: 14px clamp(16px, 2.4vw, 24px) 16px;
-  color: #b9bdc1;
-  font-size: 13px;
-}
-.film__steps > span { display: flex; gap: 10px; padding: 6px 0; border-top: 1px solid #21262c; }
-.js .film__steps > span { transition: color .3s ease; }
-.js .film__steps:has(.is-active) > span:not(.is-active) { color: #787d85; }
-.js .film__steps > span.is-active { color: #e8eaec; }
-.film__n { color: #787d85; font-size: 11px; letter-spacing: .1em; padding-top: 1px; }
-.demo__try { margin-top: 8px; }
-.js .demo__try.js-only { display: block !important; }
-
 .demo__controls { flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
 
 .btn {
@@ -840,6 +804,83 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .versus__head { padding-bottom: 10px; }
 .versus__col--good > span:not(.versus__head) { font-weight: 600; }
 .versus__col--good > .versus__head + span { border-top-color: var(--fg); }
+
+/* ── Film: Phishing ─────────────────────────────────────────────────────── */
+/* Randlose Bühne wie die übrigen: Bild vollflächig, oben die Kopfzeile, unten
+   ein großes Wort je Einstellung. Dünn = was sie tut, fett = was er bekommt. */
+.film {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: clamp(480px, 88vh, 900px);
+  overflow: hidden;
+}
+.film__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--bg);
+}
+.film__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(14, 16, 19, .7) 0, rgba(14, 16, 19, 0) 22%),
+    linear-gradient(to top, rgba(14, 16, 19, .92) 0, rgba(14, 16, 19, .4) 38%, rgba(14, 16, 19, 0) 62%);
+}
+.film__bar,
+.film__text { position: relative; padding: clamp(28px, 6vh, 64px) var(--pad-x); }
+.film__bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.film__text { display: flex; flex-direction: column; gap: 16px; }
+.film__word {
+  font-size: clamp(40px, 8vw, 128px);
+  font-weight: 250;
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.film__word.is-heavy { font-weight: 800; }
+.film__word.is-in { animation: film-in .5s ease both; }
+@keyframes film-in { from { opacity: 0; transform: translateY(10px); } }
+.film__line { display: flex; gap: 16px; color: var(--soft); }
+.film__line > :first-child { color: var(--faint-text); }
+
+.film__toggle {
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  background: none;
+  border: 1px solid var(--chip-border);
+  color: var(--chip-fg);
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .1em;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.film__toggle:hover { color: var(--fg); border-color: var(--faint); }
+.js .film__toggle.js-only { display: inline-flex !important; }
+
+/* Schmal: Bild im eigenen 16:9-Format, Text darunter statt darüber */
+@media (max-width: 700px) {
+  .film { height: auto; }
+  .film__video { position: relative; order: 1; height: auto; aspect-ratio: 16 / 9; }
+  .film__shade { display: none; }
+  .film__bar { order: 0; padding-block: 28px 16px; }
+  .film__text { order: 2; padding-block: 20px 40px; }
+  .film__line { flex-direction: column; gap: 4px; }
+}
+
+.demo__intro {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 16px 64px;
+  align-items: end;
+  border-top: 1px solid var(--fg);
+  padding-top: 20px;
+}
+.js .demo__intro.js-only { display: grid !important; }
 
 /* ── Ablauf ──────────────────────────────────────────────────────────────── */
 .js .flow { position: relative; height: 300vh; }

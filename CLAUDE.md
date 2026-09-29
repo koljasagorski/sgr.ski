@@ -38,7 +38,9 @@ Der Phishing-Film (`assets/video/phishing*`) ist mit Higgsfield erzeugt (Startbi
 Video Kling 3.0, 10 s, ohne Ton) und selbst gehostet — nie von Higgsfield/CloudFront einbetten.
 Neu kodieren mit `ffmpeg -an -map_metadata -1` (AV1 zuerst, H.264 als Fallback, je mit
 `codecs=`-Angabe). Die CSP enthält dafür `media-src 'self'`. Er läuft nur im Sichtbereich, nie bei
-`prefers-reduced-motion`, und hat einen Pause-Schalter (WCAG 2.2.2).
+`prefers-reduced-motion`, und hat einen Pause-Schalter (WCAG 2.2.2). Er ist eine randlose dunkle Bühne
+wie die übrigen (kein eingebetteter Player-Kasten); das große Wort je Einstellung wechselt synchron
+zu den Schnitten bei 3 s und 6,5 s (`SHOTS` in `workshops.js`) — bei neuem Film anpassen.
 
 ## Harte Regeln
 

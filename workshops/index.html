@@ -390,7 +390,7 @@
 </section>
 
 <!-- ── Live-Demonstrationen ────────────────────────────────────────────────── -->
-<section class="section" id="demos">
+<section class="section section--lead" id="demos">
   <div class="wrap stack stack--demos">
     <div class="split split--end">
       <div class="stack stack--20">
@@ -403,31 +403,50 @@
       </div>
     </div>
 
-    <article class="demo" id="demo">
-      <div class="demo__head">
-        <div class="stack stack--10"><span class="label label--faint">BEISPIEL</span><h3 class="demo__title">PHISHING</h3></div>
-        <div class="lines">
-          <span>Wie überzeugend kann ein moderner Phishing-Angriff aussehen?</span>
-          <span>Was passiert technisch nach einem Klick?</span>
-          <span>Was passiert mit Zugangsdaten oder Sessions?</span>
-        </div>
+    <div class="demo__head">
+      <div class="stack stack--10"><span class="label label--faint">BEISPIEL</span><h3 class="demo__title">PHISHING</h3></div>
+      <div class="lines">
+        <span>Wie überzeugend kann ein moderner Phishing-Angriff aussehen?</span>
+        <span>Was passiert technisch nach einem Klick?</span>
+        <span>Was passiert mit Zugangsdaten oder Sessions?</span>
       </div>
-      <figure class="film" data-film>
-        <video class="film__video" muted loop playsinline preload="none" width="1280" height="720"
-               poster="/assets/video/phishing-poster.webp" aria-describedby="film-steps">
-          <source src="/assets/video/phishing-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
-          <source src="/assets/video/phishing.mp4" type='video/mp4; codecs="avc1.64001F"'>
-        </video>
-        <button class="film__toggle js-only" type="button" data-film-toggle aria-label="Video abspielen">
-          <span aria-hidden="true" data-film-icon>▶</span><span data-film-label>ABSPIELEN</span>
-        </button>
-        <figcaption class="film__steps" id="film-steps">
-          <span><span class="film__n">01</span>Eine Mail kommt. Ein Klick.</span>
-          <span><span class="film__n">02</span>Das Passwort wird eingegeben.</span>
-          <span><span class="film__n">03</span>Beim Angreifer kommen die Zugangsdaten an.</span>
-        </figcaption>
-      </figure>
-      <span class="label label--faint demo__try js-only">SELBST AUSPROBIEREN · OHNE UND MIT PASSKEY</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Film: Phishing, randlose Bühne ──────────────────────────────────────── -->
+<section class="film dark" data-film aria-label="Film: ein Phishing-Angriff in drei Einstellungen">
+  <video class="film__video" muted loop playsinline preload="none" width="1280" height="720"
+         poster="/assets/video/phishing-poster.webp" aria-describedby="film-steps">
+    <source src="/assets/video/phishing-av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'>
+    <source src="/assets/video/phishing.mp4" type='video/mp4; codecs="avc1.64001F"'>
+  </video>
+  <div class="film__shade" aria-hidden="true"></div>
+  <div class="film__bar label-plain">
+    <span>WAS NACH EINEM KLICK PASSIERT</span>
+    <button class="film__toggle js-only" type="button" data-film-toggle aria-label="Video abspielen">
+      <span aria-hidden="true" data-film-icon>▶</span><span data-film-label>ABSPIELEN</span>
+    </button>
+  </div>
+  <div class="film__text" aria-hidden="true">
+    <div class="film__word" data-film-word>EIN KLICK.</div>
+    <div class="film__line label-plain"><span data-film-count>01 / 03</span><span data-film-line>Eine Mail kommt. Ein Klick.</span></div>
+  </div>
+  <ol class="sr-only" id="film-steps">
+    <li>Eine Journalistin arbeitet nachts in der Redaktion. Eine Mail kommt, sie klickt den Link.</li>
+    <li>Sie gibt ihr Passwort ein und bestätigt.</li>
+    <li>In einem dunklen Raum kommen die Zugangsdaten auf dem Bildschirm des Angreifers an.</li>
+  </ol>
+</section>
+
+<!-- ── Selbst ausprobieren + weitere Beispiele ─────────────────────────────── -->
+<section class="section section--follow">
+  <div class="wrap stack stack--demos">
+    <article class="demo" id="demo">
+      <div class="demo__intro js-only">
+        <div class="stack stack--10"><span class="label label--faint">SELBST AUSPROBIEREN</span><h3 class="demo__title">OHNE UND MIT PASSKEY.</h3></div>
+        <p class="body-m muted">Derselbe Angriff, zweimal. Mit Passkey scheitert er: Der Schlüssel ist an die echte Domain gebunden und funktioniert auf der gefälschten Seite nicht.</p>
+      </div>
       <div class="demo__controls js-only">
         <button class="btn" type="button" data-demo-play><span aria-hidden="true">▶</span><span data-demo-play-label>DEMO ABSPIELEN</span></button>
         <div class="seg" role="group" aria-label="Schutzmaßnahme wählen">
