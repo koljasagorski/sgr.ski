@@ -118,7 +118,7 @@ a { color: inherit; text-underline-offset: 3px; }
 /* Progressive enhancement: interaktive Teile erst, wenn workshops.js läuft */
 .js-only { display: none !important; }
 .js .js-only { display: revert !important; }
-.js .hero__handle.js-only, .js .demo__controls.js-only { display: flex !important; }
+.js .hero__handle.js-only { display: flex !important; }
 
 /* ── Utilities ───────────────────────────────────────────────────────────── */
 .wrap { max-width: 1180px; margin-inline: auto; }
@@ -698,98 +698,6 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .lines { display: flex; flex-direction: column; font-size: 14px; }
 .lines > span { padding: 8px 0; border-bottom: 1px solid var(--rule); }
 
-.demo__controls { flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
-
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 16px;
-  background: #1a1a19;
-  color: #fbfbfa;
-  border: 1px solid #1a1a19;
-  font-family: inherit;
-  font-size: 12px;
-  letter-spacing: .1em;
-  cursor: pointer;
-  transition: background-color .15s ease, color .15s ease;
-}
-.btn:hover { background: #fbfbfa; color: #1a1a19; }
-
-.seg { display: flex; border: 1px solid #1a1a19; font-size: 11px; letter-spacing: .1em; }
-.seg__label { display: flex; align-items: center; padding: 0 12px; color: var(--faint-text); }
-.seg__btn {
-  min-height: 44px;
-  padding: 0 14px;
-  border: none;
-  border-left: 1px solid #1a1a19;
-  background: #fbfbfa;
-  color: #1a1a19;
-  font-family: inherit;
-  font-size: 11px;
-  letter-spacing: .1em;
-  cursor: pointer;
-}
-.seg__btn[aria-pressed="true"] { background: #1a1a19; color: #fbfbfa; }
-
-.demo__panels {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
-  border: 1px solid #1a1a19;
-}
-.demo__panel {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  min-height: 360px;
-  padding: clamp(20px, 3vw, 32px);
-  background: var(--bg);
-}
-.demo__panel-head { display: flex; justify-content: space-between; font-size: 11px; letter-spacing: .1em; }
-
-.browser { flex: 1; display: flex; flex-direction: column; border: 1px solid var(--chip-border); }
-.browser__url { padding: 9px 12px; border-bottom: 1px solid var(--chip-border); font-size: 12px; color: var(--muted); }
-.browser__page { display: flex; flex-direction: column; gap: 8px; padding: 18px; font-size: 13px; }
-.browser__pw { display: flex; flex-direction: column; gap: 8px; }
-.browser__pw[hidden] { display: none; }
-.browser__title { font-weight: 500; padding-bottom: 6px; }
-.browser__lbl { font-size: 12px; color: var(--muted); }
-.browser__field {
-  height: 36px;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  border: 1px solid var(--chip-border);
-}
-.browser__field--pw { letter-spacing: .2em; }
-.browser__field--code { letter-spacing: .1em; }
-.browser__btn {
-  height: 36px;
-  margin-top: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--fg);
-  color: var(--bg);
-  font-size: 11px;
-  letter-spacing: .12em;
-}
-.browser__status { min-height: 20px; font-size: 12px; }
-
-.log { display: flex; flex-direction: column; font-size: 13px; }
-.log__idle { padding: 12px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); color: var(--muted); }
-.log__row {
-  display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
-  gap: 12px;
-  padding: 11px 0;
-  border-top: 1px solid var(--rule);
-}
-.log__row > :first-child { color: var(--muted); }
-.log__row--hit > :last-child { font-weight: 700; }
-.log__foot { margin-top: auto; font-size: 11px; letter-spacing: .08em; color: var(--faint-text); }
-
 .demo--list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
@@ -806,81 +714,20 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .versus__col--good > .versus__head + span { border-top-color: var(--fg); }
 
 /* ── Film: Phishing ─────────────────────────────────────────────────────── */
-/* Randlose Bühne wie die übrigen: Bild vollflächig, oben die Kopfzeile, unten
-   ein großes Wort je Einstellung. Dünn = was sie tut, fett = was er bekommt. */
-.film {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: clamp(480px, 88vh, 900px);
-  overflow: hidden;
-}
+/* Randlos und ohne Bedienelemente, wie die übrigen Bühnen. Klick hält an. */
+.film { position: relative; height: clamp(480px, 88vh, 900px); overflow: hidden; }
 .film__video {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   background: var(--bg);
-}
-.film__shade {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(14, 16, 19, .7) 0, rgba(14, 16, 19, 0) 22%),
-    linear-gradient(to top, rgba(14, 16, 19, .92) 0, rgba(14, 16, 19, .4) 38%, rgba(14, 16, 19, 0) 62%);
-}
-.film__bar,
-.film__text { position: relative; padding: clamp(28px, 6vh, 64px) var(--pad-x); }
-.film__bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-.film__text { display: flex; flex-direction: column; gap: 16px; }
-.film__word {
-  font-size: clamp(40px, 8vw, 128px);
-  font-weight: 250;
-  line-height: .95;
-  letter-spacing: -.05em;
-}
-.film__word.is-heavy { font-weight: 800; }
-.film__word.is-in { animation: film-in .5s ease both; }
-@keyframes film-in { from { opacity: 0; transform: translateY(10px); } }
-.film__line { display: flex; gap: 16px; color: var(--soft); }
-.film__line > :first-child { color: var(--faint-text); }
-
-.film__toggle {
-  align-items: center;
-  gap: 8px;
-  padding: 5px 10px;
-  background: none;
-  border: 1px solid var(--chip-border);
-  color: var(--chip-fg);
-  font-family: inherit;
-  font-size: 11px;
-  letter-spacing: .1em;
   cursor: pointer;
-  transition: color .15s ease, border-color .15s ease;
 }
-.film__toggle:hover { color: var(--fg); border-color: var(--faint); }
-.js .film__toggle.js-only { display: inline-flex !important; }
-
-/* Schmal: Bild im eigenen 16:9-Format, Text darunter statt darüber */
 @media (max-width: 700px) {
   .film { height: auto; }
-  .film__video { position: relative; order: 1; height: auto; aspect-ratio: 16 / 9; }
-  .film__shade { display: none; }
-  .film__bar { order: 0; padding-block: 28px 16px; }
-  .film__text { order: 2; padding-block: 20px 40px; }
-  .film__line { flex-direction: column; gap: 4px; }
+  .film__video { height: auto; aspect-ratio: 16 / 9; }
 }
-
-.demo__intro {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
-  gap: 16px 64px;
-  align-items: end;
-  border-top: 1px solid var(--fg);
-  padding-top: 20px;
-}
-.js .demo__intro.js-only { display: grid !important; }
 
 /* ── Ablauf ──────────────────────────────────────────────────────────────── */
 .js .flow { position: relative; height: 300vh; }
@@ -997,7 +844,7 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 }
 
 @media print {
-  .hero__handle, .demo__controls, .skip, .stage__line { display: none !important; }
+  .hero__handle, .skip, .stage__line { display: none !important; }
   .hero__layer--dark, .stage__layer--dark { display: none; }
   .js .stage, .js .chain-stage, .js .flow { height: auto; }
   .js .stage__sticky, .js .chain, .js .flow__sticky { position: static; height: auto; }

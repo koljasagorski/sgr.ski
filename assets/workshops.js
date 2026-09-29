@@ -1,4 +1,4 @@
-/* sgr.ski/workshops — Firewall-Linie, Scroll-Bühnen, Phishing-Demo.
+/* sgr.ski/workshops — Firewall-Linie, Scroll-Bühnen, Phishing-Film.
    Läuft render-blocking im <head>, damit .js vor dem ersten Paint gesetzt ist
    und die Sticky-Bühnen nicht erst ausgeklappt und dann eingeklappt werden.
    Browserwerte werden lokal ausgelesen. IP, Provider und Standort meldet
@@ -217,58 +217,21 @@
 
     /* ── Phishing-Film ─────────────────────────────────────────────────────
        Autoplay, stumm, in Schleife — auch bei reduzierter Bewegung, auf
-       ausdrücklichen Wunsch des Betreibers. Außerhalb des Sichtbereichs
-       pausiert er. Der Schalter erfüllt WCAG 2.2.2 (Pause für bewegte
-       Inhalte > 5 s); wer pausiert, bleibt pausiert. */
+       ausdrücklichen Wunsch des Betreibers. Keine sichtbaren Bedienelemente:
+       ein Klick aufs Bild hält an (WCAG 2.2.2), wer anhält, bleibt angehalten.
+       Außerhalb des Sichtbereichs pausiert er. */
     var film = $('[data-film]');
     if (film) {
       var video = $('video', film);
-      var toggle = $('[data-film-toggle]', film);
-      var fIcon = $('[data-film-icon]', film);
-      var fLabel = $('[data-film-label]', film);
       var userPaused = false;
-
-      function paint() {
-        var playing = !video.paused;
-        fIcon.textContent = playing ? '❚❚' : '▶';
-        fLabel.textContent = playing ? 'PAUSE' : 'ABSPIELEN';
-        toggle.setAttribute('aria-label', playing ? 'Video anhalten' : 'Video abspielen');
-      }
       function tryPlay() {
         var pr = video.play();
-        if (pr && pr.catch) pr.catch(function () { paint(); });
+        if (pr && pr.catch) pr.catch(function () { /* Autoplay blockiert, z. B. Stromsparmodus */ });
       }
-      /* Großes Wort je Einstellung, synchron zum Schnitt. Dünn ist ihre Seite,
-         fett die des Angreifers — dieselbe Gewichtsachse wie im Hero. */
-      var SHOTS = [
-        { until: 3,        word: 'EIN KLICK.',    line: 'Eine Mail kommt. Ein Klick.' },
-        { until: 6.5,      word: 'EIN PASSWORT.', line: 'Anmelden wie jeden Tag.' },
-        { until: Infinity, word: 'EIN ZUGANG.',   line: 'Beim Angreifer kommen die Zugangsdaten an.', heavy: true }
-      ];
-      var fWord = $('[data-film-word]', film);
-      var fLine = $('[data-film-line]', film);
-      var fCount = $('[data-film-count]', film);
-      var lastShot = 0;
-      video.addEventListener('timeupdate', function () {
-        var t = video.currentTime, i = 0;
-        while (t >= SHOTS[i].until) i++;
-        if (i === lastShot) return;
-        lastShot = i;
-        fWord.textContent = SHOTS[i].word;
-        fWord.classList.toggle('is-heavy', !!SHOTS[i].heavy);
-        fWord.classList.remove('is-in');
-        void fWord.offsetWidth; /* Animation neu starten */
-        fWord.classList.add('is-in');
-        fLine.textContent = SHOTS[i].line;
-        fCount.textContent = '0' + (i + 1) + ' / 03';
-      });
-      video.addEventListener('play', paint);
-      video.addEventListener('pause', paint);
-      toggle.addEventListener('click', function () {
+      video.addEventListener('click', function () {
         if (video.paused) { userPaused = false; tryPlay(); }
         else { userPaused = true; video.pause(); }
       });
-
       if ('IntersectionObserver' in window) {
         new IntersectionObserver(function (entries) {
           var inView = entries[0].isIntersecting;
@@ -276,109 +239,6 @@
           else if (!inView && !video.paused) video.pause();
         }, { threshold: 0.35 }).observe(video);
       }
-      paint();
-    }
-
-    /* ── Phishing-Demo: reine Simulation ─────────────────────────────────── */
-    var demo = $('#demo');
-    if (demo) {
-      var UNPROT = [
-        ['T+0,0', 'Seite aufgerufen. Gerät, Sprache und Zeitzone erkannt.'],
-        ['T+6,4', 'E-Mail-Adresse übermittelt.'],
-        ['T+9,8', 'Passwort übermittelt.'],
-        ['T+14,2', 'Bestätigungscode in Echtzeit weitergereicht.'],
-        ['T+15,0', 'Session übernommen. Zugriff auf das Postfach.', true]
-      ];
-      var PROT = [
-        ['T+0,0', 'Seite aufgerufen. Gerät, Sprache und Zeitzone erkannt.'],
-        ['T+6,4', 'E-Mail-Adresse übermittelt.'],
-        ['T+8,1', 'Passkey verweigert: an die echte Domain gebunden. Keine Zugangsdaten, keine Session.', true]
-      ];
-      var DELAYS = [250, 1300, 2400, 3500, 4500];
-
-      var playBtn = $('[data-demo-play]', demo);
-      var playLabel = $('[data-demo-play-label]', demo);
-      var protBtns = $$('[data-demo-prot]', demo);
-      var el = {
-        email: $('[data-demo-email]', demo),
-        pwFields: $('[data-demo-pwfields]', demo),
-        pw: $('[data-demo-pw]', demo),
-        code: $('[data-demo-code]', demo),
-        button: $('[data-demo-button]', demo),
-        status: $('[data-demo-status]', demo),
-        log: $('[data-demo-log]', demo)
-      };
-
-      var step = 0, running = false, prot = false, timers = [];
-
-      function stop() { timers.forEach(clearTimeout); timers = []; }
-
-      function render() {
-        el.email.textContent = step >= 1 ? 'name@redaktion.de' : '';
-        el.pw.textContent = step >= 2 ? '••••••••••' : '';
-        el.code.textContent = step >= 3 ? '482 913' : '';
-        el.pwFields.hidden = prot;
-        el.button.textContent = prot ? 'MIT PASSKEY ANMELDEN' : 'ANMELDEN';
-        el.status.textContent = prot
-          ? (step >= 3 ? 'Passkey passt nicht zu dieser Domain. Abgebrochen.' : '')
-          : (step >= 5 ? 'Angemeldet. Alles wirkt normal.' : '');
-
-        playLabel.textContent = running ? 'LÄUFT …' : step > 0 ? 'NOCHMAL ABSPIELEN' : 'DEMO ABSPIELEN';
-        protBtns.forEach(function (b) {
-          b.setAttribute('aria-pressed', String((b.getAttribute('data-demo-prot') === 'on') === prot));
-        });
-
-        /* Nur anhängen, was neu ist — aria-live soll nicht alles neu vorlesen. */
-        var events = (prot ? PROT : UNPROT).slice(0, step);
-        var rows = $$('.log__row', el.log);
-        if (rows.length > events.length || step === 0) {
-          el.log.textContent = '';
-          rows = [];
-        }
-        if (step === 0) {
-          var idle = document.createElement('span');
-          idle.className = 'log__idle';
-          idle.textContent = 'Noch ist nichts passiert.';
-          el.log.appendChild(idle);
-          return;
-        }
-        var idleEl = $('.log__idle', el.log);
-        if (idleEl) idleEl.remove();
-        for (var i = rows.length; i < events.length; i++) {
-          var row = document.createElement('div');
-          row.className = 'log__row' + (events[i][2] ? ' log__row--hit' : '');
-          var t = document.createElement('span');
-          t.textContent = events[i][0];
-          var txt = document.createElement('span');
-          txt.textContent = events[i][1];
-          row.appendChild(t);
-          row.appendChild(txt);
-          el.log.appendChild(row);
-        }
-      }
-
-      playBtn.addEventListener('click', function () {
-        stop();
-        var max = prot ? 3 : 5;
-        if (reduced) { step = max; running = false; render(); return; }
-        step = 0; running = true; render();
-        for (var i = 1; i <= max; i++) {
-          (function (i) {
-            timers.push(setTimeout(function () { step = i; running = i < max; render(); }, DELAYS[i - 1]));
-          })(i);
-        }
-      });
-
-      protBtns.forEach(function (b) {
-        b.addEventListener('click', function () {
-          stop();
-          prot = b.getAttribute('data-demo-prot') === 'on';
-          step = 0; running = false;
-          render();
-        });
-      });
-
-      render();
     }
   }
 

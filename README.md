@@ -13,7 +13,7 @@ workshops/index.html        /workshops — German workshop page ("Beide Seiten d
 assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
-assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing demo
+assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing film
 assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1 + H.264, no audio, no metadata
 ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/location); deployed with wrangler, not Pages
 assets/fonts/*.woff2        JetBrains Mono, self-hosted (variable, weight axis 100–800)
