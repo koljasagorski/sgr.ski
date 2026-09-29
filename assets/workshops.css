@@ -714,19 +714,58 @@ a.chip-link:hover { color: var(--fg); border-color: var(--faint); }
 .versus__col--good > .versus__head + span { border-top-color: var(--fg); }
 
 /* ── Film: Phishing ─────────────────────────────────────────────────────── */
-/* Randlos und ohne Bedienelemente, wie die übrigen Bühnen. Klick hält an. */
-.film { position: relative; height: clamp(480px, 88vh, 900px); overflow: hidden; }
+/* Randlose Bühne ohne Bedienelemente; unten ein großes Wort je Einstellung.
+   Dünn = was sie tut, fett = was er bekommt. Klick aufs Bild hält an. */
+.film {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: clamp(480px, 88vh, 900px);
+  overflow: hidden;
+}
 .film__video {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   background: var(--bg);
   cursor: pointer;
 }
+.film__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(14, 16, 19, .92) 0, rgba(14, 16, 19, .4) 38%, rgba(14, 16, 19, 0) 62%);
+}
+.film__text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: clamp(28px, 6vh, 64px) var(--pad-x);
+  pointer-events: none;
+}
+.film__word {
+  font-size: clamp(40px, 8vw, 128px);
+  font-weight: 250;
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.film__word.is-heavy { font-weight: 800; }
+.film__word.is-in { animation: film-in .5s ease both; }
+@keyframes film-in { from { opacity: 0; transform: translateY(10px); } }
+.film__line { display: flex; gap: 16px; color: var(--soft); }
+.film__line > :first-child { color: var(--faint-text); }
+
+/* Schmal: Bild im eigenen 16:9-Format, Text darunter statt darüber */
 @media (max-width: 700px) {
   .film { height: auto; }
-  .film__video { height: auto; aspect-ratio: 16 / 9; }
+  .film__video { position: relative; height: auto; aspect-ratio: 16 / 9; }
+  .film__shade { display: none; }
+  .film__text { padding-block: 20px 40px; }
+  .film__line { flex-direction: column; gap: 4px; }
 }
 
 /* ── Ablauf ──────────────────────────────────────────────────────────────── */

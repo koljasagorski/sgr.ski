@@ -228,6 +228,29 @@
         var pr = video.play();
         if (pr && pr.catch) pr.catch(function () { /* Autoplay blockiert, z. B. Stromsparmodus */ });
       }
+      /* Großes Wort je Einstellung, synchron zu den Schnitten bei 3 s und 6,5 s */
+      var SHOTS = [
+        { until: 3,        word: 'EIN KLICK.',    line: 'Eine Mail kommt. Ein Klick.' },
+        { until: 6.5,      word: 'EIN PASSWORT.', line: 'Anmelden wie jeden Tag.' },
+        { until: Infinity, word: 'EIN ZUGANG.',   line: 'Beim Angreifer kommen die Zugangsdaten an.', heavy: true }
+      ];
+      var fWord = $('[data-film-word]', film);
+      var fLine = $('[data-film-line]', film);
+      var fCount = $('[data-film-count]', film);
+      var lastShot = 0;
+      video.addEventListener('timeupdate', function () {
+        var t = video.currentTime, i = 0;
+        while (t >= SHOTS[i].until) i++;
+        if (i === lastShot) return;
+        lastShot = i;
+        fWord.textContent = SHOTS[i].word;
+        fWord.classList.toggle('is-heavy', !!SHOTS[i].heavy);
+        fWord.classList.remove('is-in');
+        void fWord.offsetWidth; /* Animation neu starten */
+        fWord.classList.add('is-in');
+        fLine.textContent = SHOTS[i].line;
+        fCount.textContent = '0' + (i + 1) + ' / 03';
+      });
       video.addEventListener('click', function () {
         if (video.paused) { userPaused = false; tryPlay(); }
         else { userPaused = true; video.pause(); }

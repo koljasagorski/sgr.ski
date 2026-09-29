@@ -39,8 +39,9 @@ Video Kling 3.0, 10 s, ohne Ton) und selbst gehostet — nie von Higgsfield/Clou
 Neu kodieren mit `ffmpeg -an -map_metadata -1` (AV1 zuerst, H.264 als Fallback, je mit
 `codecs=`-Angabe). Die CSP enthält dafür `media-src 'self'`. Er startet automatisch (`autoplay`, auch bei
 `prefers-reduced-motion` — Wunsch des Betreibers am 2026-09-29), pausiert außerhalb des
-Sichtbereichs. Bewusst **ohne** Bedienelemente und ohne Text-Overlay (Wunsch des
-Betreibers): randlose dunkle Bühne, ein Klick aufs Bild hält an (WCAG 2.2.2). Die drei
+Sichtbereichs. Bewusst **ohne** Bedienelemente (Wunsch des Betreibers): randlose
+dunkle Bühne, ein Klick aufs Bild hält an (WCAG 2.2.2). Unten ein großes Wort je Einstellung,
+synchron zu den Schnitten bei 3 s und 6,5 s (`SHOTS` in `workshops.js`) — bei neuem Film anpassen. Die drei
 Einstellungen beschreibt eine `sr-only`-Liste für Screenreader.
 
 ## Harte Regeln
