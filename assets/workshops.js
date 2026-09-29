@@ -1,4 +1,4 @@
-/* sgr.ski/workshops — Perspektivwechsel, Scroll-Bühnen, Phishing-Demo.
+/* sgr.ski/workshops — Firewall-Linie, Scroll-Bühnen, Phishing-Demo.
    Läuft render-blocking im <head>, damit .js vor dem ersten Paint gesetzt ist
    und die Sticky-Bühnen nicht erst ausgeklappt und dann eingeklappt werden.
    Alle Browserwerte bleiben lokal: nichts wird gesendet oder gespeichert. */
@@ -57,35 +57,6 @@
     }
     setInterval(tick, 1000);
 
-    /* ── Perspektive: AUTO folgt Scroll und Linie, sonst erzwungen ─────── */
-    var persp = 'auto';
-    var ORDER = ['auto', 'nutzer', 'angreifer'];
-    var LABELS = { auto: 'AUTO', nutzer: 'NUTZER', angreifer: 'ANGREIFER' };
-    var sw = $('#persp-switch');
-    var swLabel = sw && $('[data-persp-label]', sw);
-
-    function describeSwitch() {
-      if (!sw) return;
-      var next = ORDER[(ORDER.indexOf(persp) + 1) % ORDER.length];
-      swLabel.textContent = LABELS[persp];
-      sw.setAttribute('aria-label', 'Perspektive: ' + LABELS[persp] + '. Aktivieren für ' + LABELS[next] + '.');
-    }
-
-    function setPersp(p) {
-      persp = p;
-      root.classList.toggle('is-forced', p !== 'auto');
-      describeSwitch();
-      renderHero();
-      update();
-    }
-
-    if (sw) {
-      sw.addEventListener('click', function () {
-        setPersp(ORDER[(ORDER.indexOf(persp) + 1) % ORDER.length]);
-      });
-      describeSwitch();
-    }
-
     /* ── Hero: ziehbare Firewall-Linie ───────────────────────────────────── */
     var hero = $('#hero');
     var handle = $('#hero-handle');
@@ -94,9 +65,8 @@
 
     function renderHero() {
       if (!hero) return;
-      var x = persp === 'nutzer' ? 100 : persp === 'angreifer' ? 0 : heroX;
-      hero.style.setProperty('--x', x + '%');
-      var val = Math.round(100 - x);
+      hero.style.setProperty('--x', heroX + '%');
+      var val = Math.round(100 - heroX);
       handle.setAttribute('aria-valuenow', String(val));
       handle.setAttribute('aria-valuetext', val + ' Prozent Angreiferperspektive');
     }
@@ -104,7 +74,7 @@
     function heroFromPointer(clientX) {
       var r = hero.getBoundingClientRect();
       heroX = clamp(((clientX - r.left) / r.width) * 100, 0, 100);
-      if (persp !== 'auto') setPersp('auto'); else renderHero();
+      renderHero();
     }
 
     if (hero && handle) {
@@ -117,16 +87,15 @@
       handle.addEventListener('pointerup', function () { dragging = false; });
       handle.addEventListener('pointercancel', function () { dragging = false; });
       handle.addEventListener('keydown', function (e) {
-        var cur = persp === 'nutzer' ? 100 : persp === 'angreifer' ? 0 : heroX;
         var v = null;
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') v = cur - 5;
-        else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') v = cur + 5;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') v = heroX - 5;
+        else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') v = heroX + 5;
         else if (e.key === 'Home') v = 0;
         else if (e.key === 'End') v = 100;
         if (v === null) return;
         e.preventDefault();
         heroX = clamp(v, 0, 100);
-        if (persp !== 'auto') setPersp('auto'); else renderHero();
+        renderHero();
       });
       renderHero();
     }
@@ -149,8 +118,6 @@
     }
 
     function stageX(p) {
-      if (persp === 'nutzer') return 100;
-      if (persp === 'angreifer') return 0;
       var e = clamp((p - 0.12) / 0.5, 0, 1);
       if (reduced) e = e > 0.5 ? 1 : 0;
       return 100 - e * 100;
@@ -164,9 +131,8 @@
       });
 
       if (chain) {
-        var sp = progress(chainStage), step;
-        if (persp !== 'auto') step = persp === 'angreifer' ? 4 : 0;
-        else step = sp < 0.18 ? 0 : sp < 0.36 ? 1 : sp < 0.52 ? 2 : sp < 0.68 ? 3 : 4;
+        var sp = progress(chainStage);
+        var step = sp < 0.18 ? 0 : sp < 0.36 ? 1 : sp < 0.52 ? 2 : sp < 0.68 ? 3 : 4;
         chain.setAttribute('data-step', String(step));
       }
 
