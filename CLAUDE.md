@@ -18,12 +18,21 @@ aus 1c abgeleitet, bleibt also innerhalb desselben Entwurfs-Systems.
 Feste Werte aus dem Entwurf: Spalte 620 px, Avatar 56 px rund, Fließtext 14 px,
 Tagline 26 px, Chips 11 px mit `letter-spacing: .1em`, Trennlinien als 1-px-Haarlinien.
 
+## Unterseite /workshops
+
+`workshops/index.html` (deutsch) setzt Variante 1b „Beide Seiten der Firewall" aus
+`design/Workshops.dc.html` um; eigene `assets/workshops.css` / `workshops.js`. Hell = Nutzer-,
+dunkel = Angreiferperspektive — deshalb dort **kein** Theme-Schalter. Dynamische Werte (Linie,
+Bühnen) setzt das JS als Custom Properties per CSSOM (`style.setProperty`), das erlaubt die CSP
+anders als `style=""`. Ohne JS stehen alle Ebenen untereinander. Die Browserwerte werden nur lokal
+angezeigt, nie gesendet — daran nichts ändern.
+
 ## Harte Regeln
 
 - **Keine Inline-Styles, keine Inline-Scripts.** Die CSP ist `default-src 'none'`; alles andere
   läuft über `'self'`. Ein `style="…"` greift schlicht nicht.
-- **Ausnahme:** der JSON-LD-Block in `index.html` ist per `'sha256-…'` freigegeben. Wird das JSON
-  geändert, muss der Hash neu — `python3 .github/scripts/check-csp.py` gibt den korrekten Wert aus
+- **Ausnahme:** die JSON-LD-Blöcke in `index.html` und `workshops/index.html` sind jeweils per `'sha256-…'` freigegeben. Wird ein JSON
+  geändert, muss dessen Hash neu — `python3 .github/scripts/check-csp.py` gibt den korrekten Wert aus
   und lässt sonst den Build fehlschlagen.
 - **Fonts bleiben selbst gehostet.** Kein Google-Fonts-CDN (DSGVO) und keine weiteren
   Dritt-Requests.

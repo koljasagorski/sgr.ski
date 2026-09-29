@@ -40,6 +40,7 @@ jobs:
           # A missing entry fails the build rather than silently shipping less.
           for path in \
             index.html \
+            workshops \
             assets \
             .well-known \
             favicon.ico \

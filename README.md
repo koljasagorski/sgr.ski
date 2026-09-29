@@ -9,8 +9,11 @@ Live at **https://sgr.ski**
 
 ```
 index.html                  the page
+workshops/index.html        /workshops — German workshop page ("Beide Seiten der Firewall")
 assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
+assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
+assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing demo
 assets/fonts/*.woff2        JetBrains Mono, self-hosted (variable, weight axis 100–800)
 assets/avatar.webp          224px source, rendered at 56px
 assets/og.png               1200×630 social card
@@ -42,8 +45,8 @@ certificate never issues.
 
 ## Two things that will bite you
 
-**The CSP hash.** `index.html` carries an inline JSON-LD block, allowed by an explicit
-`'sha256-…'` in the Content-Security-Policy meta tag. Edit that JSON and the hash goes stale —
+**The CSP hash.** `index.html` and `workshops/index.html` each carry an inline JSON-LD block, allowed by an explicit
+`'sha256-…'` in the Content-Security-Policy meta tag. Edit either JSON block and the hash goes stale —
 browsers then drop the structured data silently. `.github/scripts/check-csp.py` fails the build
 instead of letting that ship. It prints the correct value; paste it into the `script-src`
 directive:

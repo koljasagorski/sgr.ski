@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbfa">
+
+<title>Digitale Selbstverteidigung — Workshops &amp; Vorträge · Kolja Sagorski</title>
+<meta name="description" content="Digitale Selbstverteidigung und Operational Security für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten.">
+<meta name="author" content="Kolja Sagorski">
+<link rel="canonical" href="https://sgr.ski/workshops/">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-RfWkRBVT/qO23FErpqUtjMMUxThv/+JLIQLbXPWkq5c='; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sgr.ski">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Digitale Selbstverteidigung — Workshops &amp; Vorträge">
+<meta property="og:description" content="Du verstehst das Risiko erst, wenn du den Angriff siehst. Workshops und Vorträge zu digitaler Selbstverteidigung und Operational Security.">
+<meta property="og:url" content="https://sgr.ski/workshops/">
+<meta property="og:image" content="https://sgr.ski/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kolja Sagorski — Certified IT Security Analyst. 20+ years on both sides of the firewall.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/workshops.css">
+<script src="/assets/workshops.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digitale Selbstverteidigung — Workshops & Vorträge",
+  "url": "https://sgr.ski/workshops/",
+  "inLanguage": "de",
+  "serviceType": "Security-Awareness-Training",
+  "description": "Digitale Selbstverteidigung und Operational Security für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten.",
+  "provider": {
+    "@type": "Person",
+    "name": "Kolja Sagorski",
+    "url": "https://sgr.ski/",
+    "jobTitle": "Certified IT Security Analyst",
+    "email": "mailto:kolja@sagorski.org"
+  }
+}
+</script>
+</head>
+
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<button class="persp js-only" type="button" id="persp-switch" aria-label="Perspektive: AUTO. Aktivieren für NUTZER.">
+  <span class="persp__icon" aria-hidden="true"></span>
+  <span>PERSPEKTIVE · <span data-persp-label>AUTO</span></span>
+</button>
+
+<!-- ── Hero: die Firewall-Linie trennt Nutzer- und Angreiferperspektive ───── -->
+<header class="hero" id="hero">
+  <div class="hero__layer">
+    <div class="hero__top">
+      <img class="hero__avatar" src="/assets/avatar.webp" alt="" width="40" height="40">
+      <div class="hero__who"><span class="hero__name">Kolja Sagorski</span><span class="hero__role">Certified IT Security Analyst</span></div>
+      <a class="chip-link" href="/">← SGR.SKI</a>
+    </div>
+    <div class="hero__body">
+      <div class="hero__kicker"><span class="label">DIGITALE SELBSTVERTEIDIGUNG · OPSEC · QUELLENSCHUTZ</span><span class="label label--faint">WAS DU SIEHST</span></div>
+      <h1 class="hero__title">DU VERSTEHST DAS RISIKO ERST, WENN DU DEN ANGRIFF SIEHST.</h1>
+      <div class="hero__grid">
+        <div class="hero__intro">
+          <p class="hero__lead">Digitale Selbstverteidigung und Operational Security für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten.</p>
+          <div class="hero__cta">
+            <a class="row-link row-link--strong" href="#anfrage"><span>WORKSHOP ANFRAGEN</span><span aria-hidden="true">→</span></a>
+            <span class="label label--faint hero__steps">ANGRIFF → VERSTEHEN → SCHÜTZEN</span>
+          </div>
+        </div>
+        <div class="hero__probe" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__layer hero__layer--dark dark" aria-hidden="true">
+    <div class="hero__top">
+      <img class="hero__avatar" src="/assets/avatar.webp" alt="" width="40" height="40">
+      <div class="hero__who"><span class="hero__name">Kolja Sagorski</span><span class="hero__role">Certified IT Security Analyst</span></div>
+      <span class="chip-link">← SGR.SKI</span>
+    </div>
+    <div class="hero__body">
+      <div class="hero__kicker"><span class="label">DIGITALE SELBSTVERTEIDIGUNG · OPSEC · QUELLENSCHUTZ</span><span class="label label--faint">WAS ICH SEHE</span></div>
+      <div class="hero__title hero__title--heavy">DU VERSTEHST DAS RISIKO ERST, WENN DU DEN ANGRIFF SIEHST.</div>
+      <div class="hero__grid">
+        <div class="hero__intro">
+          <p class="hero__lead">Digitale Selbstverteidigung und Operational Security für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten.</p>
+          <div class="hero__cta">
+            <span class="row-link row-link--strong"><span>WORKSHOP ANFRAGEN</span><span>→</span></span>
+            <span class="label label--faint hero__steps">ANGRIFF → VERSTEHEN → SCHÜTZEN</span>
+          </div>
+        </div>
+        <div class="hero__probe">
+          <div class="kv"><span class="kv__k">ZEITZONE</span><span data-bv="tz">—</span></div>
+          <div class="kv"><span class="kv__k">SPRACHE</span><span data-bv="lang">—</span></div>
+          <div class="kv"><span class="kv__k">BILDSCHIRM</span><span data-bv="screen">—</span></div>
+          <div class="kv"><span class="kv__k">SYSTEM</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span></div>
+          <div class="kv"><span class="kv__k">AUF DIESER SEITE SEIT</span><span data-since>0 s</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__handle js-only" id="hero-handle" role="slider" tabindex="0"
+       aria-label="Firewall-Linie: zwischen Nutzer- und Angreiferperspektive verschieben"
+       aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-valuetext="38 Prozent Angreiferperspektive">
+    <span class="hero__line"></span>
+    <span class="hero__knob" aria-hidden="true">↔</span>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ── Für wen ─────────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrap split">
+    <div class="stack stack--24">
+      <span class="label">FÜR WEN</span>
+      <h2 class="h2">FÜR MENSCHEN, DENEN EIN KOMPROMITTIERTER ACCOUNT MEHR KOSTET ALS EIN NEUES PASSWORT.</h2>
+      <p class="body-l">Im Mittelpunkt steht, wie du dich schützt: deine Geräte, deine Kommunikation, deine Quellen. Angriffe zeige ich, damit klar wird, wovor.</p>
+    </div>
+    <ul class="audience" role="list">
+      <li><span class="audience__who">Journalisten &amp; Redaktionen</span><span class="label label--faint">QUELLENSCHUTZ</span></li>
+      <li><span class="audience__who">Investigativjournalisten</span><span class="label label--faint">RECHERCHE</span></li>
+      <li><span class="audience__who">Whistleblower</span><span class="label label--faint">ANONYMITÄT</span></li>
+      <li><span class="audience__who">Menschen im Exil &amp; Geflüchtete</span><span class="label label--faint">ÜBERWACHUNG</span></li>
+      <li><span>NGOs &amp; Menschenrechtsorganisationen</span></li>
+      <li><span>Rechtsanwälte</span></li>
+      <li><span>Unternehmen &amp; Führungskräfte</span></li>
+      <li><span>Konferenzen &amp; Veranstaltungen</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── Inhalte ─────────────────────────────────────────────────────────────── -->
+<section class="section section--flush-top" id="inhalte">
+  <div class="wrap stack stack--xl">
+    <div class="stack stack--20">
+      <span class="label">WAS DU LERNST</span>
+      <h2 class="h2">ACHT THEMEN.<br><span class="thin">EIN ZUSAMMENHANG.</span></h2>
+    </div>
+    <ol class="topics" role="list">
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">01</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">BEDROHUNG VERSTEHEN</h3>
+          <p class="label">THREAT MODELING</p>
+          <div class="topic__lines"><span>Wer könnte sich für meine Informationen interessieren?</span><span>Was möchte ich schützen?</span><span>Welche Fähigkeiten besitzt ein realistischer Angreifer?</span></div>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">02</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">DIGITALE SPUREN</h3>
+          <ul class="tags" role="list"><li>IP-Adressen</li><li>Browser Fingerprinting</li><li>Tracking</li><li>DNS</li><li>Accounts</li><li>Telefonnummern</li><li>E-Mail-Adressen</li><li>Standortinformationen</li><li>Cloud-Dienste</li><li>Metadaten</li></ul>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">03</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">PRIVATER SURFEN</h3>
+          <p class="body-m">Einordnung und praktische Anwendung von:</p>
+          <ul class="tags" role="list"><li>Browser-Isolation</li><li>Browser-Profilen</li><li>Tor</li><li>VPN</li><li>DNS</li><li>Tracking Protection</li><li>Fingerprinting</li><li>Session Separation</li></ul>
+          <p class="body-m muted topic__note">Keine Versprechen absoluter Anonymität. Stattdessen geht es darum, Exposition systematisch zu reduzieren.</p>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">04</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">SICHER KOMMUNIZIEREN</h3>
+          <ul class="tags" role="list"><li>Ende-zu-Ende-Verschlüsselung</li><li>Signal</li><li>E-Mail</li><li>PGP</li><li>Metadaten</li><li>sichere Dateiübertragung</li><li>Identitätsprüfung</li></ul>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">05</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">GERÄTE SCHÜTZEN</h3>
+          <ul class="tags" role="list"><li>Full Disk Encryption</li><li>Secure Boot</li><li>Hardware Security Keys</li><li>Updates</li><li>Endpoint Hardening</li><li>physischer Zugriff</li><li>Geräteverlust</li><li>Backups</li></ul>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">06</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">IDENTITÄTEN &amp; ACCOUNTS</h3>
+          <ul class="tags" role="list"><li>Passwortmanager</li><li>Passkeys</li><li>MFA</li><li>Hardware Security Keys</li><li>Recovery</li><li>Phishing</li><li>Social Engineering</li><li>Sessions</li></ul>
+        </div>
+      </li>
+      <li class="topic">
+        <span class="topic__num" aria-hidden="true">07</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">METADATEN</h3>
+          <p class="body-m">Was Dokumente, Bilder und Dateien zusätzlich verraten können.</p>
+        </div>
+      </li>
+      <li class="topic topic--last">
+        <span class="topic__num" aria-hidden="true">08</span><span class="topic__bar"></span>
+        <div class="topic__body">
+          <h3 class="h3">WENN ETWAS PASSIERT</h3>
+          <p class="body-m">Was tun bei:</p>
+          <ul class="tags tags--wide" role="list"><li>verlorenem Gerät</li><li>verdächtigem Login</li><li>Phishing</li><li>kompromittiertem Account</li><li>möglicher Gerätekompromittierung</li><li>physischem Zugriff auf ein Gerät</li></ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── Warum ich Angriffe zeige ────────────────────────────────────────────── -->
+<section class="section section--tint">
+  <div class="wrap split">
+    <div class="stack stack--20">
+      <span class="label">DIE GRUNDIDEE</span>
+      <h2 class="h2">WARUM ICH ANGRIFFE ZEIGE.</h2>
+    </div>
+    <div class="why">
+      <p>Wir hören ständig, wie wir uns digital schützen sollen.</p>
+      <p>Aber eine abstrakte Warnung ist etwas anderes, als einen Angriff tatsächlich zu sehen.</p>
+      <p class="muted">Deshalb demonstriere ich an ausgewählten Stellen reale Angriffskonzepte, kontrolliert und nachvollziehbar. Nicht als Show, sondern als Begründung für jede Schutzmaßnahme.</p>
+      <div class="why__list">
+        <span class="label label--faint why__head">DIE TEILNEHMER SEHEN</span>
+        <span>Was passiert?</span>
+        <span>Was sieht ein Angreifer?</span>
+        <span>Welche Informationen gebe ich preis?</span>
+        <span>Welche Schutzmaßnahme verhindert genau diesen Angriff?</span>
+      </div>
+    </div>
+  </div>
+  <div class="wrap moment">
+    <span class="label label--faint">DAS ZIEL IST DIESER MOMENT</span>
+    <p class="moment__quote">„JETZT VERSTEHE ICH, WARUM.“</p>
+    <p class="muted">Die folgenden Abschnitte zeigen dieses Prinzip im Kleinen. Scroll weiter.</p>
+  </div>
+</section>
+
+<!-- ── Bühne 1: Anmeldung ──────────────────────────────────────────────────── -->
+<section class="stage stage--login" data-stage aria-label="Perspektivwechsel: Anmeldung">
+  <div class="stage__sticky">
+    <div class="stage__layer stage__layer--col">
+      <div class="stage__bar label-plain"><span>01 — WAS DU SIEHST</span><span class="label--faint">EINE NORMALE DIGITALE HANDLUNG</span></div>
+      <div class="stage__center">
+        <div class="mock">
+          <div class="mock__title">Anmeldung</div>
+          <span class="muted">E-Mail</span>
+          <div class="mock__field mock__field--placeholder">name@redaktion.de</div>
+          <span class="muted">Passwort</span>
+          <div class="mock__field mock__field--pw">••••••••••••</div>
+          <div class="mock__btn">ANMELDEN</div>
+          <div class="mock__foot"></div>
+        </div>
+      </div>
+      <p class="stage__claim">DIESELBE HANDLUNG.<br>EINE ANDERE PERSPEKTIVE.</p>
+    </div>
+    <div class="stage__layer stage__layer--col stage__layer--dark dark">
+      <div class="stage__bar label-plain"><span>02 — WAS EIN ANGREIFER SIEHT</span><span class="label--faint">DIESELBE HANDLUNG, SECHS EBENEN</span></div>
+      <div class="stage__center">
+        <div class="mock">
+          <div class="mock__title">Anmeldung</div>
+          <span class="muted">E-Mail</span>
+          <div class="mock__field mock__field--exposed"><span>name@redaktion.de</span><span class="tag">IDENTITÄT</span></div>
+          <span class="muted">Passwort</span>
+          <div class="mock__field mock__field--exposed"><span>Sommer2019!</span><span class="tag">ZUGANGSDATEN</span></div>
+          <div class="mock__field mock__field--exposed mock__field--gap"><span>sid=7f3a…c21e</span><span class="tag">SESSION</span></div>
+          <div class="mock__foot mock__foot--rows">
+            <div class="kv kv--sm"><span class="tag">GERÄT</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span></div>
+            <div class="kv kv--sm"><span class="tag">NETZWERK</span><span>IP-Adresse, Provider, Region</span></div>
+            <div class="kv kv--sm"><span class="tag">METADATEN</span><span>Zeitpunkt, Häufigkeit, Herkunft</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="stage__claim stage__claim--heavy">DIESELBE HANDLUNG.<br>EINE ANDERE PERSPEKTIVE.</p>
+    </div>
+    <div class="stage__line" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ── Bühne 2: Dein Browser redet ─────────────────────────────────────────── -->
+<section class="stage stage--browser" data-stage aria-label="Dein Browser redet">
+  <div class="stage__sticky">
+    <div class="stage__layer stage__layer--talk">
+      <span class="label">DEIN BROWSER REDET.</span>
+      <h2 class="talk__title">DU HAST MIR NICHTS ERZÄHLT.</h2>
+      <div class="talk__space"></div>
+    </div>
+    <div class="stage__layer stage__layer--talk stage__layer--dark dark">
+      <span class="label">DEIN BROWSER REDET.</span>
+      <div class="talk__title talk__title--heavy">DU HAST MIR NICHTS ERZÄHLT.<br><span class="accent">DEIN BROWSER SCHON.</span></div>
+      <div class="talk__grid">
+        <div class="probe">
+          <span class="tag tag--faint probe__head">BROWSER-ANALYSE</span>
+          <div class="probe__row"><span class="muted">IP-ADRESSE</span><span>jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">BROWSER</span><span data-bv="browser">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">BETRIEBSSYSTEM</span><span data-bv="os">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">ZEITZONE</span><span data-bv="tz">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">SPRACHE</span><span data-bv="lang">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">BILDSCHIRM</span><span data-bv="screen">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">FINGERPRINT</span><span data-bv="fp">—</span><span class="tag-plain tag-plain--bold">MÖGLICH</span></div>
+        </div>
+        <div class="talk__text">
+          <p>Schon ein gewöhnlicher Seitenaufruf kann mehr Informationen preisgeben, als vielen Menschen bewusst ist.</p>
+          <p class="talk__small">Diese Werte liest dein Browser gerade selbst aus. Sie werden nicht gesendet, nicht gespeichert und nicht ausgewertet.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage__line" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ── Bühne 3: Metadaten ──────────────────────────────────────────────────── -->
+<section class="stage stage--meta" data-stage aria-label="Metadaten">
+  <div class="stage__sticky">
+    <div class="stage__layer stage__layer--mid">
+      <div class="meta">
+        <div class="meta__file">
+          <div class="meta__photo">foto</div>
+          <span class="meta__name">IMG_2841.jpg</span>
+        </div>
+        <div class="stack stack--20">
+          <span class="label">METADATEN</span>
+          <h2 class="meta__title">NUR EIN FOTO?</h2>
+        </div>
+      </div>
+    </div>
+    <div class="stage__layer stage__layer--mid stage__layer--dark dark">
+      <div class="meta">
+        <div class="meta__file">
+          <div class="meta__exif">
+            <div class="exif"><span class="muted">Aufnahmezeit</span><span>14.03.2026, 07:41:09</span></div>
+            <div class="exif"><span class="muted">Gerät</span><span>Smartphone, Hauptkamera</span></div>
+            <div class="exif"><span class="muted">Software</span><span>Kamera-App 19.3</span></div>
+            <div class="exif"><span class="muted">GPS</span><span class="bold">52.5163° N, 13.3777° E</span></div>
+            <div class="exif"><span class="muted">Dateiname</span><span>IMG_2841.jpg</span></div>
+            <div class="exif"><span class="muted">Zeitstempel</span><span>2026-03-14T06:41:09Z</span></div>
+          </div>
+          <span class="meta__name">IMG_2841.jpg <span class="label--faint">· Beispieldaten</span></span>
+        </div>
+        <div class="stack stack--20">
+          <span class="label">METADATEN</span>
+          <div class="meta__title meta__title--heavy">EINE DATEI KANN MEHR VERRATEN ALS IHR INHALT.</div>
+          <p class="body-m muted meta__note">Besonders für investigative Arbeit ist dieser Punkt wichtig.</p>
+        </div>
+      </div>
+    </div>
+    <div class="stage__line" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ── Quellenschutz ───────────────────────────────────────────────────────── -->
+<section class="source dark" id="quellenschutz">
+  <div class="wrap source__intro">
+    <span class="label">QUELLENSCHUTZ</span>
+    <h2 class="source__title">SCHÜTZE DEINE QUELLE.</h2>
+    <div class="source__cols">
+      <p class="soft">Bei investigativer Arbeit geht es bei digitaler Sicherheit nicht nur um den Schutz des eigenen Gerätes.</p>
+      <div class="stack stack--14">
+        <p>Es geht um Menschen.</p>
+        <p class="soft">Quellen.<br>Informanten.<br>Whistleblower.<br>Gesprächspartner.</p>
+        <p class="soft">Eine verschlüsselte Nachricht allein macht eine Kommunikation noch nicht unsichtbar.</p>
+      </div>
+    </div>
+  </div>
+  <div class="chain-stage" id="chain-stage">
+    <div class="chain" data-step="0">
+      <div class="chain__fig" role="img" aria-label="Kommunikationskette von der Quelle über Provider, Netzwerk und Gerät bis in die Cloud. Jede Station hinterlässt Spuren: Identität, Logs, IP, Session, Daten.">
+        <div class="chain__meta" aria-hidden="true">METADATEN<br>↓</div>
+        <div class="chain__track" aria-hidden="true">
+          <div class="chain__simple"><span>QUELLE</span><span class="chain__wire"></span><span>JOURNALIST</span></div>
+          <div class="chain__full"><span>QUELLE →</span><span>PROVIDER →</span><span>NETZWERK →</span><span>GERÄT →</span><span>CLOUD</span></div>
+        </div>
+        <div class="chain__traces" aria-hidden="true"><span>↓<br>Identität</span><span>↓<br>Logs</span><span>↓<br>IP</span><span>↓<br>Session</span><span>↓<br>Daten</span></div>
+      </div>
+      <p class="chain__claim">EINE VERTRAULICHE KOMMUNIKATION<br><span class="accent">KANN TROTZDEM SPUREN HINTERLASSEN.</span></p>
+    </div>
+  </div>
+  <div class="wrap source__outro">
+    <p>Operational Security bedeutet deshalb, die gesamte Kommunikationskette zu betrachten.</p>
+    <p class="soft">Für Menschen im Exil gehört dazu auch die Frage, wer im Herkunftsland mitlesen, orten oder unter Druck setzen kann.</p>
+  </div>
+</section>
+
+<!-- ── Live-Demonstrationen ────────────────────────────────────────────────── -->
+<section class="section" id="demos">
+  <div class="wrap stack stack--demos">
+    <div class="split split--end">
+      <div class="stack stack--20">
+        <span class="label">LIVE-DEMONSTRATIONEN</span>
+        <h2 class="h2">KEINE FOLIENSCHLACHT.</h2>
+      </div>
+      <div class="stack stack--12 body-m">
+        <p>An ausgewählten Stellen schauen wir uns an, was wirklich passiert. Ich demonstriere einzelne Angriffstechniken kontrolliert live, und jede Demonstration endet bei der Schutzmaßnahme.</p>
+        <p class="muted">Die konkreten Demonstrationen variieren je nach Zielgruppe und Workshop.</p>
+      </div>
+    </div>
+
+    <article class="demo" id="demo">
+      <div class="demo__head">
+        <div class="stack stack--10"><span class="label label--faint">BEISPIEL</span><h3 class="demo__title">PHISHING</h3></div>
+        <div class="lines">
+          <span>Wie überzeugend kann ein moderner Phishing-Angriff aussehen?</span>
+          <span>Was passiert technisch nach einem Klick?</span>
+          <span>Was passiert mit Zugangsdaten oder Sessions?</span>
+        </div>
+      </div>
+      <div class="demo__controls js-only">
+        <button class="btn" type="button" data-demo-play><span aria-hidden="true">▶</span><span data-demo-play-label>DEMO ABSPIELEN</span></button>
+        <div class="seg" role="group" aria-label="Schutzmaßnahme wählen">
+          <span class="seg__label">SCHUTZ</span>
+          <button class="seg__btn" type="button" aria-pressed="true" data-demo-prot="off">OHNE</button>
+          <button class="seg__btn" type="button" aria-pressed="false" data-demo-prot="on">MIT PASSKEY</button>
+        </div>
+      </div>
+      <div class="demo__panels">
+        <div class="demo__panel">
+          <div class="demo__panel-head"><span>TEILNEHMER</span><span class="label--faint">WAS DU SIEHST</span></div>
+          <div class="browser">
+            <div class="browser__url">https://login.redaktion-mail.de</div>
+            <div class="browser__page">
+              <span class="browser__title">Redaktions-Mail · Anmeldung</span>
+              <span class="browser__lbl">E-Mail</span>
+              <div class="browser__field" data-demo-email></div>
+              <div class="browser__pw" data-demo-pwfields>
+                <span class="browser__lbl">Passwort</span>
+                <div class="browser__field browser__field--pw" data-demo-pw></div>
+                <span class="browser__lbl">Bestätigungscode</span>
+                <div class="browser__field browser__field--code" data-demo-code></div>
+              </div>
+              <div class="browser__btn" data-demo-button>ANMELDEN</div>
+              <span class="browser__status" data-demo-status></span>
+            </div>
+          </div>
+        </div>
+        <div class="demo__panel demo__panel--dark dark">
+          <div class="demo__panel-head"><span>ANGREIFER</span><span class="label--faint">GLEICHZEITIG</span></div>
+          <div class="log" aria-live="polite" data-demo-log>
+            <span class="log__idle">Noch ist nichts passiert.</span>
+          </div>
+          <span class="log__foot">SIMULATION · ES WIRD NICHTS ÜBERTRAGEN</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="demo demo--list">
+      <div class="stack stack--14">
+        <span class="label label--faint">BEISPIEL</span>
+        <h3 class="demo__title">PASSWÖRTER, MFA &amp; SESSIONS</h3>
+        <p class="body-m">Ein sicheres Passwort allein schützt nicht vor jedem Angriff.</p>
+      </div>
+      <div class="versus">
+        <div class="versus__col"><span class="label label--faint versus__head">RISIKEN</span><span>Zugangsdaten</span><span>Sessions</span><span>Session Cookies</span><span>MFA</span><span>Account Recovery</span></div>
+        <div class="versus__col versus__col--good"><span class="label-plain versus__head">SCHUTZ</span><span>Passkeys</span><span>Hardware Security Keys</span><span>MFA</span><span>Session Management</span><span>sichere Wiederherstellung</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── Ablauf ──────────────────────────────────────────────────────────────── -->
+<section class="flow" id="flow" aria-label="Workshop-Ablauf">
+  <div class="flow__sticky dark" data-flow>
+    <div class="flow__bar label-plain"><span>WORKSHOP-ABLAUF</span><span class="flow__side" data-flow-side>DIE SEITE DES ANGREIFERS</span></div>
+    <div class="flow__word" aria-live="polite" data-flow-word>ANGRIFF.</div>
+    <ol class="flow__steps" role="list">
+      <li class="flow__step is-active"><span class="flow__n">01</span><span class="bold">ANGRIFF</span><span class="flow__d">Du siehst, was passiert.</span></li>
+      <li class="flow__step"><span class="flow__n">02</span><span class="bold">VERSTEHEN</span><span class="flow__d">Wir zerlegen den Angriff.</span></li>
+      <li class="flow__step"><span class="flow__n">03</span><span class="bold">SCHÜTZEN</span><span class="flow__d">Wir bauen die Verteidigung.</span></li>
+      <li class="flow__step"><span class="flow__n">04</span><span class="bold">PRÜFEN</span><span class="flow__d">Wir testen, ob sie funktioniert.</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ── Formate ─────────────────────────────────────────────────────────────── -->
+<section class="section" id="formate">
+  <div class="wrap stack stack--formats">
+    <div class="stack stack--20">
+      <span class="label">FORMATE</span>
+      <h2 class="h2">VOM VORTRAG BIS ZUM 1:1.</h2>
+    </div>
+    <div class="formats">
+      <div class="format"><div class="stack stack--6"><h3 class="format__title">VORTRAG</h3><span class="format__dur">45–90 MINUTEN</span></div><p>Für Konferenzen, Unternehmen, Redaktionen und Veranstaltungen.</p><p class="muted">Kompakter Einstieg mit ausgewählten Live-Demonstrationen.</p></div>
+      <div class="format"><div class="stack stack--6"><h3 class="format__title">WORKSHOP</h3><span class="format__dur">3–4 STUNDEN</span></div><p>Für kleine bis mittlere Gruppen.</p><p class="muted">Konkrete Schutzmaßnahmen, praktische Übungen und gezielte Live-Demonstrationen.</p></div>
+      <div class="format"><div class="stack stack--6"><h3 class="format__title">GANZTAGES-WORKSHOP</h3><span class="format__dur">6–8 STUNDEN</span></div><p>Intensives Training.</p><p class="muted">Threat Modeling, OPSEC, praktische Übungen, Live-Demonstrationen und konkrete Schutzmaßnahmen.</p></div>
+      <div class="format"><div class="stack stack--6"><h3 class="format__title">INDIVIDUELLES TRAINING</h3><span class="format__dur">1:1 ODER KLEINES TEAM</span></div><p>Für Personen und Teams mit besonderem Schutzbedarf.</p><p class="muted">Individuelles Threat Modeling und Entwicklung einer persönlichen Sicherheitsstrategie.</p></div>
+    </div>
+    <a class="row-link row-link--strong row-link--inline" href="mailto:kolja@sagorski.org?subject=Format-Anfrage"><span>FORMAT ANFRAGEN</span><span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<!-- ── Über mich ───────────────────────────────────────────────────────────── -->
+<section class="section section--flush-top">
+  <div class="wrap split about">
+    <div class="about__id">
+      <img class="about__avatar" src="/assets/avatar.webp" width="96" height="96" loading="lazy"
+           alt="Portrait von Kolja Sagorski, mittig geteilt: auf einer Seite Anzug, auf der anderen Hoodie.">
+      <div class="stack stack--4"><span class="label">ÜBER MICH</span><h2 class="about__name">KOLJA SAGORSKI</h2><span class="about__role">Certified IT Security Analyst</span></div>
+    </div>
+    <div class="stack stack--20">
+      <p class="about__tagline">20+ Jahre auf beiden Seiten der Firewall.</p>
+      <p class="about__fields">Cyber Security · Offensive Security · Defensive Security · Operational Security · Privacy · Infrastructure Security</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Anfrage ─────────────────────────────────────────────────────────────── -->
+<section class="closing dark" id="anfrage">
+  <div class="wrap stack stack--formats">
+    <h2 class="closing__title"><span class="thin">SICHERHEIT WIRD VERSTÄNDLICH,</span><br><span class="heavy">WENN MAN DEN ANGRIFF GESEHEN HAT.</span></h2>
+    <div class="split split--start">
+      <p class="soft body-l">Vorträge und Workshops für Redaktionen, Organisationen, Unternehmen, Konferenzen und Teams, die mit sensiblen Informationen arbeiten.</p>
+      <ul class="contact" role="list">
+        <li><a class="row-link row-link--strong" href="mailto:kolja@sagorski.org?subject=Workshop-Anfrage"><span>WORKSHOP ANFRAGEN</span><span aria-hidden="true">→</span></a></li>
+        <li><a class="row-link" href="mailto:kolja@sagorski.org"><span>kolja@sagorski.org</span><span class="row-link__arrow" aria-hidden="true">↗</span></a></li>
+        <li><a class="row-link" href="/kolja-sagorski.asc" download type="application/pgp-keys"><span>PGP verfügbar · 0x5EFB194EAD8BC39F<span class="sr-only"> — Public Key herunterladen</span></span><span class="row-link__arrow" aria-hidden="true">↓</span></a></li>
+      </ul>
+    </div>
+    <p class="closing__foot"><span>SGR.SKI — WORKSHOPS</span><span>DIESE SEITE SPEICHERT NICHTS.</span></p>
+  </div>
+</section>
+
+</main>
+</body>
+</html>
