@@ -216,16 +216,17 @@
     update();
 
     /* ── Phishing-Film ─────────────────────────────────────────────────────
-       Läuft stumm in Schleife, aber nur solange er sichtbar ist. Bei
-       reduzierter Bewegung startet er nie von selbst. Der Schalter erfüllt
-       WCAG 2.2.2 (Pause für bewegte Inhalte > 5 s). */
+       Autoplay, stumm, in Schleife — auch bei reduzierter Bewegung, auf
+       ausdrücklichen Wunsch des Betreibers. Außerhalb des Sichtbereichs
+       pausiert er. Der Schalter erfüllt WCAG 2.2.2 (Pause für bewegte
+       Inhalte > 5 s); wer pausiert, bleibt pausiert. */
     var film = $('[data-film]');
     if (film) {
       var video = $('video', film);
       var toggle = $('[data-film-toggle]', film);
       var fIcon = $('[data-film-icon]', film);
       var fLabel = $('[data-film-label]', film);
-      var userPaused = reduced;
+      var userPaused = false;
 
       function paint() {
         var playing = !video.paused;
