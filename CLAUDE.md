@@ -80,7 +80,10 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   (siehe Workshops) und die Besuchsstatistik **Umami** (`umami.patchletter.com`, Website-ID
   `a9dbeae1-3e8d-4a32-9c86-647bfbb62c09`, auf Wunsch des Betreibers seit 2026-09-30) auf allen
   drei Seiten — cookielos, mit `data-domains="sgr.ski"`, `data-do-not-track`,
-  `data-exclude-search`; in jeder CSP unter `script-src` und `connect-src` freigegeben. Texte, die
+  `data-exclude-search`. Das Tracker-Skript ist **selbst gehostet** (`assets/umami.js`, per
+  `data-host-url` an die Instanz): so darf `umami.patchletter.com` in der CSP nur unter
+  `connect-src` stehen, nie unter `script-src` — ein kompromittierter Umami-Server kann damit keinen
+  Code auf sgr.ski ausführen. Bei Umami-Updates das Skript neu herunterladen. Texte, die
   „speichert nichts“ behaupten, sind deshalb angepasst — nicht zurückschreiben.
 - **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
   am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
