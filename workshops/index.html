@@ -37,6 +37,7 @@
 <script src="/assets/workshops.js"></script>
 <script defer src="/assets/workshop-quiz.js"></script>
 <script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
+<script defer src="/assets/umami-recorder.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09"></script>
 
 <script type="application/ld+json">
 {
@@ -154,11 +155,11 @@
           </div>
         </div>
         <div class="hero__probe">
-          <div class="kv"><span class="kv__k">IP-ADRESSE</span><span data-net="ip">wird ermittelt …</span></div>
-          <div class="kv"><span class="kv__k">ZEITZONE</span><span data-bv="tz">—</span></div>
-          <div class="kv"><span class="kv__k">SPRACHE</span><span data-bv="lang">—</span></div>
-          <div class="kv"><span class="kv__k">BILDSCHIRM</span><span data-bv="screen">—</span></div>
-          <div class="kv"><span class="kv__k">SYSTEM</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span></div>
+          <div class="kv"><span class="kv__k">IP-ADRESSE</span><span class="rr-block" data-net="ip">wird ermittelt …</span></div>
+          <div class="kv"><span class="kv__k">ZEITZONE</span><span class="rr-block" data-bv="tz">—</span></div>
+          <div class="kv"><span class="kv__k">SPRACHE</span><span class="rr-block" data-bv="lang">—</span></div>
+          <div class="kv"><span class="kv__k">BILDSCHIRM</span><span class="rr-block" data-bv="screen">—</span></div>
+          <div class="kv"><span class="kv__k">SYSTEM</span><span><span class="rr-block" data-bv="os">—</span> · <span class="rr-block" data-bv="browser">—</span></span></div>
           <div class="kv"><span class="kv__k">AUF DIESER SEITE SEIT</span><span data-since>0 s</span></div>
         </div>
       </div>
@@ -324,8 +325,8 @@
           <div class="mock__field mock__field--exposed"><span>Sommer2019!</span><span class="tag">ZUGANGSDATEN</span></div>
           <div class="mock__field mock__field--exposed mock__field--gap"><span>sid=7f3a…c21e</span><span class="tag">SESSION</span></div>
           <div class="mock__foot mock__foot--rows">
-            <div class="kv kv--sm"><span class="tag">GERÄT</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span></div>
-            <div class="kv kv--sm"><span class="tag">NETZWERK</span><span data-net="network">IP-Adresse, Provider, Region</span></div>
+            <div class="kv kv--sm"><span class="tag">GERÄT</span><span><span class="rr-block" data-bv="os">—</span> · <span class="rr-block" data-bv="browser">—</span></span></div>
+            <div class="kv kv--sm"><span class="tag">NETZWERK</span><span class="rr-block" data-net="network">IP-Adresse, Provider, Region</span></div>
             <div class="kv kv--sm"><span class="tag">METADATEN</span><span>Zeitpunkt, Häufigkeit, Herkunft</span></div>
           </div>
         </div>
@@ -350,21 +351,21 @@
       <div class="talk__grid">
         <div class="probe">
           <span class="tag tag--faint probe__head">BROWSER-ANALYSE</span>
-          <div class="probe__row"><span class="muted">IP-ADRESSE</span><span data-net="ip">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">PROVIDER</span><span data-net="provider">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">STANDORT</span><span data-net="location">aus der IP ableitbar</span><span class="tag-plain">UNGEFÄHR</span></div>
-          <div class="probe__row"><span class="muted">VERBINDUNG</span><span data-net="conn">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">SYSTEM</span><span><span data-bv="os">—</span> · <span data-bv="browser">—</span></span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">ZEITZONE</span><span data-bv="tz">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">SPRACHE</span><span data-bv="lang">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">BILDSCHIRM</span><span data-bv="screen">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">GRAFIKKARTE</span><span data-bv="gpu">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">HARDWARE</span><span data-bv="hw">—</span><span class="tag-plain">ERKENNBAR</span></div>
-          <div class="probe__row"><span class="muted">FINGERPRINT</span><span data-bv="fp">—</span><span class="tag-plain tag-plain--bold">MÖGLICH</span></div>
+          <div class="probe__row"><span class="muted">IP-ADRESSE</span><span class="rr-block" data-net="ip">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">PROVIDER</span><span class="rr-block" data-net="provider">jedem Server bekannt</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">STANDORT</span><span class="rr-block" data-net="location">aus der IP ableitbar</span><span class="tag-plain">UNGEFÄHR</span></div>
+          <div class="probe__row"><span class="muted">VERBINDUNG</span><span class="rr-block" data-net="conn">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">SYSTEM</span><span><span class="rr-block" data-bv="os">—</span> · <span class="rr-block" data-bv="browser">—</span></span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">ZEITZONE</span><span class="rr-block" data-bv="tz">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">SPRACHE</span><span class="rr-block" data-bv="lang">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">BILDSCHIRM</span><span class="rr-block" data-bv="screen">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">GRAFIKKARTE</span><span class="rr-block" data-bv="gpu">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">HARDWARE</span><span class="rr-block" data-bv="hw">—</span><span class="tag-plain">ERKENNBAR</span></div>
+          <div class="probe__row"><span class="muted">FINGERPRINT</span><span class="rr-block" data-bv="fp">—</span><span class="tag-plain tag-plain--bold">MÖGLICH</span></div>
         </div>
         <div class="talk__text">
           <p>Schon ein gewöhnlicher Seitenaufruf kann mehr Informationen preisgeben, als vielen Menschen bewusst ist.</p>
-          <p class="talk__small">IP, Provider, Standort und Verbindung sieht jeder Server, den du aufrufst. Hier meldet sie ip.sgr.ski zurück. Alles andere liest dein Browser selbst aus und wird hier nicht gespeichert. Die Besuchsstatistik (Umami, ohne Cookies, auf eigenem Server) erfasst nur grobe Werte wie Browser, System und Land, keine IP-Adresse.</p>
+          <p class="talk__small">IP, Provider, Standort und Verbindung sieht jeder Server, den du aufrufst. Hier meldet sie ip.sgr.ski zurück. Alles andere liest dein Browser selbst aus und wird hier nicht gespeichert. Umami erfasst auf meinem eigenen Server Besuchsstatistiken, Heatmaps und Sitzungsaufzeichnungen, ohne Cookies. Die hier angezeigten persönlichen Browser- und Netzwerkdaten sowie Quiz-Antworten und Ergebnisse sind von den Aufzeichnungen ausgenommen.</p>
         </div>
       </div>
     </div>
@@ -582,7 +583,7 @@
         <fieldset class="quiz__fieldset" aria-describedby="quiz-hint quiz-error">
           <legend class="quiz__question" data-quiz-question tabindex="-1" aria-describedby="quiz-step"></legend>
           <p class="quiz__hint" id="quiz-hint" data-quiz-hint></p>
-          <div class="quiz__options" data-quiz-options></div>
+          <div class="quiz__options rr-block" data-quiz-options></div>
         </fieldset>
         <p class="quiz__error" id="quiz-error" role="alert"></p>
         <div class="quiz__actions">
@@ -590,7 +591,7 @@
           <button class="quiz__button quiz__button--primary" type="submit"><span data-quiz-next>Nächste Frage</span><span aria-hidden="true">→</span></button>
         </div>
       </form>
-      <div class="stack stack--24" data-quiz-result hidden>
+      <div class="stack stack--24 rr-block" data-quiz-result hidden>
         <div class="quiz__scoreline"><span>DEIN ERGEBNIS</span><span><strong class="quiz__score" data-quiz-score></strong><span class="quiz__score-unit" id="quiz-points" data-quiz-points></span></span></div>
         <h3 class="quiz__result-title" data-quiz-result-title tabindex="-1" aria-describedby="quiz-points"></h3>
         <p class="body-m" data-quiz-result-copy></p>
@@ -624,7 +625,7 @@
         <li><a class="row-link" href="/kolja-sagorski.asc" download type="application/pgp-keys"><span>PGP verfügbar · 0x5EFB194EAD8BC39F<span class="sr-only"> — Public Key herunterladen</span></span><span class="row-link__arrow" aria-hidden="true">↓</span></a></li>
       </ul>
     </div>
-    <p class="closing__foot"><span>SGR.SKI — WORKSHOPS</span><span>KEINE COOKIES · ANONYME BESUCHSSTATISTIK · <a href="/impressum/">IMPRESSUM</a></span></p>
+    <p class="closing__foot"><span>SGR.SKI — WORKSHOPS</span><span>KEINE COOKIES · BESUCHSSTATISTIK · HEATMAPS &amp; SITZUNGSAUFZEICHNUNGEN · <a href="/impressum/">IMPRESSUM</a></span></p>
   </div>
 </section>
 

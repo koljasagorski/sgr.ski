@@ -34,3 +34,5 @@ Pro Frage gibt es vier Antwortmöglichkeiten: konsequenter Schutz (10 Punkte), t
 Die Auswertung nennt bis zu drei Themen mit Nachholbedarf und verlinkt den E-Mail-Kontakt [kolja@sagorski.org](mailto:kolja@sagorski.org?subject=Workshop-Anfrage). Bei 100 % wird ein vertiefendes Training angeboten. Der Score ist eine Selbsteinschätzung, kein technischer Sicherheitstest. Antworten werden ausschließlich im Arbeitsspeicher des Browsers verarbeitet, weder gespeichert noch übertragen und auch nicht in die Kontakt-E-Mail übernommen.
 
 Mehr zu [Workshops und Vorträgen von Kolja Sagorski](https://sgr.ski/workshops/).
+
+Die Website nutzt Umami auf dem eigenen Server für Besuchsstatistiken, Heatmaps und Sitzungsaufzeichnungen, ohne Cookies. Quiz-Antworten und Ergebnisse werden aus den Aufzeichnungen und Heatmap-Klicks ausgeschlossen. „Do Not Track“ wird respektiert.

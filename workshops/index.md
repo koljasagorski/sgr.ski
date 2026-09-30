@@ -94,6 +94,8 @@ Die Auswertung nennt bis zu drei Themen mit Nachholbedarf und verlinkt den E-Mai
 
 ## Anfrage
 
+Die Website nutzt Umami auf dem eigenen Server für Besuchsstatistiken, Heatmaps und Sitzungsaufzeichnungen, ohne Cookies. Quiz-Antworten, Ergebnisse und die angezeigten persönlichen Browser- und Netzwerkdaten werden aus den Aufzeichnungen und Heatmap-Klicks ausgeschlossen. „Do Not Track“ wird respektiert.
+
 - E-Mail: [kolja@sagorski.org](mailto:kolja@sagorski.org?subject=Workshop-Anfrage)
 - PGP: 0x5EFB194EAD8BC39F – [Public Key](https://sgr.ski/kolja-sagorski.asc)
 - LinkedIn: [linkedin.com/in/koljasagorski](https://www.linkedin.com/in/koljasagorski/)

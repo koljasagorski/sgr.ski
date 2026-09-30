@@ -14,6 +14,8 @@ workshops/quiz/index.html   /workshops/quiz — standalone quiz for sharing; ind
 assets/quiz.css             standalone quiz page layout; reuses workshop styles and quiz logic
 assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
+assets/umami.js             self-hosted visit tracker for umami.patchletter.com
+assets/umami-recorder.js    self-hosted heatmaps and session replays; honors DNT and rr-block exclusions
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
 assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing film
 assets/workshop-quiz.js     /workshops and /workshops/quiz: shared 10-question self-check, scoring and email contact
@@ -77,3 +79,16 @@ python3 .github/scripts/check-csp.py
 
 Type is [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) under the SIL Open Font
 License 1.1. The portrait is not licensed for reuse.
+
+The Umami recorder includes rrweb; license notices are in
+`assets/umami-recorder.LICENSE.txt`. To update it, download `recorder.js` from
+`https://umami.patchletter.com/recorder.js` to a temporary file, then run
+`python3 scripts/prepare-umami-recorder.py /path/to/recorder.js`. The preparation
+script checks and reapplies the local privacy guards. Do not overwrite the
+published recorder directly: upstream heatmaps do not honor rrweb block classes.
+
+Heatmaps and replays also need enabling under the sgr.ski website's **Replays &
+Heatmaps** settings in Umami. Their sample rates and replay duration are controlled
+there. The script only runs on `sgr.ski` and respects Do Not Track. `.rr-block`
+excludes quiz answer choices, results, and the workshop's live browser/network
+values from replays and heatmap clicks. Quiz navigation remains measurable.

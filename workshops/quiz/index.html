@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/assets/quiz.css">
 <script defer src="/assets/workshop-quiz.js"></script>
 <script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
+<script defer src="/assets/umami-recorder.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09"></script>
 </head>
 <body class="quiz-page">
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -73,7 +74,7 @@
         <fieldset class="quiz__fieldset" aria-describedby="quiz-hint quiz-error">
           <legend class="quiz__question" data-quiz-question tabindex="-1" aria-describedby="quiz-step"></legend>
           <p class="quiz__hint" id="quiz-hint" data-quiz-hint></p>
-          <div class="quiz__options" data-quiz-options></div>
+          <div class="quiz__options rr-block" data-quiz-options></div>
         </fieldset>
         <p class="quiz__error" id="quiz-error" role="alert"></p>
         <div class="quiz__actions">
@@ -81,7 +82,7 @@
           <button class="quiz__button quiz__button--primary" type="submit"><span data-quiz-next>Nächste Frage</span><span aria-hidden="true">→</span></button>
         </div>
       </form>
-      <div class="stack stack--24" data-quiz-result hidden>
+      <div class="stack stack--24 rr-block" data-quiz-result hidden>
         <div class="quiz__scoreline"><span>DEIN ERGEBNIS</span><span><strong class="quiz__score" data-quiz-score></strong><span class="quiz__score-unit" id="quiz-points" data-quiz-points></span></span></div>
         <h2 class="quiz__result-title" data-quiz-result-title tabindex="-1" aria-describedby="quiz-points"></h2>
         <p class="body-m" data-quiz-result-copy></p>
@@ -106,7 +107,7 @@
 <footer class="quiz-page__footer">
   <div class="wrap quiz-page__footer-inner">
     <a href="mailto:kolja@sagorski.org">kolja@sagorski.org</a>
-    <p>Keine Cookies · Anonyme Besuchsstatistik · <a href="/impressum/">Impressum</a></p>
+    <p>Keine Cookies · Besuchsstatistik · Heatmaps &amp; Sitzungsaufzeichnungen · <a href="/impressum/">Impressum</a></p>
   </div>
 </footer>
 </body>

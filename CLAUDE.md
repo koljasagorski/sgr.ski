@@ -85,6 +85,12 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   `connect-src` stehen, nie unter `script-src` — ein kompromittierter Umami-Server kann damit keinen
   Code auf sgr.ski ausführen. Bei Umami-Updates das Skript neu herunterladen. Texte, die
   „speichert nichts“ behaupten, sind deshalb angepasst — nicht zurückschreiben.
+  Heatmaps und Sitzungsaufzeichnungen sind seit 2026-09-30 ebenfalls gewünscht.
+  `assets/umami-recorder.js` wird lokal ausgeliefert, nach `umami.js` auf allen vier
+  Seiten. Update nur über `scripts/prepare-umami-recorder.py`: der Patch respektiert
+  DNT, beschränkt auf sgr.ski und lässt auch Heatmap-Klicks `.rr-block` ausnehmen.
+  Quiz-Antworten, Ergebnisse und `[data-bv]`/`[data-net]` tragen `.rr-block`; diese
+  Ausschlüsse erhalten. Die CSP braucht weiterhin keine fremde Script-Quelle.
 - **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
   am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
   wie patchletter.com/de/impressum, verlinkt im Footer von `/workshops`). Eine Datenschutzseite
