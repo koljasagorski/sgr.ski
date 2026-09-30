@@ -1,0 +1,29 @@
+# Response headers for every static asset (Cloudflare Workers static assets).
+# The page-specific CSP stays in each HTML <meta> tag (script hashes live
+# there, guarded by check-csp.py). This header CSP adds what a <meta> CSP
+# cannot express — frame-ancestors — and both policies are enforced.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'none'; form-action 'none'; object-src 'none'
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# Not fingerprinted, but effectively immutable: cache for a month.
+/assets/fonts/*
+  Cache-Control: public, max-age=2592000
+
+/assets/video/*
+  Cache-Control: public, max-age=604800
+
+/kolja-sagorski.asc
+  Content-Type: application/pgp-keys
+
+/workshops/index.md
+  Content-Type: text/markdown; charset=utf-8
+
+# Keep the workers.dev test URL out of search results.
+https://:subdomain.workers.dev/*
+  X-Robots-Tag: noindex

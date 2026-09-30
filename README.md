@@ -25,7 +25,10 @@ assets/og-workshops.png     1200×630 social card for /workshops (HTML-set, rend
 kolja-sagorski.asc          PGP public key, offered as a download
 llms.txt                    site summary for AI agents; workshops/index.md mirrors /workshops as Markdown
 .well-known/security.txt    RFC 9116
-.github/workflows/deploy.yml
+.github/workflows/check.yml  CI build check only (deploys happen on Cloudflare)
+scripts/build.sh            assembles the published allow-list into _site/
+wrangler.jsonc              Cloudflare Workers config (static assets)
+_headers                    security + cache headers for every response
 .github/scripts/check-csp.py
 ```
 
@@ -40,14 +43,16 @@ Open the file directly and the absolute `/assets/...` paths break — use the se
 
 ## Deployment
 
-Every push to `main` triggers `.github/workflows/deploy.yml`, which assembles the site into
-`_site/` (explicitly, so `.git/` and `.github/` never reach the web root) and publishes it to
-GitHub Pages.
+Hosted on **Cloudflare Workers** (static assets). Workers Builds is connected to this repo:
+every push to `main` is pulled by Cloudflare, which runs `npx wrangler deploy`. That runs
+`build.command` from `wrangler.jsonc` first — `scripts/build.sh` checks the CSP hashes and copies
+an explicit allow-list into `_site/`, so `.git/`, `design/` and stray files never reach the web
+root. `_headers` adds HSTS, `frame-ancestors`, `X-Frame-Options` and friends.
 
-DNS lives on Cloudflare and points straight at GitHub Pages — four A records, four AAAA
-records, `www` as a CNAME to `koljasagorski.github.io`. All of them are **DNS-only (grey
-cloud)**: proxying them through Cloudflare blocks GitHub's Let's Encrypt challenge and the
-certificate never issues.
+Deploy by hand, if ever needed: `npx wrangler deploy`.
+
+DNS lives on Cloudflare too. `sgr.ski` and `www.sgr.ski` are Worker custom domains; `www`
+redirects to the apex via a Cloudflare redirect rule, and "Always Use HTTPS" is on.
 
 ## Two things that will bite you
 

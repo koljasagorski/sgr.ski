@@ -1,0 +1,22 @@
+// sgr.ski — static site on Cloudflare Workers (static assets only, no script).
+// Workers Builds pulls this repo from GitHub on every push to main and runs
+// `npx wrangler deploy`, which first runs build.command to assemble _site/.
+// The Worker name in the dashboard must match "name" below.
+{
+  "name": "sgr-ski",
+  "compatibility_date": "2026-09-22",
+  "account_id": "9a562df9759b0d525872d399986f10ef",
+  "build": { "command": "sh scripts/build.sh" },
+  "assets": {
+    "directory": "./_site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  },
+  "routes": [
+    { "pattern": "sgr.ski", "custom_domain": true },
+    { "pattern": "www.sgr.ski", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": false }
+}

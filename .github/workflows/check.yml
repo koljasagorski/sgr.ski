@@ -1,0 +1,25 @@
+name: Check
+
+# The site is deployed by Cloudflare Workers Builds, which pulls this repo
+# on every push to main (see wrangler.jsonc). This workflow only verifies
+# that the build still assembles — CSP hash guard and publish allow-list —
+# so a broken commit is flagged on GitHub as well.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Assemble site (runs check-csp.py first)
+        run: sh scripts/build.sh

@@ -63,7 +63,7 @@ Description ~150. Das OG-Bild `assets/og-workshops.png` ist in HTML gesetzt (Sei
 Hell/Dunkel-Split wie im Hero) und mit Chrome gerendert — nicht KI-generiert, damit die Schrift
 exakt ist. Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector nutzen).
 
-KI-Lesbarkeit: `/llms.txt` (Allow-List!) und `workshops/index.md` als Markdown-Spiegel der
+KI-Lesbarkeit: `/llms.txt` (Allow-List in `scripts/build.sh`!) und `workshops/index.md` als Markdown-Spiegel der
 Workshop-Seite, verlinkt per `rel="alternate" type="text/markdown"`. **Inhaltliche Änderungen an
 `workshops/index.html` auch in `index.md` nachziehen** — sonst widersprechen sich die Fassungen.
 Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
@@ -85,16 +85,16 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   Originalton des Entwurfs und bleibt den dekorativen, `aria-hidden`-Pfeilen vorbehalten.
   Sichtbarer Text nutzt `--faint-text`, das WCAG AA (4.5:1) erfüllt. Text nie auf `--faint`
   umstellen — die Fußzeile lag damit bei 2.45:1.
-- Die Assemble-Stufe in `deploy.yml` ist eine **Allow-List**. Neue Dateien, die veröffentlicht
-  werden sollen, müssen dort eingetragen werden, sonst fehlen sie live. Eine Deny-List wäre
-  gefährlicher: dann landet jede Streudatei im Web-Root.
-- `frame-ancestors` gehört nicht in die Meta-CSP: Browser ignorieren es dort und loggen einen
-  Fehler. GitHub Pages kann keine HTTP-Header setzen, echter Clickjacking-Schutz ist damit nicht
-  möglich.
+- `scripts/build.sh` ist eine **Allow-List**. Neue Dateien, die veröffentlicht werden sollen,
+  müssen dort eingetragen werden, sonst fehlen sie live. Eine Deny-List wäre gefährlicher: dann
+  landet jede Streudatei (auch `design/`) im Web-Root.
+- `frame-ancestors` gehört nicht in die Meta-CSP (Browser ignorieren es dort). Es steht im
+  HTTP-Header in `_headers`, zusammen mit HSTS, `X-Frame-Options` usw. Beide CSPs (Header + Meta)
+  gelten gleichzeitig; seitenspezifisches (Script-Hashes) bleibt im Meta-Tag.
 
 ## DNS-Härtung (Stand 2026-09-29)
 
-DNSSEC aktiv. CAA: `issue letsencrypt.org` (GitHub Pages) + `pki.goog` (Cloudflare) + `iodef
+DNSSEC aktiv. CAA: `issue letsencrypt.org` + `pki.goog` (Cloudflare) + `iodef
 mailto:kolja@sagorski.org`; Cloudflare hängt für eigene Zertifikate automatisch weitere CAs an.
 Mail: SPF `-all`, DMARC `p=quarantine` (Reports an Cloudflare DMARC Management). MTA-STS im Modus
 `testing` über `mta-sts-worker/` (mta-sts.sgr.ski), TLS-RPT an kolja@sagorski.org. Nach ein paar
@@ -109,5 +109,10 @@ vollständig im Kreis. Bei Neu-Erzeugung diesen Ausschnitt beibehalten.
 
 ## Infrastruktur
 
-DNS auf Cloudflare, Hosting GitHub Pages — Details und die unantastbaren iCloud-Mail-Records
-stehen im Session-Memory unter `sgr-ski-dns-hosting`.
+Hosting seit 2026-09-30 auf **Cloudflare Workers** (reine Static Assets, kein Script), Worker
+`sgr-ski`, Konfiguration in `wrangler.jsonc`. **Workers Builds zieht das Repo bei jedem Push auf
+`main`** und führt `npx wrangler deploy` aus; das startet vorher `build.command`
+(`sh scripts/build.sh` → CSP-Check + Allow-List nach `_site/`). GitHub Pages ist abgeschaltet;
+`.github/workflows/check.yml` baut nur noch zur Kontrolle mit, deployt nichts. `www` leitet per
+Cloudflare-Redirect-Regel (301) auf die Apex-Domain, „Always Use HTTPS“ an, TLS ≥ 1.2.
+DNS-Details und die unantastbaren iCloud-Mail-Records im Session-Memory `sgr-ski-dns-hosting`.
