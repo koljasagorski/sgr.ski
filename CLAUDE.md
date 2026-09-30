@@ -115,4 +115,13 @@ Hosting seit 2026-09-30 auf **Cloudflare Workers** (reine Static Assets, kein Sc
 (`sh scripts/build.sh` → CSP-Check + Allow-List nach `_site/`). GitHub Pages ist abgeschaltet;
 `.github/workflows/check.yml` baut nur noch zur Kontrolle mit, deployt nichts. `www` leitet per
 Cloudflare-Redirect-Regel (301) auf die Apex-Domain, „Always Use HTTPS“ an, TLS ≥ 1.2.
+Zonen-Einstellungen (2026-09-30): SSL „Full (strict)“, TLS ≥ 1.2, HSTS zonenweit (1 Jahr,
+includeSubDomains, nosniff; **kein** preload), Browser-Cache-TTL „Respect existing headers“ (0),
+Cloudflare Managed Free Ruleset (WAF) aktiv, Rate-Limit 30 Req/10 s pro IP auf `ip.sgr.ski`
+(die einzige Free-Regel; ersetzte das für diese Seite wirkungslose „Leaked credential check“).
+**Bewusst aus — nicht wieder einschalten:** Web Analytics (fügt Inline-Skript + Beacon eines
+Dritten ein), Bot Fight Mode (JS-Erkennung kollidiert mit der CSP und würde echte Besucher als Bots
+werten), Email Obfuscation (bräuchte ein Skript, das die CSP blockt → kaputte mailto-Links),
+Cloudflare-verwaltete robots.txt. Nach Änderungen an Zonen-Features immer im Browser auf
+eingefügte Skripte prüfen (Konsole: CSP-Verstöße).
 DNS-Details und die unantastbaren iCloud-Mail-Records im Session-Memory `sgr-ski-dns-hosting`.
