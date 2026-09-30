@@ -11,7 +11,7 @@
 <link rel="canonical" href="https://sgr.ski/workshops/">
 <link rel="alternate" type="text/markdown" href="/workshops/index.md" title="Markdown-Fassung">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-QF8tYRzMBJtaRiruP70VRMo7QeXhNmVphpY5jywA4JQ='; font-src 'self'; media-src 'self'; connect-src https://ip.sgr.ski; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-QF8tYRzMBJtaRiruP70VRMo7QeXhNmVphpY5jywA4JQ=' https://umami.patchletter.com; font-src 'self'; media-src 'self'; connect-src https://ip.sgr.ski https://umami.patchletter.com; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="website">
@@ -35,6 +35,7 @@
 <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/workshops.css">
 <script src="/assets/workshops.js"></script>
+<script defer src="https://umami.patchletter.com/script.js" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
 
 <script type="application/ld+json">
 {
@@ -362,7 +363,7 @@
         </div>
         <div class="talk__text">
           <p>Schon ein gewöhnlicher Seitenaufruf kann mehr Informationen preisgeben, als vielen Menschen bewusst ist.</p>
-          <p class="talk__small">IP, Provider, Standort und Verbindung sieht jeder Server, den du aufrufst. Hier meldet sie ip.sgr.ski zurück. Alles andere liest dein Browser selbst aus. Nichts davon wird gespeichert oder ausgewertet.</p>
+          <p class="talk__small">IP, Provider, Standort und Verbindung sieht jeder Server, den du aufrufst. Hier meldet sie ip.sgr.ski zurück. Alles andere liest dein Browser selbst aus und wird hier nicht gespeichert. Die Besuchsstatistik (Umami, ohne Cookies, auf eigenem Server) erfasst nur grobe Werte wie Browser, System und Land, keine IP-Adresse.</p>
         </div>
       </div>
     </div>
@@ -568,7 +569,7 @@
         <li><a class="row-link" href="/kolja-sagorski.asc" download type="application/pgp-keys"><span>PGP verfügbar · 0x5EFB194EAD8BC39F<span class="sr-only"> — Public Key herunterladen</span></span><span class="row-link__arrow" aria-hidden="true">↓</span></a></li>
       </ul>
     </div>
-    <p class="closing__foot"><span>SGR.SKI — WORKSHOPS</span><span>DIESE SEITE SPEICHERT NICHTS. · <a href="/impressum/">IMPRESSUM</a></span></p>
+    <p class="closing__foot"><span>SGR.SKI — WORKSHOPS</span><span>KEINE COOKIES · ANONYME BESUCHSSTATISTIK · <a href="/impressum/">IMPRESSUM</a></span></p>
   </div>
 </section>
 

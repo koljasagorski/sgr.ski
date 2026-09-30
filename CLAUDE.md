@@ -76,7 +76,12 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   geändert, muss dessen Hash neu — `python3 .github/scripts/check-csp.py` gibt den korrekten Wert aus
   und lässt sonst den Build fehlschlagen.
 - **Fonts bleiben selbst gehostet.** Kein Google-Fonts-CDN (DSGVO) und keine weiteren
-  Dritt-Requests.
+  Dritt-Requests. **Ausnahmen, beide auf eigener Infrastruktur des Betreibers:** `ip.sgr.ski`
+  (siehe Workshops) und die Besuchsstatistik **Umami** (`umami.patchletter.com`, Website-ID
+  `a9dbeae1-3e8d-4a32-9c86-647bfbb62c09`, auf Wunsch des Betreibers seit 2026-09-30) auf allen
+  drei Seiten — cookielos, mit `data-domains="sgr.ski"`, `data-do-not-track`,
+  `data-exclude-search`; in jeder CSP unter `script-src` und `connect-src` freigegeben. Texte, die
+  „speichert nichts“ behaupten, sind deshalb angepasst — nicht zurückschreiben.
 - **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
   am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
   wie patchletter.com/de/impressum, verlinkt im Footer von `/workshops`). Eine Datenschutzseite
