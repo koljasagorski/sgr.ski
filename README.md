@@ -14,6 +14,7 @@ assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
 assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing film
+assets/workshop-quiz.js     /workshops: 10-question self-check, local scoring and email contact
 assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1 + H.264, no audio, no metadata
 assets/video/talk*          /workshops Formate background band (Kling 3 Pro via ElevenLabs): blurred, slowed, ping-pong loop
 mta-sts-worker/             Cloudflare Worker for mta-sts.sgr.ski (MTA-STS policy, RFC 8461); deployed with wrangler

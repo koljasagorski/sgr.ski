@@ -35,6 +35,7 @@
 <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/workshops.css">
 <script src="/assets/workshops.js"></script>
+<script defer src="/assets/workshop-quiz.js"></script>
 <script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
 
 <script type="application/ld+json">
@@ -553,6 +554,60 @@
     <div class="stack stack--20">
       <p class="about__tagline">20+ Jahre auf beiden Seiten der Firewall.</p>
       <p class="about__fields">Cyber Security · Offensive Security · Defensive Security · Operational Security · Privacy · Infrastructure Security</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Sicherheitscheck ────────────────────────────────────────────────────── -->
+<section class="section quiz" id="sicherheitscheck" aria-labelledby="quiz-title">
+  <div class="wrap split split--start">
+    <div class="stack stack--24">
+      <h2 class="h2" id="quiz-title">BRAUCHST DU<br>EINEN WORKSHOP?</h2>
+      <p class="body-l">Zehn Fragen zu deinem digitalen Alltag. Finde heraus, wo du und dein Team gut aufgestellt seid und wo sich ein genauerer Blick lohnt.</p>
+      <p class="quiz__meta">10 Fragen · ca. 3 Minuten · 0–100 Punkte</p>
+      <p class="body-m muted">Antworte so, wie ihr tatsächlich arbeitet. Was nur bei dir, aber noch nicht im ganzen Team funktioniert, zählt als teilweise umgesetzt. Arbeitest du allein, beziehe die Fragen auf dich.</p>
+      <p class="quiz__privacy">Deine Antworten bleiben in diesem Browser und werden weder gespeichert noch übertragen.</p>
+    </div>
+    <div class="quiz__panel" data-quiz>
+      <div class="stack stack--24" data-quiz-intro>
+        <h3 class="h3">WIE SICHER IST EUER ALLTAG?</h3>
+        <p class="body-m">Es geht um Routinen, nicht um Fachbegriffe. Auch „weiß ich nicht“ ist eine hilfreiche Antwort.</p>
+        <p class="quiz__meta">Pro Frage: 10 Punkte für konsequenten Schutz, 5 für teilweise Umsetzung, 0 für fehlenden oder unbekannten Schutz.</p>
+        <button class="quiz__button quiz__button--primary" type="button" data-quiz-start hidden><span>Quiz starten</span><span aria-hidden="true">→</span></button>
+        <p class="body-m" data-quiz-fallback>Für das interaktive Quiz brauchst du JavaScript. Du kannst auch direkt <a href="mailto:kolja@sagorski.org?subject=Workshop-Anfrage">einen Workshop anfragen</a>.</p>
+      </div>
+      <form class="quiz__form" data-quiz-form aria-label="Selbstcheck zur digitalen Sicherheit" novalidate hidden>
+        <div class="quiz__status"><span id="quiz-step" data-quiz-step>Frage 01 von 10</span><span data-quiz-topic></span></div>
+        <progress class="quiz__progress" data-quiz-progress max="10" value="0" aria-label="Beantwortete Fragen"></progress>
+        <fieldset class="quiz__fieldset" aria-describedby="quiz-hint quiz-error">
+          <legend class="quiz__question" data-quiz-question tabindex="-1" aria-describedby="quiz-step"></legend>
+          <p class="quiz__hint" id="quiz-hint" data-quiz-hint></p>
+          <div class="quiz__options" data-quiz-options></div>
+        </fieldset>
+        <p class="quiz__error" id="quiz-error" role="alert"></p>
+        <div class="quiz__actions">
+          <button class="quiz__button" type="button" data-quiz-back>← Zurück</button>
+          <button class="quiz__button quiz__button--primary" type="submit"><span data-quiz-next>Nächste Frage</span><span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <div class="stack stack--24" data-quiz-result hidden>
+        <div class="quiz__scoreline"><span>DEIN ERGEBNIS</span><span><strong class="quiz__score" data-quiz-score></strong><span class="quiz__score-unit" id="quiz-points" data-quiz-points></span></span></div>
+        <h3 class="quiz__result-title" data-quiz-result-title tabindex="-1" aria-describedby="quiz-points"></h3>
+        <p class="body-m" data-quiz-result-copy></p>
+        <div class="stack stack--12" data-quiz-priorities>
+          <h4 class="quiz__priorities-title">Hier lohnt es sich anzusetzen:</h4>
+          <ul class="quiz__priorities" data-quiz-priority-list></ul>
+        </div>
+        <p class="quiz__meta">Der Score beruht auf deinen Antworten. Er ist eine Selbsteinschätzung, kein technischer Sicherheitstest.</p>
+        <div class="quiz__contact stack stack--12">
+          <p class="body-m" data-quiz-contact-copy></p>
+          <a class="quiz__button quiz__button--primary" href="mailto:kolja@sagorski.org?subject=Workshop-Anfrage" data-quiz-contact><span>kolja@sagorski.org</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="quiz__actions quiz__actions--secondary">
+          <button class="quiz__text-button" type="button" data-quiz-review>Antworten prüfen</button>
+          <button class="quiz__text-button" type="button" data-quiz-restart>Quiz wiederholen</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
