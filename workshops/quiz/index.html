@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbfbfa">
+<title>Wie sicher ist dein digitaler Alltag? Quiz · sgr.ski</title>
+<meta name="description" content="10 Fragen, 3 Minuten: Teste die digitale Sicherheit von dir und deinem Team. Erhalte deinen Score, konkrete Empfehlungen und finde heraus, ob ein Workshop hilft.">
+<meta name="author" content="Kolja Sagorski">
+<link rel="canonical" href="https://sgr.ski/workshops/quiz/">
+<link rel="alternate" type="text/markdown" href="/workshops/quiz/index.md" title="Markdown-Fassung">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src https://umami.patchletter.com; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sgr.ski">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Wie sicher ist dein digitaler Alltag?">
+<meta property="og:description" content="10 Fragen. 3 Minuten. Teste dich und dein Team: Wie gut seid ihr digital geschützt, und braucht ihr einen Workshop?">
+<meta property="og:url" content="https://sgr.ski/workshops/quiz/">
+<meta property="og:image" content="https://sgr.ski/assets/og-quiz.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wie sicher ist dein digitaler Alltag? 10 Fragen, 3 Minuten. Teste dich und dein Team auf sgr.ski/workshops/quiz. Kolja Sagorski.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Wie sicher ist dein digitaler Alltag?">
+<meta name="twitter:description" content="10 Fragen. 3 Minuten. Teste die digitale Sicherheit von dir und deinem Team.">
+<meta name="twitter:image" content="https://sgr.ski/assets/og-quiz.png">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/workshops.css">
+<link rel="stylesheet" href="/assets/quiz.css">
+<script defer src="/assets/workshop-quiz.js"></script>
+<script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
+</head>
+<body class="quiz-page">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="quiz-page__header">
+  <div class="wrap quiz-page__top">
+    <a class="quiz-page__identity" href="/">
+      <img src="/assets/avatar.webp" alt="" width="40" height="40">
+      <span>Kolja Sagorski<span class="quiz-page__role">Certified IT Security Analyst</span></span>
+    </a>
+    <a class="quiz-page__workshops" href="/workshops/">Workshops <span aria-hidden="true">→</span></a>
+  </div>
+</header>
+<main id="main">
+<section class="quiz quiz-page__main" aria-labelledby="quiz-title">
+  <div class="wrap split split--start">
+    <div class="stack stack--24">
+      <h1 class="h2 quiz-page__title" id="quiz-title">WIE SICHER IST DEIN DIGITALER ALLTAG?</h1>
+      <p class="body-l">Teste, wie gut du und dein Team geschützt seid. Zehn Fragen zu euren Routinen zeigen, wo ihr gut aufgestellt seid und wo ein Workshop helfen kann.</p>
+      <p class="quiz__meta">10 Fragen · ca. 3 Minuten · 0–100 Punkte</p>
+      <details class="quiz-page__instructions">
+        <summary>So beantwortest du die Fragen</summary>
+        <p>Antworte so, wie ihr tatsächlich arbeitet. Was nur bei dir, aber noch nicht im ganzen Team funktioniert, zählt als teilweise umgesetzt. Arbeitest du allein, beziehe die Fragen auf dich.</p>
+      </details>
+      <p class="quiz__privacy">Deine Antworten bleiben in diesem Browser und werden weder gespeichert noch übertragen.</p>
+    </div>
+    <div class="quiz__panel" data-quiz>
+      <div class="stack stack--24" data-quiz-intro>
+        <h2 class="h3">BRAUCHST DU EINEN WORKSHOP?</h2>
+        <p class="body-m">Es geht um Routinen, nicht um Fachbegriffe. Auch „weiß ich nicht“ ist eine hilfreiche Antwort.</p>
+        <p class="quiz__meta">Pro Frage: 10 Punkte für konsequenten Schutz, 5 für teilweise Umsetzung, 0 für fehlenden oder unbekannten Schutz.</p>
+        <button class="quiz__button quiz__button--primary" type="button" data-quiz-start hidden><span>Quiz starten</span><span aria-hidden="true">→</span></button>
+        <p class="body-m" data-quiz-fallback>Für das interaktive Quiz brauchst du JavaScript. Du kannst auch direkt <a href="mailto:kolja@sagorski.org?subject=Workshop-Anfrage">einen Workshop anfragen</a>.</p>
+      </div>
+      <form class="quiz__form" data-quiz-form aria-label="Selbstcheck zur digitalen Sicherheit" novalidate hidden>
+        <div class="quiz__status"><span id="quiz-step" data-quiz-step>Frage 01 von 10</span><span data-quiz-topic></span></div>
+        <progress class="quiz__progress" data-quiz-progress max="10" value="0" aria-label="Beantwortete Fragen"></progress>
+        <fieldset class="quiz__fieldset" aria-describedby="quiz-hint quiz-error">
+          <legend class="quiz__question" data-quiz-question tabindex="-1" aria-describedby="quiz-step"></legend>
+          <p class="quiz__hint" id="quiz-hint" data-quiz-hint></p>
+          <div class="quiz__options" data-quiz-options></div>
+        </fieldset>
+        <p class="quiz__error" id="quiz-error" role="alert"></p>
+        <div class="quiz__actions">
+          <button class="quiz__button" type="button" data-quiz-back>← Zurück</button>
+          <button class="quiz__button quiz__button--primary" type="submit"><span data-quiz-next>Nächste Frage</span><span aria-hidden="true">→</span></button>
+        </div>
+      </form>
+      <div class="stack stack--24" data-quiz-result hidden>
+        <div class="quiz__scoreline"><span>DEIN ERGEBNIS</span><span><strong class="quiz__score" data-quiz-score></strong><span class="quiz__score-unit" id="quiz-points" data-quiz-points></span></span></div>
+        <h2 class="quiz__result-title" data-quiz-result-title tabindex="-1" aria-describedby="quiz-points"></h2>
+        <p class="body-m" data-quiz-result-copy></p>
+        <div class="stack stack--12" data-quiz-priorities>
+          <h3 class="quiz__priorities-title">Hier lohnt es sich anzusetzen:</h3>
+          <ul class="quiz__priorities" data-quiz-priority-list></ul>
+        </div>
+        <p class="quiz__meta">Der Score beruht auf deinen Antworten. Er ist eine Selbsteinschätzung, kein technischer Sicherheitstest.</p>
+        <div class="quiz__contact stack stack--12">
+          <p class="body-m" data-quiz-contact-copy></p>
+          <a class="quiz__button quiz__button--primary" href="mailto:kolja@sagorski.org?subject=Workshop-Anfrage" data-quiz-contact><span>kolja@sagorski.org</span><span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="quiz__actions quiz__actions--secondary">
+          <button class="quiz__text-button" type="button" data-quiz-review>Antworten prüfen</button>
+          <button class="quiz__text-button" type="button" data-quiz-restart>Quiz wiederholen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="quiz-page__footer">
+  <div class="wrap quiz-page__footer-inner">
+    <a href="mailto:kolja@sagorski.org">kolja@sagorski.org</a>
+    <p>Keine Cookies · Anonyme Besuchsstatistik · <a href="/impressum/">Impressum</a></p>
+  </div>
+</footer>
+</body>
+</html>

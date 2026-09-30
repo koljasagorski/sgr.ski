@@ -24,6 +24,9 @@
 /workshops/index.md
   Content-Type: text/markdown; charset=utf-8
 
+/workshops/quiz/index.md
+  Content-Type: text/markdown; charset=utf-8
+
 # Keep the workers.dev test URL out of search results.
 https://:subdomain.workers.dev/*
   X-Robots-Tag: noindex

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Render this local source at 1200 × 630, device scale 1, after document.fonts.ready.
+     Only the resulting assets/og-quiz.png is published by scripts/build.sh. -->
+<html lang="de">
+<meta charset="utf-8">
+<title>Quiz · Social Preview</title>
+<style>
+@font-face { font-family: Mono; src: url('../assets/fonts/jetbrains-mono-latin.woff2') format('woff2'); font-weight: 100 800; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 1200px; height: 630px; display: grid; grid-template-columns: 760px 440px; font-family: Mono, monospace; background: #fbfbfa; color: #1a1a19; }
+.main { padding: 48px 52px; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 16px; font-size: 18px; }
+.brand img { width: 44px; height: 44px; border-radius: 50%; }
+h1 { font-size: 58px; font-weight: 700; line-height: 1.15; letter-spacing: -.035em; margin: 55px 0 24px; }
+.invitation { font-size: 21px; margin: 0; }
+.url { font-size: 22px; margin-top: auto; }
+.side { padding: 50px 42px; display: flex; flex-direction: column; background: #0e1013; color: #e8eaec; border-left: 1px solid #8a978f; }
+.label { font-size: 16px; letter-spacing: .06em; }
+.number { font-size: 180px; font-weight: 700; line-height: 1; letter-spacing: -.04em; margin: 50px 0 0; }
+.questions { font-size: 42px; font-weight: 300; margin: 0 0 30px; }
+.time { font-size: 22px; padding-top: 20px; border-top: 1px solid #5a616a; }
+.note { font-size: 18px; line-height: 1.6; margin-top: auto; color: #b9bdc1; }
+</style>
+<div class="main">
+  <div class="brand"><img src="../assets/avatar.webp" alt="">Kolja Sagorski</div>
+  <h1>WIE SICHER IST<br>DEIN DIGITALER<br>ALLTAG?</h1>
+  <p class="invitation">Teste dich und dein Team.</p>
+  <div class="url">sgr.ski/workshops/quiz ↗</div>
+</div>
+<div class="side">
+  <div class="label">DIGITALE SICHERHEIT</div>
+  <div class="number">10</div>
+  <div class="questions">FRAGEN.</div>
+  <div class="time">3 Minuten.</div>
+  <div class="note">Dein Score.<br>Deine nächsten Schritte.</div>
+</div>
+</html>

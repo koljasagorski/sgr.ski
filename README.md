@@ -10,11 +10,13 @@ Live at **https://sgr.ski**
 ```
 index.html                  the page
 workshops/index.html        /workshops — German workshop page ("Beide Seiten der Firewall")
+workshops/quiz/index.html   /workshops/quiz — standalone quiz for sharing; index.md mirrors its content
+assets/quiz.css             standalone quiz page layout; reuses workshop styles and quiz logic
 assets/styles.css           all styling; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch, render-blocking in <head>
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
 assets/workshops.js         /workshops: draggable firewall line, scroll stages, phishing film
-assets/workshop-quiz.js     /workshops: 10-question self-check, local scoring and email contact
+assets/workshop-quiz.js     /workshops and /workshops/quiz: shared 10-question self-check, scoring and email contact
 assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1 + H.264, no audio, no metadata
 assets/video/talk*          /workshops Formate background band (Kling 3 Pro via ElevenLabs): blurred, slowed, ping-pong loop
 mta-sts-worker/             Cloudflare Worker for mta-sts.sgr.ski (MTA-STS policy, RFC 8461); deployed with wrangler
@@ -23,6 +25,7 @@ assets/fonts/*.woff2        JetBrains Mono, self-hosted (variable, weight axis 1
 assets/avatar.webp          224px source, rendered at 56px
 assets/og.png               1200×630 social card
 assets/og-workshops.png     1200×630 social card for /workshops (HTML-set, rendered with Chrome)
+assets/og-quiz.png          1200×630 social card for /workshops/quiz (source: scripts/quiz-social.html)
 kolja-sagorski.asc          PGP public key, offered as a download
 llms.txt                    site summary for AI agents; workshops/index.md mirrors /workshops as Markdown
 .well-known/security.txt    RFC 9116

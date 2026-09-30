@@ -1,0 +1,25 @@
+/* Eigenständiger Einstieg für geteilte Quiz-Links; das Quiz selbst nutzt
+   workshops.css und workshop-quiz.js gemeinsam mit der Workshop-Seite. */
+.quiz-page { min-height: 100svh; display: flex; flex-direction: column; }
+.quiz-page > main { flex: 1; }
+.quiz-page__header { padding: 28px var(--pad-x); }
+.quiz-page__top { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.quiz-page__identity { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 500; }
+.quiz-page__identity img { border-radius: 50%; flex: 0 0 40px; }
+.quiz-page__role { display: block; font-size: 11px; font-weight: 400; color: var(--muted); }
+.quiz-page__workshops { padding-block: 12px; font-size: 13px; white-space: nowrap; }
+.quiz-page__main { border: 0; padding: clamp(32px, 7vh, 80px) var(--pad-x) clamp(56px, 10vh, 120px); }
+.quiz-page__title { font-size: clamp(30px, 4.2vw, 56px); }
+.quiz-page__instructions { font-size: 13px; line-height: 1.7; }
+.quiz-page__instructions summary { padding-block: 10px; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.quiz-page__instructions summary:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.quiz-page__instructions p { padding-top: 12px; color: var(--muted); }
+.quiz-page__footer { padding: 24px var(--pad-x); border-top: 1px solid var(--rule); }
+.quiz-page__footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px 32px; font-size: 11px; line-height: 1.8; color: var(--muted); }
+@media (max-width: 560px) {
+  .quiz-page__header { padding-block: 20px; }
+  .quiz-page__identity { gap: 8px; font-size: 12px; }
+  .quiz-page__role { display: none; }
+  .quiz-page__main > .split { gap: 32px; }
+  .quiz-page__main > .split > .stack { gap: 16px; }
+}

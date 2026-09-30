@@ -7,6 +7,7 @@
 - [Home](https://sgr.ski/): Profile and contact — LinkedIn, e-mail, PGP key.
 - [Workshops Digitale Selbstverteidigung & OPSEC](https://sgr.ski/workshops/): Workshops and talks (German). Markdown version: [workshops/index.md](https://sgr.ski/workshops/index.md)
 - [Impressum](https://sgr.ski/impressum/): Legal notice (German).
+- [Digital security quiz](https://sgr.ski/workshops/quiz/): Ten-question self-assessment (German), local 0–100 score, recommendations and workshop contact. Markdown version: [workshops/quiz/index.md](https://sgr.ski/workshops/quiz/index.md)
 
 ## Workshop facts
 
