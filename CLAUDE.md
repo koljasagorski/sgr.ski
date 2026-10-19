@@ -8,9 +8,23 @@ Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 Für dieses Repo existiert **kein** Linear-Projekt (Stand 2026-08-30, Team `KOL` geprüft). Falls
 substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde.
 
-## Design-Herkunft
+## Startseite: fünf Designs (seit 2026-10-19)
 
-Die Seite setzt Variante **1d „Status Page"** aus dem Claude-Design-Projekt
+`index.html` hat fünf Designs, pro Besuch zufällig (nie dasselbe wie zuletzt, `localStorage`
+`sgr.theme.last`; `?theme=1a|1b|1c|2a|2b` erzwingt eins; ohne JS 1a): Terminal, Blue/Red Team,
+Hexdump, PGP-Key-Block, Nmap-Report. Vorlage: `handoff/CLAUDE_CODE_PROMPT.md` +
+`handoff/sgr.ski Redesign.dc.html`. Ein semantisches Gerüst, Design per `data-theme` auf `<html>`;
+Dekotext ist `aria-hidden` und nur im jeweiligen Design sichtbar. `assets/home.js` läuft
+render-blockierend im `<head>` (kein Inline-Script wegen CSP), `assets/home.css` trägt alle Designs.
+Die CSP braucht dafür `connect-src 'self'` (2a lädt `/kolja-sagorski.asc` als Hintergrund).
+Die Links Workshops und paste. bleiben zusätzlich zu den Handoff-Links erhalten. Der alte
+Hell/Dunkel-Schalter (`theme.js`, `styles.css`) gilt nur noch für `/impressum`.
+Offen: `avatar.webp` ist 224 px und wird in 1c/2b groß hochskaliert; das Original
+(`~/Desktop/ich hacker.png`) fehlt — bei Neuexport ein ~800-px-Portrait ablegen.
+
+## Design-Herkunft (alter Stand, Variante 1d)
+
+Die Seite setzte Variante **1d „Status Page"** aus dem Claude-Design-Projekt
 `21986e11-b920-40b9-94b3-94a5c0a84351` (`Website Entwürfe.dc.html`) um. Das Canvas enthält vier
 Varianten — 1a Terminal, 1b Swiss Print, 1c Dossier, 1d Status Page. Die Dark-Theme-Palette ist
 aus 1c abgeleitet, bleibt also innerhalb desselben Entwurfs-Systems.

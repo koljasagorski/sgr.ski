@@ -12,8 +12,10 @@ index.html                  the page
 workshops/index.html        /workshops — German workshop page ("Beide Seiten der Firewall")
 workshops/quiz/index.html   /workshops/quiz — standalone quiz for sharing; index.md mirrors its content
 assets/quiz.css             standalone quiz page layout; reuses workshop styles and quiz logic
-assets/styles.css           all styling; light + dark via CSS custom properties
-assets/theme.js             three-state theme switch, render-blocking in <head>
+assets/styles.css           styling for /impressum; light + dark via CSS custom properties
+assets/theme.js             three-state theme switch for /impressum, render-blocking in <head>
+assets/home.css             home page: five designs (data-theme 1a|1b|1c|2a|2b)
+assets/home.js              home page: random design per visit, ?theme= override, hexdump + key backdrop
 assets/umami.js             self-hosted visit tracker for umami.patchletter.com
 assets/umami-recorder.js    self-hosted heatmaps and session replays; honors DNT and rr-block exclusions
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch

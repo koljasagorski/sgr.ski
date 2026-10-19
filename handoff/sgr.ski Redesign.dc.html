@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1a1b1e;color:#ddd;font-family:'JetBrains Mono',monospace}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+</style>
+</helmet>
+<section style="padding:64px 64px 0;display:flex;flex-direction:column;gap:32px">
+<div style="font-size:13px;letter-spacing:.12em;color:#888">RUNDE 2 — ZWEI NEUE ALTERNATIVEN</div>
+<div style="display:flex;flex-wrap:wrap;gap:56px">
+
+<!-- 2a PGP KEY BLOCK -->
+<div id="2a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center"><span style="background:#b18cff;color:#000;font-weight:700;padding:4px 10px;font-size:14px">2a</span><span style="font-size:14px;color:#aaa">PGP Key Block</span></div>
+<div data-screen-label="2a PGP" style="width:1200px;height:760px;background:#0f0e13;color:#e6e3ee;font-family:'JetBrains Mono',monospace;position:relative;overflow:hidden">
+<div style="position:absolute;inset:0;padding:40px 48px;font-size:15px;line-height:1.6;color:#2a2733;word-break:break-all;display:flex;flex-direction:column">
+<span style="color:#5b5470">-----BEGIN PGP PUBLIC KEY BLOCK-----</span>
+<span>{{ keyBlock }}</span>
+<span style="margin-top:auto;color:#5b5470">-----END PGP PUBLIC KEY BLOCK-----</span>
+</div>
+<div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:820px;background:#0f0e13;border:1px solid #3a3450;display:grid;grid-template-columns:300px minmax(0,1fr)">
+<img src="https://sgr.ski/assets/avatar.webp" alt="Portrait of Kolja Sagorski, split down the middle" style="width:300px;height:100%;min-height:380px;object-fit:cover;display:block">
+<div style="padding:36px 36px 28px;display:flex;flex-direction:column;gap:18px">
+<div style="font-size:12px;letter-spacing:.14em;color:#b18cff">uid [ultimate]</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="font-family:'Space Grotesk',sans-serif;font-size:44px;font-weight:700;letter-spacing:-.02em;line-height:1">Kolja Sagorski</div>
+<div style="font-size:14px;color:#8d86a3">Certified IT Security Analyst</div>
+</div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:26px;line-height:1.2;color:#b18cff;text-wrap:pretty">20+ years on both sides of the firewall.</div>
+<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;border-top:1px solid #2a2733;padding-top:16px;margin-top:auto">
+<div style="display:flex;gap:16px"><span style="color:#5b5470;width:44px">mail</span><a href="mailto:kolja@sagorski.org">kolja@sagorski.org</a></div>
+<div style="display:flex;gap:16px"><span style="color:#5b5470;width:44px">web</span><a href="https://www.linkedin.com/in/koljasagorski/" target="_blank">linkedin.com/in/koljasagorski ↗</a></div>
+<div style="display:flex;gap:16px"><span style="color:#5b5470;width:44px">key</span><a href="https://sgr.ski/kolja-sagorski.asc" style="color:#b18cff">5EFB 194E AD8B C39F ↓</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 2b NMAP SCAN -->
+<div id="2b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center"><span style="background:#ff4fd8;color:#000;font-weight:700;padding:4px 10px;font-size:14px">2b</span><span style="font-size:14px;color:#aaa">Nmap Scan Report</span></div>
+<div data-screen-label="2b Nmap" style="width:1200px;height:760px;background:#08080a;color:#d8d8de;font-family:'JetBrains Mono',monospace;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 440px">
+<div style="padding:48px 56px;display:flex;flex-direction:column;gap:28px">
+<div style="font-size:14px;color:#6b6b78">$ nmap -sV --script=whoami sgr.ski</div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div style="font-size:13px;color:#6b6b78">Nmap scan report for sgr.ski (127.0.0.1)</div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:96px;font-weight:700;line-height:.9;letter-spacing:-.04em;color:#f4f4f8;text-shadow:-3px 0 #00e5ff, 3px 0 #ff4fd8">Kolja<br>Sagorski</div>
+<div style="font-size:15px;color:#9a9aa8">Service Info: Certified IT Security Analyst</div>
+</div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:32px;line-height:1.15;color:#f4f4f8;max-width:560px;text-wrap:pretty">20+ years on both sides of the firewall.</div>
+<div style="display:flex;flex-direction:column;font-size:14px;margin-top:auto">
+<div style="display:grid;grid-template-columns:110px 80px 90px 1fr;padding:8px 0;color:#6b6b78;border-bottom:1px solid #222"><span>PORT</span><span>STATE</span><span>SERVICE</span><span>VERSION</span></div>
+<a href="https://www.linkedin.com/in/koljasagorski/" target="_blank" style="display:grid;grid-template-columns:110px 80px 90px 1fr;padding:10px 0;border-bottom:1px solid #161618" style-hover="background:#141418"><span>443/tcp</span><span style="color:#00e5ff">open</span><span>https</span><span>linkedin.com/in/koljasagorski ↗</span></a>
+<a href="mailto:kolja@sagorski.org" style="display:grid;grid-template-columns:110px 80px 90px 1fr;padding:10px 0;border-bottom:1px solid #161618" style-hover="background:#141418"><span>25/tcp</span><span style="color:#00e5ff">open</span><span>smtp</span><span>kolja@sagorski.org</span></a>
+<a href="https://sgr.ski/kolja-sagorski.asc" style="display:grid;grid-template-columns:110px 80px 90px 1fr;padding:10px 0;border-bottom:1px solid #161618" style-hover="background:#141418"><span>11371/tcp</span><span style="color:#00e5ff">open</span><span>hkp</span><span>pgp 0x5EFB194EAD8BC39F</span></a>
+</div>
+<div style="font-size:12px;color:#6b6b78">Nmap done: 1 IP address (1 host up) — SGR.SKI — LOCALHOST</div>
+</div>
+<div style="position:relative;overflow:hidden">
+<img src="https://sgr.ski/assets/avatar.webp" alt="Portrait of Kolja Sagorski, split down the middle" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+<div style="position:absolute;top:0;bottom:0;left:50%;width:2px;background:#ff4fd8;box-shadow:0 0 12px #ff4fd8"></div>
+<div style="position:absolute;top:20px;left:20px;font-size:12px;background:#08080acc;color:#00e5ff;padding:6px 10px">eth0 / inside</div>
+<div style="position:absolute;top:20px;right:20px;font-size:12px;background:#08080acc;color:#ff4fd8;padding:6px 10px">outside / tun0</div>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+<section style="padding:64px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<div style="font-size:13px;letter-spacing:.12em;color:#888">SGR.SKI — 3 VORSCHLÄGE</div>
+<div style="font-family:'Space Grotesk',sans-serif;font-size:32px;color:#eee">Split-Face + „20+ years on both sides of the firewall.“ bleiben in allen Varianten</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:56px">
+
+<!-- 1a TERMINAL -->
+<div id="1a" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center"><span style="background:#7CFC9A;color:#000;font-weight:700;padding:4px 10px;font-size:14px">1a</span><span style="font-size:14px;color:#aaa">Terminal Session</span></div>
+<div data-screen-label="1a Terminal" style="width:1200px;height:760px;background:#0a0c0b;color:#c9d4cc;font-family:'JetBrains Mono',monospace;position:relative;overflow:hidden;display:flex;flex-direction:column">
+<div style="display:flex;justify-content:space-between;padding:18px 32px;font-size:13px;color:#5d6b62;border-bottom:1px solid #1a201c"><span>kolja@sgr.ski: ~</span><span>tty1 · ssh · 443/tcp open</span></div>
+<div style="flex:1;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:64px;padding:56px 64px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:22px;font-size:18px;line-height:1.5">
+<div><span style="color:#7CFC9A">kolja@sgr.ski</span><span style="color:#5d6b62">:~$</span> whoami</div>
+<div style="font-size:64px;font-weight:800;color:#eef5f0;line-height:1;letter-spacing:-.02em">Kolja Sagorski</div>
+<div><span style="color:#7CFC9A">kolja@sgr.ski</span><span style="color:#5d6b62">:~$</span> cat role.txt</div>
+<div style="color:#eef5f0">Certified IT Security Analyst</div>
+<div><span style="color:#7CFC9A">kolja@sgr.ski</span><span style="color:#5d6b62">:~$</span> cat motto.txt</div>
+<div style="font-size:30px;color:#7CFC9A;line-height:1.25;text-wrap:pretty">20+ years on both sides of the firewall.</div>
+<div><span style="color:#7CFC9A">kolja@sgr.ski</span><span style="color:#5d6b62">:~$</span> ls ./contact</div>
+<div style="display:flex;gap:28px;color:#eef5f0">
+<a href="https://www.linkedin.com/in/koljasagorski/" target="_blank" style-hover="color:#7CFC9A">linkedin/</a>
+<a href="mailto:kolja@sagorski.org" style-hover="color:#7CFC9A">kolja@sagorski.org</a>
+<a href="https://sgr.ski/kolja-sagorski.asc" style-hover="color:#7CFC9A">0x5EFB194EAD8BC39F.asc</a>
+</div>
+<div><span style="color:#7CFC9A">kolja@sgr.ski</span><span style="color:#5d6b62">:~$</span> {{ cursorGreen }}</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="position:relative;padding:14px">
+<div style="position:absolute;top:0;left:0;width:28px;height:28px;border-top:2px solid #7CFC9A;border-left:2px solid #7CFC9A"></div>
+<div style="position:absolute;top:0;right:0;width:28px;height:28px;border-top:2px solid #7CFC9A;border-right:2px solid #7CFC9A"></div>
+<div style="position:absolute;bottom:0;left:0;width:28px;height:28px;border-bottom:2px solid #7CFC9A;border-left:2px solid #7CFC9A"></div>
+<div style="position:absolute;bottom:0;right:0;width:28px;height:28px;border-bottom:2px solid #7CFC9A;border-right:2px solid #7CFC9A"></div>
+<img src="https://sgr.ski/assets/avatar.webp" alt="Portrait of Kolja Sagorski, split down the middle" style="display:block;width:100%;aspect-ratio:1;object-fit:cover">
+</div>
+<div style="display:flex;justify-content:space-between;font-size:12px;color:#5d6b62"><span>avatar.webp</span><span>2 sides · 1 operator</span></div>
+</div>
+</div>
+<div style="padding:16px 32px;font-size:12px;color:#5d6b62;border-top:1px solid #1a201c;display:flex;justify-content:space-between"><span>SGR.SKI — LOCALHOST</span><span>[q] quit</span></div>
+</div>
+</div>
+
+<!-- 1b RED / BLUE -->
+<div id="1b" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center"><span style="background:#ff5a5f;color:#000;font-weight:700;padding:4px 10px;font-size:14px">1b</span><span style="font-size:14px;color:#aaa">Blue Team / Red Team</span></div>
+<div data-screen-label="1b Red Blue" style="width:1200px;height:760px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;font-family:'Space Grotesk',sans-serif">
+<div style="background:#0b1424;color:#d6e3f5;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between">
+<div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;color:#5fa8ff">// BLUE TEAM</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-family:'JetBrains Mono',monospace;font-size:15px;color:#8fa6c4"><span>defend</span><span>harden</span><span>detect</span></div>
+</div>
+<div style="background:#1c0a0c;color:#f5d9da;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.14em;color:#ff5a5f">RED TEAM //</div>
+<div style="display:flex;flex-direction:column;gap:10px;font-family:'JetBrains Mono',monospace;font-size:15px;color:#c49092"><span>attack</span><span>exploit</span><span>pivot</span></div>
+</div>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;pointer-events:none">
+<div style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.2em;color:#e9e9e9">KOLJA SAGORSKI</div>
+<div style="width:300px;height:300px;border-radius:50%;overflow:hidden;box-shadow:-12px 0 0 #5fa8ff, 12px 0 0 #ff5a5f"><img src="https://sgr.ski/assets/avatar.webp" alt="Portrait of Kolja Sagorski, split down the middle" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;width:100%;font-size:46px;font-weight:700;letter-spacing:-.02em;line-height:1.05">
+<div style="text-align:right;padding-right:20px;color:#d6e3f5">20+ years on</div>
+<div style="padding-left:20px;color:#f5d9da">both sides of the firewall.</div>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#aaa">Certified IT Security Analyst</div>
+</div>
+<div style="position:absolute;left:0;right:0;bottom:120px;display:flex;justify-content:center;gap:32px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#eee">
+<a href="https://www.linkedin.com/in/koljasagorski/" target="_blank">LinkedIn ↗</a>
+<a href="mailto:kolja@sagorski.org">kolja@sagorski.org</a>
+<a href="https://sgr.ski/kolja-sagorski.asc">PGP 0x5EFB194EAD8BC39F</a>
+</div>
+<div style="position:absolute;top:0;bottom:0;left:50%;width:1px;background:#ffffff22"></div>
+</div>
+</div>
+
+<!-- 1c HEXDUMP -->
+<div id="1c" style="display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;gap:12px;align-items:center"><span style="background:#ffb340;color:#000;font-weight:700;padding:4px 10px;font-size:14px">1c</span><span style="font-size:14px;color:#aaa">Hexdump / Phosphor</span></div>
+<div data-screen-label="1c Hexdump" style="width:1200px;height:760px;background:#0d0a06;color:#ffb340;font-family:'IBM Plex Mono',monospace;position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) 400px">
+<div style="padding:48px 56px;display:flex;flex-direction:column;gap:32px">
+<div style="font-size:14px;color:#8a6427">$ xxd kolja.bin | head</div>
+<div style="display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.55">
+<sc-for list="{{ hexRows }}" as="r" hint-placeholder-count="8">
+<div style="display:grid;grid-template-columns:96px 1fr 160px;gap:16px"><span style="color:#8a6427">{{ r.off }}</span><span style="color:#c98a2a">{{ r.hex }}</span><span style="color:#ffd27a;white-space:pre">{{ r.ascii }}</span></div>
+</sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:auto">
+<div style="font-size:15px;color:#8a6427">Certified IT Security Analyst</div>
+<div style="font-size:58px;font-weight:600;line-height:1;color:#ffd27a;letter-spacing:-.02em">Kolja Sagorski</div>
+<div style="font-size:26px;color:#ffb340">20+ years on both sides of the firewall.</div>
+<div style="display:flex;gap:28px;font-size:14px;padding-top:16px;border-top:1px dashed #4a3514;margin-top:12px">
+<a href="https://www.linkedin.com/in/koljasagorski/" target="_blank">[linkedin]</a>
+<a href="mailto:kolja@sagorski.org">[kolja@sagorski.org]</a>
+<a href="https://sgr.ski/kolja-sagorski.asc">[pgp 0x5EFB194EAD8BC39F]</a>
+</div>
+</div>
+</div>
+<div style="position:relative;border-left:1px solid #2a1f0e">
+<img src="https://sgr.ski/assets/avatar.webp" alt="Portrait of Kolja Sagorski, split down the middle" style="width:100%;height:100%;object-fit:cover;display:block;filter:sepia(.6) saturate(1.3) contrast(1.05)">
+<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,#0d0a0655 0 2px,transparent 2px 4px)"></div>
+<div style="position:absolute;left:16px;bottom:16px;right:16px;display:flex;justify-content:space-between;font-size:12px;color:#ffd27a;background:#0d0a06cc;padding:8px 10px"><span>0x00 ← suit</span><span>hoodie → 0xFF</span></div>
+</div>
+<div style="position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 160px #000"></div>
+</div>
+</div>
+
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { t: new Date() };
+  componentDidMount() { this.iv = setInterval(() => this.setState({ t: new Date() }), 1000); }
+  componentWillUnmount() { clearInterval(this.iv); }
+  hex(str) {
+    const rows = [];
+    for (let i = 0; i < str.length; i += 16) {
+      const chunk = str.slice(i, i + 16);
+      const h = [...chunk].map(c => c.charCodeAt(0).toString(16).padStart(2, '0'));
+      const pairs = [];
+      for (let j = 0; j < h.length; j += 2) pairs.push(h.slice(j, j + 2).join(''));
+      rows.push({ off: i.toString(16).padStart(8, '0') + ':', hex: pairs.join(' '), ascii: chunk.replace(/[^\x20-\x7e]/g, '.') });
+    }
+    return rows;
+  }
+  renderVals() {
+    const s = 'Kolja Sagorski..Certified IT Se' + 'curity Analyst..20+ years on bot' + 'h sides of the f' + 'irewall.........';
+    if (!this.kb) {
+      const c = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
+      let x = 0x5EFB194E, out = '';
+      for (let i = 0; i < 2200; i++) { x = (x * 1103515245 + 12345) >>> 0; out += c[(x >>> 16) % 64]; }
+      this.kb = out;
+    }
+    return {
+      keyBlock: this.kb,
+      hexRows: this.hex(s),
+      clock: this.state.t.toISOString().slice(0, 19).replace('T', ' ') + ' UTC',
+      cursorGreen: React.createElement('span', { style: { display: 'inline-block', width: 11, height: 22, background: '#7CFC9A', verticalAlign: 'middle', animation: 'blink 1s steps(1) infinite' } })
+    };
+  }
+}
+</script>
+</body>
+</html>
