@@ -8,19 +8,21 @@ Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 Für dieses Repo existiert **kein** Linear-Projekt (Stand 2026-08-30, Team `KOL` geprüft). Falls
 substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde.
 
-## Startseite: fünf Designs (seit 2026-10-19)
+## Startseite: eine Glas-Karte (seit 2026-10-27)
 
-`index.html` hat fünf Designs, pro Besuch zufällig (nie dasselbe wie zuletzt, `localStorage`
-`sgr.theme.last`; `?theme=1a|1b|1c|2a|2b` erzwingt eins; ohne JS 1a): Terminal, Blue/Red Team,
-Hexdump, PGP-Key-Block, Nmap-Report. Vorlage: `handoff/CLAUDE_CODE_PROMPT.md` +
-`handoff/sgr.ski Redesign.dc.html`. Ein semantisches Gerüst, Design per `data-theme` auf `<html>`;
-Dekotext ist `aria-hidden` und nur im jeweiligen Design sichtbar. `assets/home.js` läuft
-render-blockierend im `<head>` (kein Inline-Script wegen CSP), `assets/home.css` trägt alle Designs.
-Die CSP braucht dafür `connect-src 'self'` (2a lädt `/kolja-sagorski.asc` als Hintergrund).
-Die Links Workshops und paste. bleiben zusätzlich zu den Handoff-Links erhalten. Der alte
-Hell/Dunkel-Schalter (`theme.js`, `styles.css`) gilt nur noch für `/impressum`.
-Offen: `avatar.webp` ist 224 px und wird in 1c/2b groß hochskaliert; das Original
-(`~/Desktop/ich hacker.png`) fehlt — bei Neuexport ein ~800-px-Portrait ablegen.
+`index.html` ist ein einziges Design nach Carrd-Template #294
+(`https://97bcea7e5fb53669.demo.carrd.co`): Glas-Karte auf dunklem Low-Poly-Hintergrund, links Name,
+Überschrift und Text, rechts das Portrait, darunter runde Icon-Links und der Pill-Button „Get in
+touch“. Auf Wunsch des Betreibers **nur** dieses Design; die früheren fünf Zufallsdesigns
+(Terminal, Blue/Red Team, Hexdump, PGP-Block, Nmap; `home.css`/`home.js`) sind entfernt, in der
+Git-Historie (Commit `1cc6c2f`) und unter `handoff/` noch vorhanden. Kein JavaScript auf der Seite.
+`assets/card.css` trägt alles; Schrift Inter (variabel, selbst gehostet, OFL), Hintergrund
+`assets/bg.svg`, Körnung `assets/grain.svg` (per CSS-`url()`, kein `data:` wegen CSP).
+Portrait `assets/portrait.webp`: Zuschnitt aus `~/Desktop/ich.jpg` (8256×5504, Businessfoto),
+Ausschnitt `x[900,7100]`, ganze Höhe, 1200 px breit, `cwebp -metadata none` (die Nikon-EXIF darf nicht
+im Web landen). Textkontrast auf der Karte ≥ 4.5:1 halten (Tönung `.card::before`).
+Icons sind Inline-SVG (Feather-Stil), Links: Workshops, LinkedIn, paste., PGP-Key, Mail-Button.
+`avatar.webp` bleibt für `/workshops`. Die CSP braucht für die Startseite kein `connect-src 'self'` mehr.
 
 ## Design-Herkunft (alter Stand, Variante 1d)
 

@@ -1,0 +1,237 @@
+/* sgr.ski home: one glass card on a low-poly slate backdrop.
+   Layout after Carrd template #294. No inline styles anywhere (CSP). */
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-latin-wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --slate: #454c5c;
+  --glass: #626a7b;
+  --ink: #fff;
+  --ink-soft: rgba(255, 255, 255, .88);
+  --chip: rgba(255, 255, 255, .26);
+  --chip-hover: rgba(255, 255, 255, .38);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { background: var(--slate); }
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+  background: var(--slate) url("/assets/bg.svg") center / cover no-repeat fixed;
+  color: var(--ink);
+  font: 400 15px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.skip {
+  position: absolute;
+  left: 16px;
+  top: -64px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: #1d2230;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 10;
+}
+.skip:focus { top: 16px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.wrap { width: 100%; max-width: 910px; }
+
+/* ── Card ─────────────────────────────────────────────────────────── */
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 484px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 24px;
+  background: var(--glass);
+  box-shadow: 0 28px 70px rgba(8, 12, 22, .38), inset 0 0 0 1px rgba(255, 255, 255, .08);
+}
+
+.card__photo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -3;
+  width: 64%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 18%;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 40%);
+  mask-image: linear-gradient(to right, transparent, #000 40%);
+}
+
+/* tint that keeps the copy readable, then film grain on top */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(100deg, rgba(76, 84, 102, .66) 0%, rgba(76, 84, 102, .5) 42%, rgba(76, 84, 102, .08) 78%);
+}
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("/assets/grain.svg");
+  opacity: .5;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.copy {
+  width: min(100%, 470px);
+  padding: 56px 0 56px 58px;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .005em;
+}
+
+.headline {
+  margin-top: 26px;
+  font-size: clamp(30px, 4.4vw, 41px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -.012em;
+  text-wrap: balance;
+}
+
+.lede {
+  margin-top: 24px;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  max-width: 400px;
+  text-wrap: pretty;
+}
+
+/* ── Links ────────────────────────────────────────────────────────── */
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 16px;
+  margin-top: 28px;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  padding: 0;
+  list-style: none;
+}
+
+.chip,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  background: var(--chip);
+  text-decoration: none;
+  transition: background-color .18s ease, transform .18s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.chip { width: 44px; height: 44px; border-radius: 50%; }
+
+.btn {
+  gap: 10px;
+  height: 48px;
+  padding: 0 24px 0 22px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.chip:hover,
+.btn:hover { background: var(--chip-hover); transform: translateY(-1px); }
+
+.chip:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.chip svg,
+.btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.btn svg { width: 18px; height: 18px; }
+
+/* ── Medium screens: give the portrait more room ──────────────────── */
+
+@media (max-width: 900px) {
+  .copy { width: min(100%, 400px); padding-left: 44px; }
+  .lede { max-width: 330px; }
+}
+
+/* ── Narrow screens: portrait on top, copy below ──────────────────── */
+
+@media (max-width: 720px) {
+  .card { display: block; min-height: 0; border-radius: 20px; }
+
+  .card__photo {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 320px;
+    object-position: 58% 12%;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+    mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  }
+  .card::before { background: linear-gradient(to bottom, rgba(76, 84, 102, .05) 0%, rgba(76, 84, 102, .55) 46%, rgba(76, 84, 102, .62) 100%); }
+
+  .copy { width: 100%; margin-top: -72px; padding: 0 26px 34px; position: relative; }
+  .lede { max-width: none; }
+  .headline { margin-top: 18px; }
+  .row { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chip, .btn { transition: none; }
+  .chip:hover, .btn:hover { transform: none; }
+}
+
+@media (forced-colors: active) {
+  .chip, .btn { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+}

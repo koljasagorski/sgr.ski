@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="1a">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0a0c0b" id="theme-color">
+<meta name="theme-color" content="#454c5c">
 <meta name="color-scheme" content="dark">
 
 <title>Kolja Sagorski — Certified IT Security Analyst</title>
@@ -11,7 +11,7 @@
 <meta name="author" content="Kolja Sagorski">
 <link rel="canonical" href="https://sgr.ski/">
 
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-7HK7MwqJPORKDvxUVtvhWSle0yJmHzRl6CftOY9WSrY='; font-src 'self'; connect-src 'self' https://umami.patchletter.com; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self' 'sha256-7HK7MwqJPORKDvxUVtvhWSle0yJmHzRl6CftOY9WSrY='; font-src 'self'; connect-src https://umami.patchletter.com; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 
 <meta property="og:type" content="profile">
@@ -32,8 +32,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="stylesheet" href="/assets/home.css">
-<script src="/assets/home.js"></script>
+<link rel="preload" href="/assets/fonts/inter-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/card.css">
 <script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
 <script defer src="/assets/umami-recorder.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09"></script>
 
@@ -56,110 +56,51 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Everything with aria-hidden is decoration for one of the five designs
-     (data-theme on <html>); home.css shows only the active design's parts. -->
-<div class="bg" aria-hidden="true">
-  <div class="bg-1b">
-    <span class="cn cn-tl">// BLUE TEAM</span>
-    <span class="cn cn-tr">RED TEAM //</span>
-    <span class="cn cn-bl"><span>defend</span><span>harden</span><span>detect</span></span>
-    <span class="cn cn-br"><span>attack</span><span>exploit</span><span>pivot</span></span>
-    <span class="seam"></span>
-  </div>
-  <div class="bg-2a">
-    <span class="kb-edge">-----BEGIN PGP PUBLIC KEY BLOCK-----</span>
-    <span class="kb-body" id="keyblock"></span>
-    <span class="kb-edge kb-end">-----END PGP PUBLIC KEY BLOCK-----</span>
-  </div>
-</div>
+<main class="wrap" id="main">
+  <article class="card">
+    <img class="card__photo" src="/assets/portrait.webp" width="1200" height="1065" fetchpriority="high"
+         alt="Portrait of Kolja Sagorski in a navy blazer and light blue shirt, smiling.">
 
-<div class="bar" aria-hidden="true"><span>kolja@sgr.ski: ~</span><span>tty1 · ssh · 443/tcp open</span></div>
-
-<main class="page" id="main">
-
-  <div class="portrait">
-    <div class="frame">
-      <img class="portrait__img" src="/assets/avatar.webp" width="224" height="224" fetchpriority="high"
-           alt="Portrait of Kolja Sagorski, split down the middle: business attire on one side, hoodie on the other.">
-      <span class="x x-1a cr cr-tl"></span><span class="x x-1a cr cr-tr"></span>
-      <span class="x x-1a cr cr-bl"></span><span class="x x-1a cr cr-br"></span>
-      <span class="x x-1c scan"></span>
-      <span class="x x-1c plab-1c"><span>0x00 ← suit</span><span>hoodie → 0xFF</span></span>
-      <span class="x x-2b pline"></span>
-      <span class="x x-2b plab plab-l">eth0 / inside</span>
-      <span class="x x-2b plab plab-r">outside / tun0</span>
+    <div class="copy">
+      <h1 class="name">Kolja Sagorski</h1>
+      <p class="headline">20+ years on both sides of the firewall.</p>
+      <p class="lede">Certified IT Security Analyst. Offensive and defensive security, incident response, and workshops on digital self-defence.</p>
     </div>
-    <p class="x x-1a pcap"><span>avatar.webp</span><span>2 sides · 1 operator</span></p>
-  </div>
+  </article>
 
-  <div class="copy">
+  <div class="row">
+    <ul class="icons" role="list">
+      <li>
+        <a class="chip" href="/workshops/" hreflang="de">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v4M8 23h8"/></svg>
+          <span class="sr-only">Workshops &amp; talks (in German)</span>
+        </a>
+      </li>
+      <li>
+        <a class="chip" href="https://www.linkedin.com/in/koljasagorski/" target="_blank" rel="me noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <span class="sr-only">LinkedIn (opens in a new tab)</span>
+        </a>
+      </li>
+      <li>
+        <a class="chip" href="https://p.sgr.ski" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8"/></svg>
+          <span class="sr-only">paste. (opens in a new tab)</span>
+        </a>
+      </li>
+      <li>
+        <a class="chip" href="/kolja-sagorski.asc" download type="application/pgp-keys">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+          <span class="sr-only">PGP public key 0x5EFB194EAD8BC39F, download</span>
+        </a>
+      </li>
+    </ul>
 
-    <p class="x x-1c cmd">$ xxd kolja.bin | head</p>
-    <div class="x x-1c hex" id="hexdump"></div>
-    <p class="x x-2b cmd">$ nmap -sV --script=whoami sgr.ski</p>
-    <p class="x x-2b scan-head">Nmap scan report for sgr.ski (127.0.0.1)</p>
-    <p class="x x-2a uid">uid [ultimate]</p>
-
-    <p class="x x-1a ps"><span class="u">kolja@sgr.ski</span><span class="d">:~$</span> whoami</p>
-    <h1 class="name">Kolja <span class="name__2">Sagorski</span></h1>
-
-    <p class="x x-1a ps"><span class="u">kolja@sgr.ski</span><span class="d">:~$</span> cat role.txt</p>
-    <p class="role"><span class="x x-2b" aria-hidden="true">Service Info: </span>Certified IT Security Analyst</p>
-
-    <p class="x x-1a ps"><span class="u">kolja@sgr.ski</span><span class="d">:~$</span> cat motto.txt</p>
-    <p class="tagline"><span class="tl-a">20+ years on</span> <span class="tl-b">both sides of the firewall.</span></p>
-
-    <p class="x x-1a ps"><span class="u">kolja@sgr.ski</span><span class="d">:~$</span> ls ./contact</p>
-    <nav class="nav" aria-label="Workshops, projects, contact and profiles">
-      <p class="x x-2b thead"><span>PORT</span><span>STATE</span><span>SERVICE</span><span>VERSION</span></p>
-      <ul class="links" role="list">
-        <li>
-          <a class="link l-ws" href="/workshops/" hreflang="de">
-            <span class="k" aria-hidden="true">talk</span>
-            <span class="pt" aria-hidden="true">80/tcp</span><span class="st" aria-hidden="true">open</span><span class="sv" aria-hidden="true">http</span>
-            <span class="lb">Workshops &amp; talks<span class="sr-only"> (in German)</span></span>
-          </a>
-        </li>
-        <li>
-          <a class="link l-li" href="https://www.linkedin.com/in/koljasagorski/" target="_blank" rel="me noopener noreferrer">
-            <span class="k" aria-hidden="true">web</span>
-            <span class="pt" aria-hidden="true">443/tcp</span><span class="st" aria-hidden="true">open</span><span class="sv" aria-hidden="true">https</span>
-            <span class="lb"><span class="v-p">LinkedIn</span><span class="v-q">linkedin.com/in/koljasagorski</span><span class="sr-only"> (opens in a new tab)</span></span>
-          </a>
-        </li>
-        <li>
-          <a class="link l-ps" href="https://p.sgr.ski" target="_blank" rel="noopener noreferrer">
-            <span class="k" aria-hidden="true">text</span>
-            <span class="pt" aria-hidden="true">8443/tcp</span><span class="st" aria-hidden="true">open</span><span class="sv" aria-hidden="true">https-alt</span>
-            <span class="lb">paste.<span class="sr-only"> (opens in a new tab)</span></span>
-          </a>
-        </li>
-        <li>
-          <a class="link l-ml" href="mailto:kolja@sagorski.org">
-            <span class="k" aria-hidden="true">mail</span>
-            <span class="pt" aria-hidden="true">25/tcp</span><span class="st" aria-hidden="true">open</span><span class="sv" aria-hidden="true">smtp</span>
-            <span class="lb">kolja@sagorski.org</span>
-          </a>
-        </li>
-        <li>
-          <a class="link l-pg" href="/kolja-sagorski.asc" download type="application/pgp-keys">
-            <span class="k" aria-hidden="true">key</span>
-            <span class="pt" aria-hidden="true">11371/tcp</span><span class="st" aria-hidden="true">open</span><span class="sv" aria-hidden="true">hkp</span>
-            <span class="lb"><span class="pre">PGP </span><span class="hx">0x5EFB194EAD8BC39F</span><span class="hxs">5EFB 194E AD8B C39F</span><span class="sr-only"> — download public key</span></span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <p class="x x-1a ps"><span class="u">kolja@sgr.ski</span><span class="d">:~$</span> <span class="cursor"></span></p>
-
+    <a class="btn" href="mailto:kolja@sagorski.org">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+      Get in touch
+    </a>
   </div>
 </main>
-
-<footer class="foot">
-  <span class="foot__id"><span class="x x-2b" aria-hidden="true">Nmap done: 1 IP address (1 host up) — </span>SGR.SKI — LOCALHOST</span>
-  <span class="foot__q x x-1a" aria-hidden="true">[q] quit</span>
-  <span class="foot__theme" hidden>theme: <span id="theme-name">1a</span> · <button class="reroll" type="button" id="reroll" aria-label="reroll: show another design">reroll</button></span>
-</footer>
 </body>
 </html>
