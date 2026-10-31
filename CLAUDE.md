@@ -21,7 +21,7 @@ LinkedIn, PGP-Key). Kein JavaScript auf der Seite, `assets/card.css` trägt alle
 liegen ≥ 4.5:1; bei Farbänderungen nachrechnen. Portrait `assets/portrait.webp` (1200×1200,
 `cwebp -metadata none`, keine Nikon-EXIF im Web). `avatar.webp` bleibt für `/workshops`. Die CSP braucht
 für die Startseite kein `connect-src 'self'`.
-Frühere Stände (Glas-Karte nach Template #294, Commit `4cd08fc`/`HEAD~1`; fünf Zufallsdesigns, Commit
+Frühere Stände (Glas-Karte nach Template #294, Commit `49fe2ab`; fünf Zufallsdesigns, Commit
 `1cc6c2f`) stehen in der Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
 
 ## Design-Herkunft (alter Stand, Variante 1d)
