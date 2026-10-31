@@ -8,21 +8,21 @@ Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 Für dieses Repo existiert **kein** Linear-Projekt (Stand 2026-08-30, Team `KOL` geprüft). Falls
 substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde.
 
-## Startseite: eine Glas-Karte (seit 2026-10-27)
+## Startseite: ein Retro-Fenster (seit 2026-10-31)
 
-`index.html` ist ein einziges Design nach Carrd-Template #294
-(`https://97bcea7e5fb53669.demo.carrd.co`): Glas-Karte auf dunklem Low-Poly-Hintergrund, links Name,
-Überschrift und Text, rechts das Portrait, darunter runde Icon-Links und der Pill-Button „Get in
-touch“. Auf Wunsch des Betreibers **nur** dieses Design; die früheren fünf Zufallsdesigns
-(Terminal, Blue/Red Team, Hexdump, PGP-Block, Nmap; `home.css`/`home.js`) sind entfernt, in der
-Git-Historie (Commit `1cc6c2f`) und unter `handoff/` noch vorhanden. Kein JavaScript auf der Seite.
-`assets/card.css` trägt alles; Schrift Inter (variabel, selbst gehostet, OFL), Hintergrund
-`assets/bg.svg`, Körnung `assets/grain.svg` (per CSS-`url()`, kein `data:` wegen CSP).
-Portrait `assets/portrait.webp`: Zuschnitt aus `~/Desktop/ich.jpg` (8256×5504, Businessfoto),
-Ausschnitt `x[900,7100]`, ganze Höhe, 1200 px breit, `cwebp -metadata none` (die Nikon-EXIF darf nicht
-im Web landen). Textkontrast auf der Karte ≥ 4.5:1 halten (Tönung `.card::before`).
-Icons sind Inline-SVG (Feather-Stil), Links: Workshops, LinkedIn, paste., PGP-Key, Mail-Button.
-`avatar.webp` bleibt für `/workshops`. Die CSP braucht für die Startseite kein `connect-src 'self'` mehr.
+`index.html` ist ein einziges Design nach Carrd-Template #328
+(`https://7c6c50a41f293b6c.demo.carrd.co`): cremefarbenes „Programmfenster“ mit pfirsichfarbenem Rand
+auf Pflaume-Karomuster (`assets/check.svg`, 8-px-Kachel, per CSS-`url()`, kein `data:` wegen CSP).
+Titelleiste mit Name und drei dekorativen Punkten (`aria-hidden`), darunter Portrait + H1, Text,
+vier Link-Buttons „01 / …“ (Workshops, paste., IP leak test, VPN Matrix) und Icon-Kacheln (Mail,
+LinkedIn, PGP-Key). Kein JavaScript auf der Seite, `assets/card.css` trägt alles. Schrift IBM Plex Mono
+(400 + 600, Latin, selbst gehostet, OFL, Lizenz in `assets/fonts/`). Der Fließtext nutzt `--text`
+`#7d4538` (6,8:1) statt des Vorlagentons `#b87665` (3,3:1) — nicht zurückändern. Alle Button-/Kachelpaare
+liegen ≥ 4.5:1; bei Farbänderungen nachrechnen. Portrait `assets/portrait.webp` (1200×1200,
+`cwebp -metadata none`, keine Nikon-EXIF im Web). `avatar.webp` bleibt für `/workshops`. Die CSP braucht
+für die Startseite kein `connect-src 'self'`.
+Frühere Stände (Glas-Karte nach Template #294, Commit `4cd08fc`/`HEAD~1`; fünf Zufallsdesigns, Commit
+`1cc6c2f`) stehen in der Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
 
 ## Design-Herkunft (alter Stand, Variante 1d)
 
