@@ -201,6 +201,9 @@ svg {
   stroke-linejoin: round;
 }
 
+/* Brand marks are solid shapes, not outlines. */
+svg.brand { fill: currentColor; stroke: none; }
+
 a:focus-visible {
   outline: 2px solid var(--plum);
   outline-offset: 3px;
