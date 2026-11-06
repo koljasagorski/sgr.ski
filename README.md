@@ -14,9 +14,8 @@ workshops/quiz/index.html   /workshops/quiz — standalone quiz for sharing; ind
 assets/quiz.css             standalone quiz page layout; reuses workshop styles and quiz logic
 assets/styles.css           styling for /impressum; light + dark via CSS custom properties
 assets/theme.js             three-state theme switch for /impressum, render-blocking in <head>
-assets/card.css             home page: one retro window on a plum check pattern (after Carrd template #328)
+assets/card.css             home page, after the 40C3 "Model Citizens" styleguide (CC0): Jersey 10 + Hack, 40C3 palette
 assets/portrait.webp        home page portrait, cropped from the 8256 px original, no metadata
-assets/check.svg            home page check-pattern backdrop (8 px tile)
 assets/umami.js             self-hosted visit tracker for umami.patchletter.com
 assets/umami-recorder.js    self-hosted heatmaps and session replays; honors DNT and rr-block exclusions
 assets/workshops.css        /workshops styling; fixed light/dark split, no theme switch
@@ -26,11 +25,12 @@ assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1
 assets/video/talk*          /workshops Formate background band (Kling 3 Pro via ElevenLabs): blurred, slowed, ping-pong loop
 mta-sts-worker/             Cloudflare Worker for mta-sts.sgr.ski (MTA-STS policy, RFC 8461); deployed with wrangler
 ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/location); deployed with wrangler, not Pages
-assets/fonts/*.woff2        JetBrains Mono (variable) and IBM Plex Mono (400/600, home page, OFL), self-hosted
+assets/fonts/*.woff2        JetBrains Mono (variable); home page: Jersey 10 (OFL) + Hack 400/700 Latin subset (MIT/Bitstream Vera), self-hosted
 assets/avatar.webp          224px avatar, used on /workshops
 assets/og.png               1200×630 social card
 assets/og-workshops.png     1200×630 social card for /workshops (HTML-set, rendered with Chrome)
 assets/og-quiz.png          1200×630 social card for /workshops/quiz (source: scripts/quiz-social.html)
+scripts/home-social.html    source of assets/og.png (40C3 style; render with Chromium at 1200×630)
 kolja-sagorski.asc          PGP public key, offered as a download
 llms.txt                    site summary for AI agents; workshops/index.md mirrors /workshops as Markdown
 .well-known/security.txt    RFC 9116

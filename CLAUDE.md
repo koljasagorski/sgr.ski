@@ -8,21 +8,31 @@ Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 Für dieses Repo existiert **kein** Linear-Projekt (Stand 2026-08-30, Team `KOL` geprüft). Falls
 substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde.
 
-## Startseite: ein Retro-Fenster (seit 2026-10-31)
+## Startseite: 40C3-Styleguide (seit 2026-11-06)
 
-`index.html` ist ein einziges Design nach Carrd-Template #328
-(`https://7c6c50a41f293b6c.demo.carrd.co`): cremefarbenes „Programmfenster“ mit pfirsichfarbenem Rand
-auf Pflaume-Karomuster (`assets/check.svg`, 8-px-Kachel, per CSS-`url()`, kein `data:` wegen CSP).
-Titelleiste mit Name und drei dekorativen Punkten (`aria-hidden`), darunter Portrait + H1, Text,
-vier Link-Buttons „01 / …“ (Workshops, paste., IP leak test, VPN Matrix) und Icon-Kacheln (Mail,
-LinkedIn, PGP-Key). Kein JavaScript auf der Seite, `assets/card.css` trägt alles. Schrift IBM Plex Mono
-(400 + 600, Latin, selbst gehostet, OFL, Lizenz in `assets/fonts/`). Der Fließtext nutzt `--text`
-`#7d4538` (6,8:1) statt des Vorlagentons `#b87665` (3,3:1) — nicht zurückändern. Alle Button-/Kachelpaare
-liegen ≥ 4.5:1; bei Farbänderungen nachrechnen. Portrait `assets/portrait.webp` (1200×1200,
-`cwebp -metadata none`, keine Nikon-EXIF im Web). `avatar.webp` bleibt für `/workshops`. Die CSP braucht
-für die Startseite kein `connect-src 'self'`.
-Frühere Stände (Glas-Karte nach Template #294, Commit `49fe2ab`; fünf Zufallsdesigns, Commit
-`1cc6c2f`) stehen in der Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
+`index.html` folgt dem 40C3-Styleguide „Model Citizens“
+(`https://events.ccc.de/congress/2026/infos/styleguide/`, Version 1 vom 2026-11-06, Designkonzept
+und Assets CC0). Schlüsselfarben 0 / A / B: `#75b44b` (Grün), `#ebedf0` (Neutral), `#001300`
+(Hintergrund); Unterfarben 1–3 (`#15ada3`, `#9fa4e8`, `#c892d6`) für die „leisen“ Link-Boxen,
+4 und 7 nur in der Deko-Reihe. Alle Palettenfarben liegen auf `#001300` bei ≥ 6,1:1, in beiden
+Richtungen (Farbe auf Dunkel, Dunkel auf Farbe) — bei neuen Farben nachrechnen.
+Typo wie im Styleguide: Überschrift Jersey 10 (OFL), Subhead Hack Bold unterstrichen, Fließtext
+Hack Regular (MIT/Bitstream Vera). Selbst gehostet unter `assets/fonts/` samt Lizenzen; Hack ist
+mit `pyftsubset` auf Latin reduziert (WOFF2), Jersey 10 ist das Latin-WOFF2 aus dem Paket.
+Aufbau wie die Styleguide-Seiten: Deko-Reihe aus den Kästchen-Formen (Pfade aus
+`Assets/Icons_Deco/Square*`/`Star`, inline und `aria-hidden`, gefüllt per CSS — die Original-SVGs
+haben `<style>`-Blöcke, die die CSP blockt), Name groß in Jersey, Portrait im grünen Rahmen
+rechts oben, „Citizen A / Citizen B“-Zweispalter mit Klammer-Linie (`Lines0`), eine „laute“
+(gefüllte) und drei „leise“ (umrandete) Link-Boxen mit 40C3-Pfeil, Icon-Kacheln (Mail, LinkedIn,
+PGP-Key), Seitenzahl in Hex (`0x00`). Die Hex-Nummern der Links sind `aria-hidden`. Das
+40C3-Logo ist bewusst **nicht** eingebaut — es ist keine Kongress-Seite. Kein JavaScript auf der
+Seite, `assets/card.css` trägt alles. Portrait `assets/portrait.webp` (1200×1200,
+`cwebp -metadata none`, keine Nikon-EXIF im Web). `avatar.webp` bleibt für `/workshops`. Die CSP
+braucht für die Startseite kein `connect-src 'self'`. OG-Bild `assets/og.png` aus
+`scripts/home-social.html` (Chromium, 1200×630, Faktor 1) — bei Textänderung neu rendern.
+Frühere Stände (Retro-Fenster nach Carrd-Template #328, Commit `6d82564`; Glas-Karte nach
+Template #294, Commit `49fe2ab`; fünf Zufallsdesigns, Commit `1cc6c2f`) stehen in der
+Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
 
 ## Design-Herkunft (alter Stand, Variante 1d)
 

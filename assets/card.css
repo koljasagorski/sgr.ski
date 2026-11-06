@@ -1,50 +1,78 @@
-/* sgr.ski home: one retro window on a plum check pattern.
-   Layout after Carrd template #328. No inline styles anywhere (CSP). */
+/* sgr.ski home, styled after the 40C3 "Model Citizens" styleguide
+   (events.ccc.de/congress/2026/infos/styleguide, design concept CC0):
+   key colours 0 / A / B, Jersey 10 for headings, Hack Bold underlined
+   for subheads, Hack Regular for body. No inline styles anywhere (CSP). */
 
 @font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/assets/fonts/ibm-plex-mono-latin-400.woff2") format("woff2");
+  font-family: "Jersey 10";
+  src: url("/assets/fonts/jersey-10-latin-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "IBM Plex Mono";
-  src: url("/assets/fonts/ibm-plex-mono-latin-600.woff2") format("woff2");
-  font-weight: 600;
+  font-family: "Hack";
+  src: url("/assets/fonts/hack-latin-regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Hack";
+  src: url("/assets/fonts/hack-latin-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Palette exactly as published. Every colour reaches >= 6.1:1 against
+   --dark, so each works as text on dark and as a fill under dark text. */
 :root {
-  --plum: #5c3249;
-  --plum-bar: #61364e;
-  --peach: #f3caa6;
-  --peach-bright: #ffd2a6;
-  --cream: #fff1dd;
-  --rule: #f0d9bd;
-  --text: #7d4538;        /* 6.8:1 on cream (the template's own tone is 3.3:1) */
-  --ink: #3b1f30;
-  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --dark: #001300;       /* B */
+  --neutral: #ebedf0;    /* A, 16.4:1 on dark */
+  --primary: #75b44b;    /* 0, 7.7:1 */
+  --c1: #15ada3;         /* 6.9:1 */
+  --c2: #9fa4e8;         /* 8.2:1 */
+  --c3: #c892d6;         /* 7.8:1 */
+  --c4: #ee5da2;         /* 6.2:1 */
+  --c7: #ffbc40;         /* 11.5:1 */
+  --head: "Jersey 10", "Hack", ui-monospace, monospace;
+  --mono: "Hack", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 
-html { background: var(--plum); }
+html { background: var(--dark); }
 
 body {
+  position: relative;
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: clamp(16px, 4vw, 48px);
-  background: var(--plum) url("/assets/check.svg") 0 0 / 8px 8px;
-  color: var(--text);
+  padding: clamp(28px, 6vw, 64px) clamp(16px, 6vw, 64px);
+  background: var(--dark);
+  color: var(--neutral);
   font: 400 14px/1.6 var(--mono);
   -webkit-font-smoothing: antialiased;
+}
+
+/* The three short bars on the page edge, as on the styleguide sheets. */
+body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: clamp(10px, 3vw, 26px);
+  height: 30px;
+  background: linear-gradient(var(--primary) 0 4px, transparent 4px 13px,
+                              var(--primary) 13px 17px, transparent 17px 26px,
+                              var(--primary) 26px 30px);
+  pointer-events: none;
 }
 
 .skip {
@@ -52,10 +80,9 @@ body {
   left: 16px;
   top: -64px;
   padding: 10px 16px;
-  border-radius: 4px;
-  background: var(--peach-bright);
-  color: var(--ink);
-  font-weight: 600;
+  background: var(--primary);
+  color: var(--dark);
+  font-weight: 700;
   text-decoration: none;
   z-index: 10;
 }
@@ -70,147 +97,176 @@ body {
   white-space: nowrap;
 }
 
-/* ── Window ───────────────────────────────────────────────────────── */
+/* ── Sheet ────────────────────────────────────────────────────────── */
 
-.win {
+.sheet {
   width: 100%;
-  max-width: 440px;
-  overflow: hidden;
-  border: 2px solid var(--peach);
-  border-radius: 6px;
-  background: var(--cream);
-  box-shadow: 0 24px 60px rgba(30, 10, 22, .45);
+  max-width: 600px;
 }
 
-.bar {
+/* Deco row: the styleguide's boxed shapes, one key or sub colour each. */
+.deco {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 11px 16px;
-  background: var(--plum-bar);
-  color: var(--peach-bright);
-  font-size: 13px;
-  line-height: 1.2;
+  gap: clamp(10px, 3vw, 18px);
+  margin-bottom: clamp(28px, 7vw, 44px);
 }
-
-.dots {
-  display: flex;
-  gap: 7px;
+.deco svg {
+  width: clamp(26px, 7vw, 34px);
+  height: clamp(26px, 7vw, 34px);
+  fill: currentColor;
 }
-.dots i {
-  display: block;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--peach-bright);
-}
+.c0 { color: var(--primary); }
+.c1 { color: var(--c1); }
+.c2 { color: var(--c2); }
+.c4 { color: var(--c4); }
+.c7 { color: var(--c7); }
 
 .intro {
   display: flex;
-  align-items: center;
-  gap: clamp(14px, 4vw, 22px);
-  padding: clamp(20px, 6vw, 30px);
-  border-bottom: 1px solid var(--rule);
-}
-
-.portrait {
-  flex: none;
-  width: clamp(72px, 22vw, 104px);
-  height: clamp(72px, 22vw, 104px);
-  border: 2px solid var(--peach);
-  border-radius: 5px;
-  object-fit: cover;
-  object-position: 50% 24%;
-  background: var(--peach);
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .name {
-  color: var(--plum);
-  font-size: clamp(28px, 9vw, 38px);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -.01em;
+  color: var(--primary);
+  font: 400 clamp(52px, 15vw, 88px)/.86 var(--head);
+  text-transform: uppercase;
+  letter-spacing: .01em;
 }
 .name span { display: block; }
 
-.copy {
-  padding: 20px clamp(20px, 6vw, 30px) clamp(20px, 6vw, 28px);
-  border-bottom: 1px solid var(--rule);
+.portrait {
+  flex: none;
+  width: clamp(84px, 24vw, 128px);
+  height: clamp(84px, 24vw, 128px);
+  border: 3px solid var(--primary);
+  object-fit: cover;
+  object-position: 50% 24%;
+  background: var(--primary);
 }
-.copy p + p { margin-top: .8em; }
-.headline { font-weight: 600; }
 
-/* ── Links ────────────────────────────────────────────────────────── */
+/* "Citizen A / and Citizen B" layout: bold underlined subhead on the
+   left, body copy on the right, closed by the bracket line. */
+.copy {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 11em) minmax(0, 1fr);
+  gap: 8px 28px;
+  margin-top: clamp(28px, 7vw, 40px);
+  padding: 22px 30px 22px 0;
+  border-top: 2px solid var(--primary);
+}
+
+.headline {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.bracket {
+  position: absolute;
+  right: 0;
+  top: 22px;
+  width: 11px;
+  height: calc(100% - 44px);
+  fill: var(--primary);
+}
+
+@media (max-width: 520px) {
+  .copy { grid-template-columns: 1fr; }
+}
+
+/* ── Links: one loud, the rest quiet ──────────────────────────────── */
 
 .links {
   display: grid;
   gap: 12px;
-  padding: clamp(20px, 6vw, 30px);
-  border-bottom: 1px solid var(--rule);
+  margin-top: 8px;
+  padding: 0;
   list-style: none;
 }
 
 .link {
+  --c: var(--primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 13px 24px;
-  border-radius: 5.5px;
-  background: var(--bg);
-  color: var(--fg);
+  gap: 16px;
+  padding: 12px 18px;
+  border: 2px solid var(--c);
+  color: var(--c);
+  font-weight: 700;
   text-decoration: none;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: background-color .12s ease, color .12s ease;
 }
-.link svg { flex: none; width: 15px; height: 15px; }
-.link:hover { transform: translateX(3px); box-shadow: -3px 3px 0 rgba(92, 50, 73, .22); }
+.link svg {
+  flex: none;
+  width: 26px;
+  height: 15px;
+  fill: currentColor;
+  transition: transform .12s ease;
+}
+.link:hover { background: var(--c); color: var(--dark); }
+.link:hover svg { transform: translateX(4px); }
 
-.link--1 { --bg: #61364e; --fg: #ffd2a6; }
-.link--2 { --bg: #f3caa6; --fg: #543044; }
-.link--3 { --bg: #e5bec1; --fg: #634547; }
-.link--4 { --bg: #ead8cb; --fg: #66584f; }
+.num { font-weight: 400; }
+
+.link--loud { background: var(--primary); color: var(--dark); }
+.link--loud:hover { background: var(--dark); color: var(--primary); }
+.link--c1 { --c: var(--c1); }
+.link--c2 { --c: var(--c2); }
+.link--c3 { --c: var(--c3); }
 
 /* ── Icon tiles ───────────────────────────────────────────────────── */
 
 .icons {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  padding: clamp(20px, 6vw, 28px) clamp(20px, 6vw, 30px);
+  gap: 12px;
+  margin-top: 28px;
+  padding: 0;
   list-style: none;
 }
 
 .chip {
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 5.5px;
-  background: var(--peach);
-  color: var(--ink);
-  transition: background-color .15s ease, transform .15s ease;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  transition: background-color .12s ease, color .12s ease;
 }
-.chip svg { width: 19px; height: 19px; }
-.chip:hover { background: var(--peach-bright); transform: translateY(-2px); }
-
-svg {
+.chip svg {
+  width: 20px;
+  height: 20px;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+/* Brand marks are solid shapes, not outlines. */
+.chip svg.brand { fill: currentColor; stroke: none; }
+.chip:hover { background: var(--primary); color: var(--dark); }
+
+/* Hex page number, bottom right, like the styleguide sheets. */
+.page {
+  margin-top: clamp(28px, 7vw, 48px);
+  color: var(--primary);
+  font-size: 20px;
+  text-align: right;
 }
 
-/* Brand marks are solid shapes, not outlines. */
-svg.brand { fill: currentColor; stroke: none; }
-
 a:focus-visible {
-  outline: 2px solid var(--plum);
+  outline: 3px solid var(--c7);
   outline-offset: 3px;
-  box-shadow: 0 0 0 5px var(--peach-bright);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link, .chip { transition: none; }
-  .link:hover, .chip:hover { transform: none; }
+  .link, .link svg, .chip { transition: none; }
+  .link:hover svg { transform: none; }
 }
