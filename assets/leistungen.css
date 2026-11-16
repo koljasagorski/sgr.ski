@@ -21,7 +21,7 @@
 .sheet,
 .foot {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
 }
 
 [id] { scroll-margin-top: 16px; }
@@ -191,7 +191,7 @@
 .service > p,
 .block > p {
   margin-top: 16px;
-  max-width: 64ch;
+  max-width: 72ch;
 }
 
 .ticks {
@@ -230,6 +230,8 @@
   list-style: none;
   counter-reset: step;
 }
+/* Four tools: two by two instead of three plus one orphan. */
+.tools { grid-template-columns: repeat(2, 1fr); }
 .steps li,
 .tools li {
   padding: 24px;
@@ -307,7 +309,7 @@
 }
 
 .faq details p {
-  max-width: 64ch;
+  max-width: 72ch;
   padding: 0 0 22px;
 }
 

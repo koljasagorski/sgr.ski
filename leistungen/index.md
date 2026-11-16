@@ -69,6 +69,7 @@ Technik allein schützt nicht, wenn eine gut gemachte Phishing-Mail durchkommt. 
 - [paste.](https://p.sgr.ski)
 - [IP-Leak-Test](https://ipleak.sgr.ski): Prüft, was IP-Adresse, DNS, WebRTC und Browser-Fingerprint über Sie verraten.
 - [VPN Matrix](https://vpn-matrix.com): VPN-Anbieter im tabellarischen Vergleich, jede Angabe mit Quelle.
+- [patchletter](https://patchletter.com/de/): Kostenloser Update-Radar für Admins: eine Mail, sobald für Ihre Software ein neues Release erscheint.
 
 ## Häufige Fragen
 
