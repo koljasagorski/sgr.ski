@@ -31,7 +31,8 @@ anschreiben (Mail, bei Bedarf verschlüsselt) oder über LinkedIn kontaktieren.
    Dazu ein Abschnitt „Kostenlose Werkzeuge“ (paste., IP-Leak-Test, VPN Matrix, bisher auf der Startseite),
    ein kurzer Ablauf („Erstgespräch → Angebot → Umsetzung“), Kontakt-CTA (Mail + PGP) und eine kleine FAQ.
 5. **Impressum** mit den Pflichtangaben der patchletter UG, also *inklusive* USt-IdNr. DE466427019, die bisher
-   fehlt. Das Impressum ist von Startseite, `/leistungen/` und `/workshops/` aus erreichbar.
+   fehlt. Der Link ist von Startseite, `/leistungen/` und `/workshops/` aus erreichbar, auf der Startseite **sehr
+   klein am Rand** (unter der Karte, z. B. rechts unten, gedämpft, aber ≥ 4.5:1 Kontrast und ≥ 24 px Tippfläche).
 6. **OG-Bilder** (Start, Leistungen) und neues **Favicon/Icon-Set** mit Higgsfield.
 7. **SEO 1a** für Ruhrgebiet/NRW (siehe unten).
 
@@ -40,7 +41,10 @@ anschreiben (Mail, bei Bedarf verschlüsselt) oder über LinkedIn kontaktieren.
 - Keine Datenschutzseite (weiterhin vom Betreiber nicht gewünscht).
 - Kein Framework, kein Build-Step, kein Kontaktformular, keine Dritt-Requests außer Umami und `ip.sgr.ski`.
 - **Nichts erfinden:** keine Preise, keine Kundennamen/Referenzen, keine Partnerstatus (z. B. „Microsoft
-  Partner“), keine Zertifikate außer dem schon genannten „Certified IT Security Analyst“.
+  Partner“), keine Zertifikate außer **„Certified Security Analyst“** (so lautet die Zertifizierung; das bisherige
+  „Certified IT Security Analyst“ ist falsch und wird überall korrigiert: Start, `/workshops/`, Quiz,
+  `workshops/index.md`, `llms.txt`, `site.webmanifest`, JSON-LD `jobTitle` inkl. neuer CSP-Hashes; OG-Bild
+  `og-workshops.png`/`og-quiz.png` prüfen und ggf. neu rendern).
 - Keine Städte-Doorway-Seiten („IT-Sicherheit Essen“, „… Bochum“ als Klone). Die Region steht im Text,
   im Schema (`areaServed`) und in der Adresse.
 - Das echte Gesicht wird nicht durch KI ersetzt. Auf der Seite steht das echte Portrait.
