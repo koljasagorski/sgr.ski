@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="de" data-theme-pref="auto">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1013" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#282830">
+<meta name="color-scheme" content="dark">
 
-<title>Impressum · sgr.ski</title>
-<meta name="description" content="Impressum von sgr.ski — Angaben gemäß § 5 DDG.">
+<title>Impressum · Kolja Sagorski</title>
+<meta name="description" content="Impressum von sgr.ski: Angaben gemäß § 5 DDG zur patchletter UG (haftungsbeschränkt), Gelsenkirchen.">
+<meta name="author" content="Kolja Sagorski">
 <link rel="canonical" href="https://sgr.ski/impressum/">
 
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; manifest-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src https://umami.patchletter.com; base-uri 'none'; form-action 'none'">
@@ -17,9 +18,11 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
-<link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css">
-<script src="/assets/theme.js"></script>
+<link rel="preload" href="/assets/fonts/sora-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/card.css">
+<link rel="stylesheet" href="/assets/leistungen.css">
 <script defer src="/assets/umami.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09" data-domains="sgr.ski" data-do-not-track="true" data-exclude-search="true"></script>
 <script defer src="/assets/umami-recorder.js" data-host-url="https://umami.patchletter.com" data-website-id="a9dbeae1-3e8d-4a32-9c86-647bfbb62c09"></script>
 </head>
@@ -27,16 +30,21 @@
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 
-<main class="card" id="main">
+<header class="mini">
+  <div class="mini__id">
+    <img class="mini__avatar" src="/assets/avatar.webp" width="224" height="224" alt="">
+    <p class="mini__text">
+      <span class="mini__name">Kolja <span class="gold">Sagorski</span></span>
+      <span class="mini__role">Certified Security Analyst</span>
+    </p>
+  </div>
+  <a class="mini__back" href="/">← Start</a>
+</header>
 
-  <div class="id">
-    <div class="id__text">
-      <h1 class="id__name">Impressum</h1>
-      <p class="id__role">Angaben gemäß § 5 DDG</p>
-    </div>
-    <div class="id__meta">
-      <a class="chip chip--link" href="/workshops/">← WORKSHOPS</a>
-    </div>
+<main class="sheet sheet--legal" id="main">
+  <div class="intro">
+    <h1>Impressum</h1>
+    <p>Angaben gemäß <span class="nowrap">§ 5 DDG</span></p>
   </div>
 
   <div class="legal">
@@ -45,26 +53,33 @@
       <p>Vertreten durch: Geschäftsführer Kolja Sagorski</p>
     </section>
 
-    <section>
-      <h2 class="legal__h">Registereintrag</h2>
+    <section aria-labelledby="register-h">
+      <h2 id="register-h">Registereintrag</h2>
       <p>Eingetragen im Handelsregister.<br>Registergericht: Amtsgericht Gelsenkirchen<br>Registernummer: HRB 20118</p>
     </section>
 
-    <section>
-      <h2 class="legal__h">Kontakt</h2>
+    <section aria-labelledby="ust-h">
+      <h2 id="ust-h">Umsatzsteuer-ID</h2>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß <span class="nowrap">§ 27a UStG</span>:<br>DE466427019</p>
+    </section>
+
+    <section aria-labelledby="kontakt-h">
+      <h2 id="kontakt-h">Kontakt</h2>
       <p>E-Mail: <a href="mailto:hello@patchletter.com">hello@patchletter.com</a><br>
          Telefon: <a href="tel:+4920973085753">+49 209 73085753</a><br>
          Rechtliches: <a href="mailto:legal@patchletter.com">legal@patchletter.com</a></p>
     </section>
 
-    <section>
-      <h2 class="legal__h">Verantwortlich im Sinne des § 18 Abs. 2 MStV</h2>
+    <section aria-labelledby="mstv-h">
+      <h2 id="mstv-h">Verantwortlich im Sinne des <span class="nowrap">§ 18 Abs. 2 MStV</span></h2>
       <p>Kolja Sagorski (Anschrift wie oben)</p>
     </section>
   </div>
-
-  <p class="foot">SGR.SKI — IMPRESSUM</p>
-
 </main>
+
+<footer class="foot">
+  <a class="legal-link" href="/leistungen/">Leistungen</a>
+  <a class="legal-link" href="/workshops/">Workshops</a>
+</footer>
 </body>
 </html>

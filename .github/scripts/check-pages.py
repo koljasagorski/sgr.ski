@@ -69,6 +69,20 @@ RULES: dict[str, list[tuple[str, str]]] = {
         ("link to /impressum/", r'href="/impressum/"'),
         ("Markdown alternate", r'rel="alternate" type="text/markdown"'),
     ],
+    "impressum/index.html": [
+        ("VAT ID (UStG § 27a)", r"DE466427019"),
+        ("commercial register number", r"HRB 20118"),
+        ("street address", r"Meisterweg 16"),
+        ("responsible person (MStV)", r"§ 18 Abs\. 2 MStV"),
+        ("link back to the home page", r'href="/"'),
+    ],
+    "workshops/index.html": [
+        ("footer link to /leistungen/", r'href="/leistungen/"'),
+        ("footer link to /impressum/", r'href="/impressum/"'),
+    ],
+    "workshops/quiz/index.html": [
+        ("footer link to /impressum/", r'href="/impressum/"'),
+    ],
 }
 
 FORBIDDEN_TITLE = "Certified IT Security Analyst"

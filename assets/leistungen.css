@@ -1,6 +1,7 @@
 /* /leistungen/: a long page in the #318 look. Loaded after card.css and
    reuses its tokens, fonts, .btn-gold, .pgp, .legal-link, .skip and
-   .sr-only. No inline styles anywhere (CSP).
+   .sr-only. /impressum/ loads the same pair for the header card, the sheet
+   and the footer (see "Impressum" below). No inline styles anywhere (CSP).
 
    Contrast, WCAG formula (recompute on change):
    --copy on --card 6.8:1, on --panel-soft 8.1:1; --text on --card
@@ -359,7 +360,34 @@
 .foot {
   display: flex;
   justify-content: flex-end;
+  gap: 8px;
 }
+
+/* ── Impressum: the same sheet with short sections, closed at the
+   bottom (the sheet has no contact block here). The selectors carry
+   a second class so the narrow-screen rules below do not undo them. ── */
+
+.sheet.sheet--legal { padding-bottom: 56px; }
+
+.legal {
+  margin-top: 40px;
+  hyphens: manual;   /* no "Gelsenkir-chen" in a register entry */
+}
+
+.legal section + section {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hair);
+}
+.legal p + p { margin-top: 16px; }
+
+.sheet .legal h2 {
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -.02em;
+}
+.sheet .legal h2::before { margin-bottom: 12px; }
+.legal h2 + p { margin-top: 12px; }
 
 /* ── Narrow screens ───────────────────────────────────────────────── */
 
@@ -371,6 +399,7 @@
   }
   .sheet h1 { font-size: clamp(30px, 8vw, 40px); }
   .sheet h2 { font-size: 24px; }
+  .sheet.sheet--legal { padding-bottom: 40px; }
   .intro p { font-size: 16px; }
 
   .service,
