@@ -1,13 +1,26 @@
 # sgr.ski — Kolja Sagorski
 
-> Personal site of Kolja Sagorski, Certified Security Analyst with 20+ years on both sides of the firewall. Offers workshops and talks (in German) on digital self-defence and operational security (OPSEC) for journalists, whistleblowers, people in exile and anyone handling sensitive information — built around live demonstrations of real attacks.
+> Kolja Sagorski, Certified Security Analyst: "Seit über 20 Jahren auf beiden Seiten der Firewall." (20+ years on both sides of the firewall). IT security consultant based in Gelsenkirchen, working for companies in the Ruhr area and NRW (on site in the Ruhr area, remote across NRW and Germany): IT security consulting, AI-assisted security tests, Microsoft 365 support and digital sovereignty (self-hosted services instead of big-tech cloud). Also offers workshops and talks (in German) on digital self-defence and operational security (OPSEC) for teams, journalists, whistleblowers, people in exile and anyone handling sensitive information — built around live demonstrations of real attacks.
 
 ## Pages
 
-- [Home](https://sgr.ski/): Profile and contact — LinkedIn, e-mail, PGP key.
+- [Home](https://sgr.ski/): Profile, tagline and contact (German) — LinkedIn, e-mail, PGP key.
+- [Leistungen: IT-Sicherheitsberatung Ruhrgebiet & NRW](https://sgr.ski/leistungen/): The five services, how a project runs, free tools, FAQ (German). Markdown version: [leistungen/index.md](https://sgr.ski/leistungen/index.md)
 - [Workshops Digitale Selbstverteidigung & OPSEC](https://sgr.ski/workshops/): Workshops and talks (German). Markdown version: [workshops/index.md](https://sgr.ski/workshops/index.md)
 - [Impressum](https://sgr.ski/impressum/): Legal notice (German).
 - [Digital security quiz](https://sgr.ski/workshops/quiz/): Ten-question self-assessment (German), local 0–100 score, recommendations and workshop contact. Markdown version: [workshops/quiz/index.md](https://sgr.ski/workshops/quiz/index.md)
+
+## Services
+
+Details on [/leistungen/](https://sgr.ski/leistungen/) (German). No prices are published; a written offer follows the first conversation.
+
+- IT-Sicherheitsberatung (IT security consulting): risk analysis, security concept with prioritised measures, hardening of servers, workstations and network, incident response
+- KI-gestützte Sicherheitstests (AI-assisted security tests): penetration tests for web applications and APIs, vulnerability analyses of servers and networks, review of cloud and Microsoft 365 configurations; written authorisation and agreed scope, every finding verified manually, report with findings and recommendations
+- Microsoft-365-Betreuung (Microsoft 365 support): ongoing support, security check (accounts, permissions, sharing, settings), hardening with MFA, Conditional Access, Defender, Entra ID, Intune and Exchange Online, optimisation
+- Digitale Souveränität (digital sovereignty): self-hosted services on open-source software instead of big-tech cloud, such as a company mail server, file storage and collaboration (e.g. Nextcloud); migration from Microsoft 365 or Google Workspace, operation and maintenance; a hybrid path that keeps Microsoft 365 is possible
+- Workshops für Teams (workshops for teams): talks, workshops and training on digital self-defence with live attack demonstrations, see Workshop facts below
+- Area served: seat in Gelsenkirchen; on site in the Ruhr area (Essen, Bochum, Dortmund, Duisburg, Oberhausen, Bottrop, Herne, Recklinghausen), remote across NRW and Germany
+- Process: first conversation, written offer, implementation
 
 ## Workshop facts
 

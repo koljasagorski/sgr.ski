@@ -8,13 +8,15 @@ Live at **https://sgr.ski**
 ## Structure
 
 ```
-index.html                  the page
+index.html                  home page, after Carrd template #318 (German); no JavaScript besides the tracker
+leistungen/index.html       /leistungen — services for companies in the Ruhr area and NRW (German); index.md mirrors it as Markdown
 workshops/index.html        /workshops — German workshop page ("Beide Seiten der Firewall")
 workshops/quiz/index.html   /workshops/quiz — standalone quiz for sharing; index.md mirrors its content
+impressum/index.html        /impressum — legal notice of patchletter UG, linked from the other pages
 assets/quiz.css             standalone quiz page layout; reuses workshop styles and quiz logic
-assets/styles.css           styling for /impressum; light + dark via CSS custom properties
-assets/theme.js             three-state theme switch for /impressum, render-blocking in <head>
-assets/card.css             home page, after the 40C3 "Model Citizens" styleguide (CC0): Jersey 10 + Hack, 40C3 palette
+assets/card.css             home page, and the shared tokens, fonts and components of /leistungen and /impressum (Carrd #318 look: dark card, gold, Sora + Inter)
+assets/leistungen.css       /leistungen and /impressum: header card, sheet, service sections, FAQ, contact block
+assets/bg.svg               faceted page background of the #318 look, referenced from card.css
 assets/portrait.webp        home page portrait, cropped from the 8256 px original, no metadata
 assets/umami.js             self-hosted visit tracker for umami.patchletter.com
 assets/umami-recorder.js    self-hosted heatmaps and session replays; honors DNT and rr-block exclusions
@@ -25,20 +27,27 @@ assets/video/phishing*      /workshops phishing film (Higgsfield/Kling 3.0), AV1
 assets/video/talk*          /workshops Formate background band (Kling 3 Pro via ElevenLabs): blurred, slowed, ping-pong loop
 mta-sts-worker/             Cloudflare Worker for mta-sts.sgr.ski (MTA-STS policy, RFC 8461); deployed with wrangler
 ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/location); deployed with wrangler, not Pages
-assets/fonts/*.woff2        JetBrains Mono (variable); home page: Jersey 10 (OFL) + Hack 400/700 Latin subset (MIT/Bitstream Vera), self-hosted
-assets/avatar.webp          224px avatar, used on /workshops
-assets/og.png               1200×630 social card
+assets/fonts/*.woff2        Sora 600/700 + Inter 400/600 Latin (OFL; home page, /leistungen, /impressum) and JetBrains Mono (variable, /workshops), self-hosted
+assets/avatar.webp          224px avatar, used on /workshops, /leistungen and /impressum
+assets/og.png               1200×630 social card for the home page (source: scripts/home-social.html)
+assets/og-leistungen.png    1200×630 social card for /leistungen (source: scripts/og-leistungen.html)
 assets/og-workshops.png     1200×630 social card for /workshops (source: scripts/workshops-social.html)
 assets/og-quiz.png          1200×630 social card for /workshops/quiz (source: scripts/quiz-social.html)
-scripts/home-social.html    source of assets/og.png (40C3 style; render with Chromium at 1200×630)
+assets/icon-192.png, icon-512.png  app icons, with apple-touch-icon.png and favicon.ico (Higgsfield monogram, gold on #282830)
+scripts/home-social.html    source of assets/og.png; real portrait and text over the Higgsfield background, render with Chromium at 1200×630
+scripts/og-leistungen.html  source of assets/og-leistungen.png (same background and layout)
+scripts/og/bg.png           Higgsfield-generated background of both cards; not published
+site.webmanifest            web app manifest (name, icons, theme colour #282830)
 kolja-sagorski.asc          PGP public key, offered as a download
-llms.txt                    site summary for AI agents; workshops/index.md mirrors /workshops as Markdown
+llms.txt                    site summary for AI agents; leistungen/index.md and workshops/index.md mirror those pages as Markdown
+sitemap.xml                 the five public pages with lastmod and priority
 .well-known/security.txt    RFC 9116
 .github/workflows/check.yml  CI build check only (deploys happen on Cloudflare)
 scripts/build.sh            assembles the published allow-list into _site/
 wrangler.jsonc              Cloudflare Workers config (static assets)
 _headers                    security + cache headers for every response
-.github/scripts/check-csp.py
+.github/scripts/check-csp.py    JSON-LD hashes in the CSP (home page, /leistungen, /workshops)
+.github/scripts/check-pages.py  page rules: no inline styles or data: URIs, local links exist, one <h1>, the title "Certified Security Analyst", required content per page
 ```
 
 ## Local development
@@ -65,8 +74,8 @@ redirects to the apex via a Cloudflare redirect rule, and "Always Use HTTPS" is 
 
 ## Two things that will bite you
 
-**The CSP hash.** `index.html` and `workshops/index.html` each carry an inline JSON-LD block, allowed by an explicit
-`'sha256-…'` in the Content-Security-Policy meta tag. Edit either JSON block and the hash goes stale —
+**The CSP hash.** `index.html`, `leistungen/index.html` and `workshops/index.html` each carry an inline JSON-LD block, allowed by an explicit
+`'sha256-…'` in the Content-Security-Policy meta tag. Edit one of these JSON blocks and the hash goes stale —
 browsers then drop the structured data silently. `.github/scripts/check-csp.py` fails the build
 instead of letting that ship. It prints the correct value; paste it into the `script-src`
 directive:
@@ -80,8 +89,10 @@ python3 .github/scripts/check-csp.py
 
 ## Licences
 
-Type is [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono) under the SIL Open Font
-License 1.1. The portrait is not licensed for reuse.
+Type is [Sora](https://github.com/sora-xor/sora-font) and [Inter](https://github.com/rsms/inter)
+(home page, /leistungen, /impressum) and [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono)
+(/workshops), all under the SIL Open Font License 1.1; the Sora and Inter licence texts are in
+`assets/fonts/`. The portrait is not licensed for reuse.
 
 The Umami recorder includes rrweb; license notices are in
 `assets/umami-recorder.LICENSE.txt`. To update it, download `recorder.js` from

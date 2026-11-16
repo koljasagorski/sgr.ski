@@ -8,31 +8,127 @@ Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 Für dieses Repo existiert **kein** Linear-Projekt (Stand 2026-08-30, Team `KOL` geprüft). Falls
 substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde.
 
-## Startseite: 40C3-Styleguide (seit 2026-11-06)
+## Startseite: Carrd-Template #318 (seit 2026-11-16)
 
-`index.html` folgt dem 40C3-Styleguide „Model Citizens“
-(`https://events.ccc.de/congress/2026/infos/styleguide/`, Version 1 vom 2026-11-06, Designkonzept
-und Assets CC0). Schlüsselfarben 0 / A / B: `#75b44b` (Grün), `#ebedf0` (Neutral), `#001300`
-(Hintergrund); Unterfarben 1–3 (`#15ada3`, `#9fa4e8`, `#c892d6`) für die „leisen“ Link-Boxen,
-4 und 7 nur in der Deko-Reihe. Alle Palettenfarben liegen auf `#001300` bei ≥ 6,1:1, in beiden
-Richtungen (Farbe auf Dunkel, Dunkel auf Farbe) — bei neuen Farben nachrechnen.
-Typo wie im Styleguide: Überschrift Jersey 10 (OFL), Subhead Hack Bold unterstrichen, Fließtext
-Hack Regular (MIT/Bitstream Vera). Selbst gehostet unter `assets/fonts/` samt Lizenzen; Hack ist
-mit `pyftsubset` auf Latin reduziert (WOFF2), Jersey 10 ist das Latin-WOFF2 aus dem Paket.
-Aufbau wie die Styleguide-Seiten: Deko-Reihe aus den Kästchen-Formen (Pfade aus
-`Assets/Icons_Deco/Square*`/`Star`, inline und `aria-hidden`, gefüllt per CSS — die Original-SVGs
-haben `<style>`-Blöcke, die die CSP blockt), Name groß in Jersey, Portrait im grünen Rahmen
-rechts oben, „Citizen A / Citizen B“-Zweispalter mit Klammer-Linie (`Lines0`), eine „laute“
-(gefüllte) und drei „leise“ (umrandete) Link-Boxen mit 40C3-Pfeil, Icon-Kacheln (Mail, LinkedIn,
-PGP-Key), Seitenzahl in Hex (`0x00`). Die Hex-Nummern der Links sind `aria-hidden`. Das
-40C3-Logo ist bewusst **nicht** eingebaut — es ist keine Kongress-Seite. Kein JavaScript auf der
-Seite, `assets/card.css` trägt alles. Portrait `assets/portrait.webp` (1200×1200,
-`cwebp -metadata none`, keine Nikon-EXIF im Web). `avatar.webp` bleibt für `/workshops`. Die CSP
-braucht für die Startseite kein `connect-src 'self'`. OG-Bild `assets/og.png` aus
-`scripts/home-social.html` (Chromium, 1200×630, Faktor 1) — bei Textänderung neu rendern.
-Frühere Stände (Retro-Fenster nach Carrd-Template #328, Commit `6d82564`; Glas-Karte nach
-Template #294, Commit `49fe2ab`; fünf Zufallsdesigns, Commit `1cc6c2f`) stehen in der
-Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
+`index.html` setzt das Carrd-Template #318 um (`https://bb17e50b963c5e74.demo.carrd.co`; Entwurf und
+Begründungen: `docs/superpowers/specs/2026-11-16-startseite-318-leistungen-design.md`). Deutsch
+(`lang="de"`, `og:locale de_DE`). Aufbau: dunkle Karte (`.card`, max. 800 px, Radius 16) auf
+facettiertem Hintergrund; links der Name zweifarbig (weiß / Gold), Untertitel und ein kurzer Text,
+rechts das geteilte Portrait (`assets/portrait.webp`, 1200×1200, `fetchpriority="high"`, feste
+`width`/`height`); darunter die Leiste (`.card__bar`) mit „LinkedIn · Buchen Sie meine
+Dienstleistungen“ (→ `/leistungen/`) links und dem goldenen Mail-Button rechts. Der Hintergrund ist
+`assets/bg.svg`, per `url()` in `body::before` (im Template ein `data:`-SVG, das die CSP verbietet).
+
+**Wortlaut, überall gleich:** Untertitel „Seit über 20 Jahren auf beiden Seiten der Firewall.“ (HTML,
+JSON-LD, Meta, `llms.txt`, `site.webmanifest`, OG-Bilder). Die Zertifizierung heißt „Certified
+Security Analyst“ — nie „Certified IT Security Analyst“ (`check-pages.py` bricht sonst den Build ab).
+
+Palette (Tokens in `assets/card.css`): `--bg #282830`, `--bg-top #36363b`, `--card #424247`, `--text
+#fff`, `--muted #b7b7b9`, `--gold #E3BD52`, `--gold-light #FFEBA3`, `--on-gold #443e35`, `--panel
+#1f1f25`. Kontraste (WCAG, aus dem Kommentar in `card.css`; bei neuen Farben nachrechnen): Text auf
+Karte 10,0:1, `--muted` auf Karte 5,0:1, Gold auf Karte 5,5:1, `--on-gold` auf Gold 5,9:1. Auf dem
+goldenen Ende der Leiste (`#5b5039`) bestehen nur `--text` (7,9:1) und `--gold-light` (6,7:1) — dort nie
+`--gold` oder `--muted`. Tippflächen ≥ 24×24 px.
+
+Fonts: **Sora** 600/700 (Überschriften) und **Inter** 400/600 (Text), Latin-WOFF2 unter
+`assets/fonts/`, beide OFL 1.1 (`sora.LICENSE.txt`, `inter.LICENSE.txt`), selbst gehostet und im
+`<head>` per `preload` geladen. Hack und Jersey 10 (40C3-Stand) sind samt Lizenzen entfernt.
+JetBrains Mono bleibt für `/workshops`.
+
+**PGP-Hinweis am Mail-Button:** „Lieber verschlüsselt? Mein PGP-Schlüssel liegt auf
+keys.openpgp.org“ mit Link auf `https://keys.openpgp.org/search?q=kolja%40sagorski.org`. Ohne
+JavaScript. Markup-Vertrag: `.mail` (`position: relative`) enthält `a.btn-gold` und `p.pgp > span`.
+Ab 860 px mit `(hover: hover)` ist `.pgp` ein Panel über dem Button, sichtbar bei `.mail:hover` und
+`.mail:focus-within`; sein Innenabstand unten (12 px) gehört zum Panel, damit die Maus ohne Lücke in
+den Link fahren kann. Sonst (Touch, schmal, kein Hover) steht der Hinweis als sichtbare Zeile unter
+dem Button, weil ein Tipp auf den Button sofort `mailto:` auslöst. Bekannte Grenzen: kein Esc zum
+Schließen, und das Panel ist bis zum Fokus auf dem Button für Screenreader nicht im Baum
+(`visibility: hidden`). Auf `/leistungen/` zeigt `.cta .pgp` (`leistungen.css`) die Zeile in jeder
+Breite dauerhaft, ohne Panel.
+
+**Impressum-Link am Rand:** `a.legal-link`, 12 px, `--muted`, unter der Karte rechts, mit ≥ 24 px
+Höhe als Tippfläche. Bewusst klein, aber lesbar (≥ 4,5:1) und von jeder anderen Seite verlinkt.
+
+Kein JavaScript auf der Seite (außer dem selbst gehosteten Umami), die CSP braucht nur
+`connect-src https://umami.patchletter.com`. JSON-LD `Person` mit `@id https://sgr.ski/#person`
+(`jobTitle`, `worksFor` patchletter UG, `knowsAbout`, `sameAs` LinkedIn + keys.openpgp.org,
+`address`). Die Adresse steht in **allen** Schemas exakt so: patchletter UG (haftungsbeschränkt),
+Meisterweg 16, 45896 Gelsenkirchen, DE. `avatar.webp` bleibt für `/workshops`, `/leistungen/` und
+`/impressum/`; Bilder ohne Metadaten ablegen (`cwebp -metadata none`).
+
+**Grafiken kommen aus Higgsfield** (Wunsch des Betreibers vom 2026-11-16), selbst gehostet und ohne
+Metadaten — nie von Higgsfield/CloudFront einbetten. OG-Hintergrund: `scripts/og/bg.png`
+(`gpt_image_2_6`, Job `811f5f23-8b0a-462c-8cd7-d6e11089eff5`, ohne Text und Personen, 1200×630). Darauf
+legen `scripts/home-social.html` und `scripts/og-leistungen.html` das echte Portrait und den exakten
+Text (Sora/Inter) — KI-Schrift und KI-Gesichter stimmen nicht verlässlich — und rendern
+`assets/og.png` bzw. `assets/og-leistungen.png` (Chrome, 1200×630, Faktor 1, Befehl im
+Dateikopf). Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector). Favicon und Icons
+(`favicon.ico` 16+32, `apple-touch-icon.png`, `assets/icon-192.png`, `assets/icon-512.png`): Monogramm
+„KS“ in Gold auf `#282830`, Higgsfield-Job `77af68f5-9da1-46c7-9804-bae3e3e41cfc`, auf zwei Farben
+gesnappt und heruntergerechnet. Dieser 1024-px-Master liegt **nicht** im Repo; für Änderungen neu
+generieren. `site.webmanifest`: `lang de`, `theme_color`/`background_color` `#282830`.
+
+Frühere Stände: 40C3-Styleguide „Model Citizens“ (Grün `#75b44b`, Jersey 10 + Hack; Stand von Commit
+`88f0a6b`, 2026-11-06, ansehen mit `git show 88f0a6b:index.html`), Retro-Fenster nach Carrd-Template
+#328 (Commit `6d82564`), Glas-Karte nach Template #294 (Commit `49fe2ab`), fünf Zufallsdesigns
+(Commit `1cc6c2f`). Alle stehen in der Git-Historie, die Zufallsdesigns zusätzlich unter `handoff/`.
+
+## Unterseite /leistungen/ (seit 2026-11-16)
+
+`leistungen/index.html` (deutsch) ist das Ziel von „Buchen Sie meine Dienstleistungen“ und der
+SEO-Hub für Ruhrgebiet und NRW. Gleiche Basis wie die Startseite: `assets/card.css` (Tokens, Fonts,
+`.btn-gold`, `.pgp`, `.legal-link`) plus `assets/leistungen.css` (Kopfkarte, Blatt, Abschnitte, FAQ,
+Kontaktblock; `/impressum/` lädt dasselbe Paar). Reihenfolge: Kopfkarte, H1, Inhaltsleiste, fünf
+Leistungen, Ablauf (Erstgespräch → Angebot → Umsetzung), Kostenlose Werkzeuge (paste., IP-Leak-Test,
+VPN Matrix — vorher auf der Startseite), FAQ, Kontakt (Mail + PGP-Zeile + LinkedIn).
+
+Anker, die `check-pages.py` erzwingt und die das JSON-LD (`url`) nutzt: `#beratung`,
+`#sicherheitstests`, `#microsoft-365`, `#souveraenitaet`, `#workshops`, `#werkzeuge`, `#faq`. Nicht
+umbenennen. Eine H1; Titel „IT-Sicherheitsberatung Ruhrgebiet & NRW · Kolja Sagorski“.
+
+Keyword-Karte, Kurzform (Spec: „Keyword-Karte“). **Suchvolumen sind nicht gemessen**, die Gewichtung
+ist eine begründete Hypothese — nach 6–8 Wochen in der Search Console prüfen:
+
+| Seite / Abschnitt | Hauptbegriff |
+|---|---|
+| `/` | IT-Sicherheitsberater Ruhrgebiet |
+| `/leistungen/` (Hub) | IT-Sicherheitsberatung Ruhrgebiet & NRW |
+| `#sicherheitstests` | Penetrationstest Ruhrgebiet (Pentest NRW, Schwachstellenanalyse) |
+| `#microsoft-365` | Microsoft 365 Betreuung Ruhrgebiet (Security-Check, Conditional Access, Entra ID, Intune) |
+| `#souveraenitaet` | Digitale Souveränität für Unternehmen (eigener Mailserver, Microsoft-365-Alternative) |
+| `#workshops` | Security-Awareness-Schulung Ruhrgebiet (Hauptseite bleibt `/workshops/`) |
+
+`#souveraenitaet` ist die größte Lücke: in der Stichprobe vom 2026-11-16 gab es dazu keinen regionalen
+Dienstleister. Städte stehen natürlich im Fließtext und in `areaServed`, keine Städte-Doorway-Seiten
+(„IT-Sicherheit Essen“ als Klon). Text, `areaServed` und `index.md` halten dieselbe Städteliste.
+
+Schema: **ein** `@graph`-Block mit `ProfessionalService` (patchletter UG, Adresse wie im Impressum,
+`areaServed`, `founder` → Person `#person`, `hasOfferCatalog` mit fünf `Service`, ohne Preise),
+`BreadcrumbList` und `FAQPage`. Ein Block, weil `check-csp.py` nur den ersten JSON-LD-Block je Seite
+prüft.
+
+KI-Lesbarkeit: `leistungen/index.md` ist der Markdown-Spiegel (`rel="alternate" type="text/markdown"`).
+**Inhaltsänderungen an `leistungen/index.html` auch in `index.md` nachziehen.** Die FAQ-Texte stehen
+an drei Stellen (`<details>`, JSON-LD `FAQPage`, `index.md`) — alle drei ändern, danach den Hash neu
+setzen. Dazu `llms.txt` („Services“), Titel, Description und OG-Text im Blick behalten.
+
+**Nichts erfinden:** keine Preise, keine Kundennamen oder Referenzen, keinen Partnerstatus (z. B.
+„Microsoft Partner“), keine weiteren Zertifikate. Das schließt der Spec aus; erst aufnehmen, wenn der Betreiber es
+ausdrücklich liefert. Auch die Aussagen zu den Tests bleiben bei dem, was die Seite sagt: schriftliche Freigabe, vereinbarter Umfang,
+jeder Befund manuell verifiziert. Die Schritte außerhalb der Website (Google-Unternehmensprofil,
+Search Console und Bing mit `sitemap.xml`, LinkedIn-Link auf `/leistungen/`) macht der Betreiber; die
+Liste steht im Spec unter „Außerhalb der Website“.
+
+## Seitenprüfung: check-pages.py (seit 2026-11-16)
+
+`.github/scripts/check-pages.py` läuft in `scripts/build.sh` direkt nach `check-csp.py` (also lokal,
+in Workers Builds und in `check.yml`) und bricht den Build bei jedem Fehler ab. Für jede Seite in
+`PAGES`: kein `style="…"`, kein `data:`-URI (auch nicht in `url(…)` der verlinkten CSS), jeder lokale
+Verweis existiert (`/x/` → `x/index.html`), nie „Certified IT Security Analyst“, genau eine `<h1>`, und
+die Muster aus `RULES` (Untertitel wortgleich, Mail-, PGP- und LinkedIn-Link, Anker der Leistungen,
+Impressum-Pflichtangaben, Footer-Links). Neue Seite: in `PAGES` und `RULES` von `check-pages.py`
+eintragen, bei JSON-LD auch in `PAGES` von `check-csp.py`, und in `scripts/build.sh`. `workshops/index.md`
+und `leistungen/index.md` prüft das Skript nicht.
 
 ## Design-Herkunft (alter Stand, Variante 1d)
 
@@ -99,8 +195,8 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
 
 - **Keine Inline-Styles, keine Inline-Scripts.** Die CSP ist `default-src 'none'`; alles andere
   läuft über `'self'`. Ein `style="…"` greift schlicht nicht.
-- **Ausnahme:** die JSON-LD-Blöcke in `index.html` und `workshops/index.html` sind jeweils per `'sha256-…'` freigegeben. Wird ein JSON
-  geändert, muss dessen Hash neu — `python3 .github/scripts/check-csp.py` gibt den korrekten Wert aus
+- **Ausnahme:** die JSON-LD-Blöcke in `index.html`, `leistungen/index.html` und `workshops/index.html` sind jeweils per
+  `'sha256-…'` freigegeben. Wird ein JSON geändert, muss dessen Hash neu — `python3 .github/scripts/check-csp.py` gibt den korrekten Wert aus
   und lässt sonst den Build fehlschlagen.
 - **Fonts bleiben selbst gehostet.** Kein Google-Fonts-CDN (DSGVO) und keine weiteren
   Dritt-Requests. **Ausnahmen, beide auf eigener Infrastruktur des Betreibers:** `ip.sgr.ski`
@@ -120,7 +216,13 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   Ausschlüsse erhalten. Die CSP braucht weiterhin keine fremde Script-Quelle.
 - **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
   am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
-  wie patchletter.com/de/impressum, verlinkt im Footer von `/workshops`). Eine Datenschutzseite
+  wie patchletter.com/de/impressum). Seit 2026-11-16 vollständig, **mit USt-IdNr. DE466427019**
+  (§ 27a UStG; dazu HRB 20118, Amtsgericht Gelsenkirchen, § 18 Abs. 2 MStV — `check-pages.py`
+  erzwingt diese Angaben), und im Look der Startseite (`card.css` + `leistungen.css`). Der Link
+  steht auf **allen** Seiten: Startseite (ganz klein am Rand unter der Karte), `/leistungen/`,
+  `/workshops/` und Quiz im Footer; `/impressum/` selbst verlinkt zurück auf Start, Leistungen und
+  Workshops. Nicht übernommen aus patchletter.com: Markenhinweis, „Haftung für Inhalte“ zu
+  Release-Daten und der PGP-Block für hello@ (betreffen nur das Produkt). Eine Datenschutzseite
   weiterhin nicht ungefragt einbauen.
 - **`--faint` und `--faint-text` sind nicht dasselbe.** `--faint` (#a3a39c / #5a616a) ist der
   Originalton des Entwurfs und bleibt den dekorativen, `aria-hidden`-Pfeilen vorbehalten.
