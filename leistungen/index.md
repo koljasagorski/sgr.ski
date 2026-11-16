@@ -7,7 +7,7 @@ updated: 2026-11-16
 
 # IT-Sicherheit für Unternehmen im Ruhrgebiet und NRW
 
-**Seit über 20 Jahren auf beiden Seiten der Firewall.** Ich berate Unternehmen zu IT-Sicherheit, teste ihre Systeme, betreue Microsoft 365 und baue auf Wunsch eigene Dienste statt Big-Tech-Cloud auf. Von meinem Sitz in Gelsenkirchen aus arbeite ich für Unternehmen in Essen, Bochum, Dortmund, Duisburg, Oberhausen, Bottrop, Herne und Recklinghausen – vor Ort im Ruhrgebiet, remote in ganz NRW und Deutschland.
+**Seit über 20 Jahren auf beiden Seiten der Firewall.** Ich berate Unternehmen zu IT-Sicherheit, teste ihre Systeme, betreue Microsoft 365 und baue auf Wunsch eigene Dienste statt Big-Tech-Cloud auf. Von meinem Sitz in Gelsenkirchen aus arbeite ich für Unternehmen in Essen, Bochum, Dortmund, Duisburg, Oberhausen, Bottrop, Gladbeck, Herne und Recklinghausen – vor Ort im Ruhrgebiet, remote in ganz NRW und Deutschland.
 
 Kolja Sagorski, Certified Security Analyst.
 
@@ -22,7 +22,7 @@ Klassische Cyber-Security-Beratung für Ihr Unternehmen: Wir klären gemeinsam, 
 
 ## KI-gestützte Sicherheitstests
 
-Ich prüfe Ihre Webanwendungen, Server und Netzwerke so, wie ein Angreifer es tun würde, mit Ihrer schriftlichen Freigabe und in einem vorher festgelegten Umfang. KI-Werkzeuge helfen mir, die Angriffsfläche breiter abzusuchen. Jeder Befund wird manuell verifiziert, bevor er in den Bericht kommt.
+Mit Penetrationstests (Pentests) und Schwachstellenanalysen prüfe ich Ihre Webanwendungen, Server und Netzwerke so, wie ein Angreifer es tun würde, mit Ihrer schriftlichen Freigabe und in einem vorher festgelegten Umfang. KI-Werkzeuge helfen mir, die Angriffsfläche breiter abzusuchen. Jeder Befund wird manuell verifiziert, bevor er in den Bericht kommt.
 
 - Penetrationstests für Webanwendungen und APIs
 - Schwachstellenanalysen von Servern und Netzwerken, von außen und von innen
@@ -49,7 +49,7 @@ Ihre Mails und Dateien müssen nicht bei einem US-Konzern liegen. Ich baue selbs
 
 ## Workshops für Teams
 
-Technik allein schützt nicht, wenn eine gut gemachte Phishing-Mail durchkommt. In meinen Workshops zu digitaler Selbstverteidigung zeige ich Angriffe live und kontrolliert, damit Ihr Team versteht, wovor es sich schützt. Jedes Thema folgt demselben Ablauf: Angriff → Verstehen → Schützen → Prüfen.
+Technik allein schützt nicht, wenn eine gut gemachte Phishing-Mail durchkommt. Meine Workshops zu digitaler Selbstverteidigung sind Security-Awareness-Schulungen für Ihre Mitarbeitenden: Ich zeige Angriffe live und kontrolliert, damit Ihr Team versteht, wovor es sich schützt. Jedes Thema folgt demselben Ablauf: Angriff → Verstehen → Schützen → Prüfen.
 
 - Vortrag, 45–90 Minuten
 - Workshop, 3–4 Stunden

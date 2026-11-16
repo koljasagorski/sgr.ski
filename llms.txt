@@ -19,7 +19,7 @@ Details on [/leistungen/](https://sgr.ski/leistungen/) (German). No prices are p
 - Microsoft-365-Betreuung (Microsoft 365 support): ongoing support, security check (accounts, permissions, sharing, settings), hardening with MFA, Conditional Access, Defender, Entra ID, Intune and Exchange Online, optimisation
 - Digitale Souveränität (digital sovereignty): self-hosted services on open-source software instead of big-tech cloud, such as a company mail server, file storage and collaboration (e.g. Nextcloud); migration from Microsoft 365 or Google Workspace, operation and maintenance; a hybrid path that keeps Microsoft 365 is possible
 - Workshops für Teams (workshops for teams): talks, workshops and training on digital self-defence with live attack demonstrations, see Workshop facts below
-- Area served: seat in Gelsenkirchen; on site in the Ruhr area (Essen, Bochum, Dortmund, Duisburg, Oberhausen, Bottrop, Herne, Recklinghausen), remote across NRW and Germany
+- Area served: seat in Gelsenkirchen; on site in the Ruhr area (Essen, Bochum, Dortmund, Duisburg, Oberhausen, Bottrop, Gladbeck, Herne, Recklinghausen), remote across NRW and Germany
 - Process: first conversation, written offer, implementation
 
 ## Workshop facts
