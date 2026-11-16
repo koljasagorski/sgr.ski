@@ -234,7 +234,8 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   `/workshops/` und Quiz im Footer; `/impressum/` selbst verlinkt zurück auf Start, Leistungen und
   Workshops. Nicht übernommen aus patchletter.com: Markenhinweis, „Haftung für Inhalte“ zu
   Release-Daten und der PGP-Block für hello@ (betreffen nur das Produkt). Eine Datenschutzseite
-  weiterhin nicht ungefragt einbauen.
+  weiterhin nicht ungefragt einbauen. Das Impressum steht seit 2026-11-16 auf Wunsch des Betreibers auf
+  `noindex, follow` (ohne Canonical, nicht in der Sitemap; `check-pages.py` prüft das).
 - **`--faint` und `--faint-text` sind nicht dasselbe.** `--faint` (#a3a39c / #5a616a) ist der
   Originalton des Entwurfs und bleibt den dekorativen, `aria-hidden`-Pfeilen vorbehalten.
   Sichtbarer Text nutzt `--faint-text`, das WCAG AA (4.5:1) erfüllt. Text nie auf `--faint`

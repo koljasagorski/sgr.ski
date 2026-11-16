@@ -76,6 +76,7 @@ RULES: dict[str, list[tuple[str, str]]] = {
         ("street address", r"Meisterweg 16"),
         ("responsible person (MStV)", r"§ 18 Abs\. 2 MStV"),
         ("link back to the home page", r'href="/"'),
+        ("noindex (operator's wish)", r'<meta name="robots" content="noindex, follow">'),
     ],
     "workshops/index.html": [
         ("footer link to /leistungen/", r'href="/leistungen/"'),
