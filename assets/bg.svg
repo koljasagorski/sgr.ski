@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">
+  <!-- Background of Carrd template #318: faint white wedges over the page
+       gradient (set in card.css). Decoded from the template's data: URI;
+       styles turned into presentation attributes. One change: the corner
+       wedge (l4) was opaque grey in the template and showed as a bright
+       sliver on narrow windows; it uses the same faint white as the rest. -->
+  <defs>
+    <linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="239.5937" x2="640" y2="239.5937" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".3743" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset=".7682" stop-color="#fff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".031"/>
+    </linearGradient>
+    <linearGradient id="l1" gradientUnits="userSpaceOnUse" x1="180.3663" y1="333.5278" x2="72.0669" y2="521.1078" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l2" gradientUnits="userSpaceOnUse" x1="0" y1="251.589" x2="349.5438" y2="251.589" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset=".8596" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l3" gradientUnits="userSpaceOnUse" x1="307.3333" y1="161.2493" x2="307.3333" y2="479.5" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l4" gradientUnits="userSpaceOnUse" x1="540.3333" y1="470.1287" x2="640" y2="470.1287" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset=".8596" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l5" gradientUnits="userSpaceOnUse" x1="327.3333" y1="142.6941" x2="640" y2="142.6941" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset=".8596" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="l6" gradientUnits="userSpaceOnUse" x1="291.9083" y1="22.7335" x2="129.2015" y2="304.55" gradientTransform="matrix(1 0 0 -1 0 479.5)">
+      <stop offset="0" stop-color="#fff" stop-opacity=".031"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="479.8" fill="url(#bg)" opacity=".5"/>
+  <polygon opacity=".75" fill="url(#l1)" points="0,69 92.3,196.8 232,0 0,0"/>
+  <polygon opacity=".75" fill="url(#l2)" points="92.3,196.8 0,170.9 0,284.9"/>
+  <polygon opacity=".75" fill="url(#l3)" points="92.7,196.4 514.7,0 522,0 328.7,318.3"/>
+  <polygon opacity=".75" fill="url(#l4)" points="540.3,0 640,18.7 640,0"/>
+  <polygon opacity=".75" fill="url(#l5)" points="327.3,317.1 571.3,235.4 640,276.3 640,438.2"/>
+  <polygon opacity=".75" fill="url(#l6)" points="92.3,196.2 189.9,480 251.7,480 327.5,318.4"/>
+</svg>

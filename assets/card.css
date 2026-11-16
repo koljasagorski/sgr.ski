@@ -1,77 +1,96 @@
-/* sgr.ski home, styled after the 40C3 "Model Citizens" styleguide
-   (events.ccc.de/congress/2026/infos/styleguide, design concept CC0):
-   key colours 0 / A / B, Jersey 10 for headings, Hack Bold underlined
-   for subheads, Hack Regular for body. No inline styles anywhere (CSP). */
+/* sgr.ski, styled after Carrd template #318: a dark card on a faceted
+   background, name in white and gold, the split portrait on the right and a
+   bar with a gold mail button below. Shared by the home page, /leistungen/
+   and /impressum/ (tokens and the classes .card, .btn-gold, .pgp,
+   .legal-link). No inline styles anywhere (CSP). */
 
 @font-face {
-  font-family: "Jersey 10";
-  src: url("/assets/fonts/jersey-10-latin-400.woff2") format("woff2");
-  font-weight: 400;
+  font-family: "Sora";
+  src: url("/assets/fonts/sora-latin-600.woff2") format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Hack";
-  src: url("/assets/fonts/hack-latin-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Hack";
-  src: url("/assets/fonts/hack-latin-bold.woff2") format("woff2");
+  font-family: "Sora";
+  src: url("/assets/fonts/sora-latin-700.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* Palette exactly as published. Every colour reaches >= 6.1:1 against
-   --dark, so each works as text on dark and as a fill under dark text. */
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-latin-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/assets/fonts/inter-latin-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Colours from the template. Contrast, WCAG formula (recompute on change):
+   --text on --card 10.0:1, --muted on --card 5.0:1, --gold on --card 5.5:1,
+   --on-gold on --gold 5.9:1, --muted on the lightest page background 6.0:1.
+   On the bar's gold end (#5b5039) only --text (7.9:1) and --gold-light
+   (6.7:1) pass, so text there never uses --gold or --muted. */
 :root {
-  --dark: #001300;       /* B */
-  --neutral: #ebedf0;    /* A, 16.4:1 on dark */
-  --primary: #75b44b;    /* 0, 7.7:1 */
-  --c1: #15ada3;         /* 6.9:1 */
-  --c2: #9fa4e8;         /* 8.2:1 */
-  --c3: #c892d6;         /* 7.8:1 */
-  --c4: #ee5da2;         /* 6.2:1 */
-  --c7: #ffbc40;         /* 11.5:1 */
-  --head: "Jersey 10", "Hack", ui-monospace, monospace;
-  --mono: "Hack", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --bg: #282830;
+  --bg-top: #36363b;       /* top of the page gradient */
+  --card: #424247;         /* measured on the template's card */
+  --text: #fff;
+  --muted: #b7b7b9;        /* the template's 62 % white, made opaque */
+  --gold: #E3BD52;
+  --gold-light: #FFEBA3;
+  --on-gold: #443e35;      /* the template's 85 % #282830 on gold */
+  --panel: #1f1f25;        /* PGP panel */
+  --head: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --body: "Inter", ui-sans-serif, system-ui, sans-serif;
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 
-html { background: var(--dark); }
-
-body {
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  padding: clamp(28px, 6vw, 64px) clamp(16px, 6vw, 64px);
-  background: var(--dark);
-  color: var(--neutral);
-  font: 400 14px/1.6 var(--mono);
-  -webkit-font-smoothing: antialiased;
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-/* The three short bars on the page edge, as on the styleguide sheets. */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px 12px;
+  color: var(--text);
+  font: 400 16px/1.875 var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The template's faceted wedges over its dark vertical gradient, on a
+   fixed layer (background-attachment: fixed is unreliable on iOS). */
 body::before {
   content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: clamp(10px, 3vw, 26px);
-  height: 30px;
-  background: linear-gradient(var(--primary) 0 4px, transparent 4px 13px,
-                              var(--primary) 13px 17px, transparent 17px 26px,
-                              var(--primary) 26px 30px);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg);
+  background-image: url("/assets/bg.svg"), linear-gradient(180deg, var(--bg-top) 0%, var(--bg) 100%);
+  background-size: cover, auto;
+  background-position: center, 0 0;
+  background-repeat: no-repeat;
   pointer-events: none;
 }
 
@@ -80,13 +99,16 @@ body::before {
   left: 16px;
   top: -64px;
   padding: 10px 16px;
-  background: var(--primary);
-  color: var(--dark);
-  font-weight: 700;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--on-gold);
+  font-weight: 600;
   text-decoration: none;
   z-index: 10;
 }
 .skip:focus { top: 16px; }
+
+.nowrap { white-space: nowrap; }
 
 .sr-only {
   position: absolute;
@@ -97,176 +119,265 @@ body::before {
   white-space: nowrap;
 }
 
-/* ── Sheet ────────────────────────────────────────────────────────── */
-
-.sheet {
-  width: 100%;
-  max-width: 600px;
-}
-
-/* Deco row: the styleguide's boxed shapes, one key or sub colour each. */
-.deco {
-  display: flex;
-  gap: clamp(10px, 3vw, 18px);
-  margin-bottom: clamp(28px, 7vw, 44px);
-}
-.deco svg {
-  width: clamp(26px, 7vw, 34px);
-  height: clamp(26px, 7vw, 34px);
-  fill: currentColor;
-}
-.c0 { color: var(--primary); }
-.c1 { color: var(--c1); }
-.c2 { color: var(--c2); }
-.c4 { color: var(--c4); }
-.c7 { color: var(--c7); }
-
-.intro {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.name {
-  color: var(--primary);
-  font: 400 clamp(52px, 15vw, 88px)/.86 var(--head);
-  text-transform: uppercase;
-  letter-spacing: .01em;
-}
-.name span { display: block; }
-
-.portrait {
-  flex: none;
-  width: clamp(84px, 24vw, 128px);
-  height: clamp(84px, 24vw, 128px);
-  border: 3px solid var(--primary);
-  object-fit: cover;
-  object-position: 50% 24%;
-  background: var(--primary);
-}
-
-/* "Citizen A / and Citizen B" layout: bold underlined subhead on the
-   left, body copy on the right, closed by the bracket line. */
-.copy {
-  position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 11em) minmax(0, 1fr);
-  gap: 8px 28px;
-  margin-top: clamp(28px, 7vw, 40px);
-  padding: 22px 30px 22px 0;
-  border-top: 2px solid var(--primary);
-}
-
-.headline {
-  color: var(--primary);
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-
-.bracket {
-  position: absolute;
-  right: 0;
-  top: 22px;
-  width: 11px;
-  height: calc(100% - 44px);
-  fill: var(--primary);
-}
-
-@media (max-width: 520px) {
-  .copy { grid-template-columns: 1fr; }
-}
-
-/* ── Links: one loud, the rest quiet ──────────────────────────────── */
-
-.links {
-  display: grid;
-  gap: 12px;
-  margin-top: 8px;
-  padding: 0;
-  list-style: none;
-}
-
-.link {
-  --c: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 12px 18px;
-  border: 2px solid var(--c);
-  color: var(--c);
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color .12s ease, color .12s ease;
-}
-.link svg {
-  flex: none;
-  width: 26px;
-  height: 15px;
-  fill: currentColor;
-  transition: transform .12s ease;
-}
-.link:hover { background: var(--c); color: var(--dark); }
-.link:hover svg { transform: translateX(4px); }
-
-.num { font-weight: 400; }
-
-.link--loud { background: var(--primary); color: var(--dark); }
-.link--loud:hover { background: var(--dark); color: var(--primary); }
-.link--c1 { --c: var(--c1); }
-.link--c2 { --c: var(--c2); }
-.link--c3 { --c: var(--c3); }
-
-/* ── Icon tiles ───────────────────────────────────────────────────── */
-
-.icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-  padding: 0;
-  list-style: none;
-}
-
-.chip {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  transition: background-color .12s ease, color .12s ease;
-}
-.chip svg {
-  width: 20px;
-  height: 20px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-}
-/* Brand marks are solid shapes, not outlines. */
-.chip svg.brand { fill: currentColor; stroke: none; }
-.chip:hover { background: var(--primary); color: var(--dark); }
-
-/* Hex page number, bottom right, like the styleguide sheets. */
-.page {
-  margin-top: clamp(28px, 7vw, 48px);
-  color: var(--primary);
-  font-size: 20px;
-  text-align: right;
-}
+a { color: inherit; }
 
 a:focus-visible {
-  outline: 3px solid var(--c7);
+  outline: 2px solid var(--gold-light);
   outline-offset: 3px;
 }
 
+/* ── Card ─────────────────────────────────────────────────────────── */
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "copy photo"
+    "bar  bar";
+  width: 100%;
+  max-width: 800px;
+  margin: auto 0;
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.card__copy {
+  grid-area: copy;
+  align-self: center;
+  padding: 72px 40px 72px 48px;
+}
+.card__copy > * + * { margin-top: 28px; }
+
+.card__copy h1 {
+  font: 600 52px/1.125 var(--head);
+  letter-spacing: -.0538em;
+}
+.card__copy h1 span { display: inline-block; }
+.card__copy h1 .gold { color: var(--gold); }
+
+.card__copy p { color: var(--muted); }
+.card__copy .lead {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* The split line of the portrait sits at x = 50 %; centred cover keeps it
+   in the middle of whatever the column crops. */
+.card__photo {
+  grid-area: photo;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-top-right-radius: 16px;
+  background: #1b2024;
+}
+
+/* Bar: links on the left, mail button on the right, the template's
+   white-to-gold sheen over the page colour. */
+.card__bar {
+  grid-area: bar;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 24px 48px;
+  border-radius: 0 0 16px 16px;
+  background:
+    linear-gradient(132deg, rgba(255, 255, 255, .12) 35%, rgba(227, 189, 82, .271) 100%),
+    var(--bg);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 32px;
+  padding: 0;
+  list-style: none;
+  font: 600 16px/1.5 var(--head);
+  letter-spacing: -.01em;
+}
+.links li { position: relative; }
+/* Gold dot between the links, as in the template. */
+.links li + li::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.links a {
+  display: inline-block;
+  padding: 2px 0;
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color .25s ease;
+}
+.links a:hover { color: var(--gold-light); }
+
+/* ── Mail button and PGP hint ─────────────────────────────────────── */
+
+.mail {
+  position: relative;
+  flex: none;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0 28px;
+  border-radius: 48px;
+  background-color: var(--gold);
+  background-image: linear-gradient(45deg, var(--gold-light) 0%, var(--gold) 100%);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, .09);
+  color: var(--on-gold);
+  font: 600 16px/1.25 var(--head);
+  letter-spacing: -.025rem;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: transform .25s ease, background-color .25s ease;
+}
+.btn-gold svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  fill: rgba(40, 40, 48, .37);
+}
+.btn-gold:hover {
+  background-color: #FACD64;
+  background-image: linear-gradient(45deg, var(--gold-light) 0%, #FACD64 100%);
+  transform: scale(1.0425);
+}
+
+/* Default (touch, narrow, no hover): a visible line under the button,
+   because a tap on the button opens the mail client right away. */
+.pgp {
+  margin-top: 12px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.pgp a {
+  display: inline-block;
+  padding: 3px 0;          /* 28 px tall tap target */
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.pgp a:hover { color: var(--text); }
+
+/* Desktop with a mouse: the hint is a panel above the button, shown on
+   hover and keyboard focus. Its bottom padding is part of the panel, so
+   the pointer can travel from the button into the link without a gap. */
+@media (min-width: 860px) and (hover: hover) {
+  .pgp {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    z-index: 5;
+    width: 320px;
+    margin: 0;
+    padding-bottom: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+  }
+  .pgp > span {
+    display: block;
+    padding: 12px 16px;
+    border: 1px solid rgba(227, 189, 82, .35);
+    border-radius: 12px;
+    background: var(--panel);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .35);
+  }
+  .mail:hover .pgp,
+  .mail:focus-within .pgp {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: opacity .2s ease, transform .2s ease, visibility 0s;
+  }
+}
+
+/* ── Impressum link: tiny, under the card on the right ────────────── */
+
+.legal-link {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-top: 24px;
+  padding: 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+}
+.legal-link:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+/* ── Narrow screens: photo on top, everything centred ─────────────── */
+
+@media (max-width: 859px) {
+  body { padding-top: 16px; }
+
+  .card {
+    max-width: 560px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "photo"
+      "copy"
+      "bar";
+  }
+
+  .card__photo {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .card__copy {
+    padding: 36px 24px 40px;
+    text-align: center;
+  }
+  .card__copy > * + * { margin-top: 20px; }
+  .card__copy h1 { font-size: clamp(36px, 10vw, 46px); }
+
+  .card__bar {
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 24px 28px;
+    text-align: center;
+  }
+  .links { justify-content: center; }
+  .mail { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .btn-gold {
+    width: 100%;
+    padding: 0 20px;
+  }
+  .links { flex-direction: column; gap: 4px; }
+  .links li + li::before { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .link, .link svg, .chip { transition: none; }
-  .link:hover svg { transform: none; }
+  .links a, .btn-gold, .pgp { transition: none !important; }
+  .btn-gold:hover { transform: none; }
+  .mail:hover .pgp, .mail:focus-within .pgp { transform: none; }
 }
