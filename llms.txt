@@ -1,6 +1,6 @@
 # sgr.ski — Kolja Sagorski
 
-> Personal site of Kolja Sagorski, Certified IT Security Analyst with 20+ years on both sides of the firewall. Offers workshops and talks (in German) on digital self-defence and operational security (OPSEC) for journalists, whistleblowers, people in exile and anyone handling sensitive information — built around live demonstrations of real attacks.
+> Personal site of Kolja Sagorski, Certified Security Analyst with 20+ years on both sides of the firewall. Offers workshops and talks (in German) on digital self-defence and operational security (OPSEC) for journalists, whistleblowers, people in exile and anyone handling sensitive information — built around live demonstrations of real attacks.
 
 ## Pages
 

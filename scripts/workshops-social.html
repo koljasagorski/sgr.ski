@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- Source of assets/og-workshops.png (1200 × 630). Render this local file with headless Chrome
+     at device scale 1 once the fonts have loaded. It mirrors the /workshops hero: the light
+     user layer, and the dark attacker layer right of the firewall line. Only the resulting
+     PNG is published by scripts/build.sh. -->
+<html lang="de">
+<meta charset="utf-8">
+<title>Workshops · Social Preview</title>
+<style>
+@font-face { font-family: Mono; src: url('../assets/fonts/jetbrains-mono-latin.woff2') format('woff2'); font-weight: 100 800; }
+* { box-sizing: border-box; margin: 0; }
+body { width: 1200px; height: 630px; position: relative; overflow: hidden; font-family: Mono, monospace; }
+.layer { position: absolute; inset: 0; padding: 56px 64px 56px; display: flex; flex-direction: column; background: #fbfbfa; color: #1a1a19; --muted: #70706c; --faint: #73736e; }
+.layer--dark { clip-path: inset(0 0 0 720px); background: #0e1013; color: #e8eaec; --muted: #7c8288; --faint: #787d85; }
+.top { display: flex; align-items: center; gap: 16px; height: 52px; }
+.top img { width: 52px; height: 52px; border-radius: 50%; box-shadow: 0 0 0 1px #e6e6e0; }
+.layer--dark .top img { box-shadow: 0 0 0 1px #21262c; }
+.who { display: flex; flex-direction: column; gap: 3px; }
+.name { font-size: 20px; font-weight: 500; }
+.role { font-size: 14px; color: var(--muted); }
+.title { margin-top: auto; font-size: 66px; font-weight: 300; line-height: 1.02; letter-spacing: -.04em; white-space: nowrap; }
+.layer--dark .title { font-weight: 800; }
+.kicker { margin-top: 153px; font-size: 16px; letter-spacing: .055em; color: var(--faint); }
+.chip { position: absolute; right: 64px; top: 64px; padding: 7px 12px; border: 1px solid #2a3038; color: #8a978f; font-size: 16px; letter-spacing: .055em; line-height: 20px; }
+.line { position: absolute; left: 720px; top: 0; bottom: 0; width: 1px; background: #8a978f; }
+</style>
+<div class="layer">
+  <div class="top"><img src="../assets/avatar.webp" alt=""><div class="who"><span class="name">Kolja Sagorski</span><span class="role">Certified Security Analyst</span></div></div>
+  <div class="title">DU VERSTEHST DAS RISIKO ERST,<br>WENN DU DEN ANGRIFF SIEHST.</div>
+  <div class="kicker">WORKSHOPS &amp; VORTRÄGE · DIGITALE SELBSTVERTEIDIGUNG · OPSEC</div>
+</div>
+<div class="layer layer--dark">
+  <div class="top"><img src="../assets/avatar.webp" alt=""><div class="who"><span class="name">Kolja Sagorski</span><span class="role">Certified Security Analyst</span></div></div>
+  <div class="title">DU VERSTEHST DAS RISIKO ERST,<br>WENN DU DEN ANGRIFF SIEHST.</div>
+  <div class="kicker">WORKSHOPS &amp; VORTRÄGE · DIGITALE SELBSTVERTEIDIGUNG · OPSEC</div>
+</div>
+<div class="line"></div>
+<div class="chip">SGR.SKI/WORKSHOPS</div>
+</html>

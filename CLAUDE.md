@@ -87,7 +87,8 @@ SEO /workshops: Die H1 ist das kleine Label „WORKSHOPS · DIGITALE SELBSTVERTE
 QUELLENSCHUTZ“ (Suchbegriffe); der große Slogan ist bewusst ein `<p>`. Titel ≤ 62 Zeichen,
 Description ~150. Das OG-Bild `assets/og-workshops.png` ist in HTML gesetzt (Seiten-Schrift,
 Hell/Dunkel-Split wie im Hero) und mit Chrome gerendert — nicht KI-generiert, damit die Schrift
-exakt ist. Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector nutzen).
+exakt ist. Quelle: `scripts/workshops-social.html` (Chrome, 1200×630, Faktor 1, seit 2026-11-16 im
+Repo). Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector nutzen).
 
 KI-Lesbarkeit: `/llms.txt` (Allow-List in `scripts/build.sh`!) und `workshops/index.md` als Markdown-Spiegel der
 Workshop-Seite, verlinkt per `rel="alternate" type="text/markdown"`. **Inhaltliche Änderungen an

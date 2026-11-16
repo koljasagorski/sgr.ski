@@ -28,7 +28,7 @@ ip-worker/                  Cloudflare Worker for ip.sgr.ski (visitor IP/ASN/loc
 assets/fonts/*.woff2        JetBrains Mono (variable); home page: Jersey 10 (OFL) + Hack 400/700 Latin subset (MIT/Bitstream Vera), self-hosted
 assets/avatar.webp          224px avatar, used on /workshops
 assets/og.png               1200×630 social card
-assets/og-workshops.png     1200×630 social card for /workshops (HTML-set, rendered with Chrome)
+assets/og-workshops.png     1200×630 social card for /workshops (source: scripts/workshops-social.html)
 assets/og-quiz.png          1200×630 social card for /workshops/quiz (source: scripts/quiz-social.html)
 scripts/home-social.html    source of assets/og.png (40C3 style; render with Chromium at 1200×630)
 kolja-sagorski.asc          PGP public key, offered as a download

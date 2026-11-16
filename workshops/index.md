@@ -9,7 +9,7 @@ updated: 2026-09-30
 
 > Du verstehst das Risiko erst, wenn du den Angriff siehst.
 
-Workshops und Vorträge zu digitaler Selbstverteidigung und Operational Security (OPSEC) für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten – mit Live-Demonstrationen realer Angriffe. Angeboten von Kolja Sagorski, Certified IT Security Analyst, mit mehr als 20 Jahren Erfahrung auf beiden Seiten der Firewall.
+Workshops und Vorträge zu digitaler Selbstverteidigung und Operational Security (OPSEC) für Journalisten, Whistleblower, Menschen im Exil und alle, die mit sensiblen Informationen arbeiten – mit Live-Demonstrationen realer Angriffe. Angeboten von Kolja Sagorski, Certified Security Analyst, mit mehr als 20 Jahren Erfahrung auf beiden Seiten der Firewall.
 
 Ablauf jedes Themas: **Angriff → Verstehen → Schützen → Prüfen.**
 
@@ -63,7 +63,7 @@ Die konkreten Demonstrationen variieren je nach Zielgruppe und Workshop.
 
 ## Über Kolja Sagorski
 
-Certified IT Security Analyst, 20+ Jahre auf beiden Seiten der Firewall. Schwerpunkte: Cyber Security, Offensive Security, Defensive Security, Operational Security, Privacy, Infrastructure Security.
+Certified Security Analyst, 20+ Jahre auf beiden Seiten der Firewall. Schwerpunkte: Cyber Security, Offensive Security, Defensive Security, Operational Security, Privacy, Infrastructure Security.
 
 ## Brauchst du einen Workshop? Selbstcheck zur digitalen Sicherheit
 
