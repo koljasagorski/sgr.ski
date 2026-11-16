@@ -35,7 +35,7 @@ assets/og.png               1200×630 social card for the home page (source: scr
 assets/og-leistungen.png    1200×630 social card for /leistungen (source: scripts/og-leistungen.html)
 assets/og-workshops.png     1200×630 social card for /workshops (source: scripts/workshops-social.html)
 assets/og-quiz.png          1200×630 social card for /workshops/quiz (source: scripts/quiz-social.html)
-assets/icon-192.png, icon-512.png  app icons, with apple-touch-icon.png and favicon.ico (Higgsfield monogram, gold on #282830)
+assets/icon-192.png, icon-512.png  app icons, with apple-touch-icon.png and favicon.ico (Higgsfield pixel-art of the operator's split face; master + script in scripts/icons/)
 scripts/home-social.html    source of assets/og.png; real portrait and text over the Higgsfield background, render with Chromium at 1200×630
 scripts/og-leistungen.html  source of assets/og-leistungen.png (same background and layout)
 scripts/og/bg.png           Higgsfield-generated background of both cards; not published

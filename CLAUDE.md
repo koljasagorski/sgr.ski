@@ -13,7 +13,7 @@ substanzielle Arbeit ansteht, zuerst prüfen, ob inzwischen eines angelegt wurde
 
 `index.html` setzt das Carrd-Template #318 um (`https://bb17e50b963c5e74.demo.carrd.co`; Entwurf und
 Begründungen: `docs/superpowers/specs/2026-11-16-startseite-318-leistungen-design.md`). Deutsch
-(`lang="de"`, `og:locale de_DE`). Aufbau: dunkle Karte (`.card`, max. 800 px, Radius 16) auf
+(`lang="de"`, `og:locale de_DE`). Aufbau: dunkle Karte (`.card`, max. 960 px, Radius 16) auf
 facettiertem Hintergrund; links der Name zweifarbig (weiß / Gold), Untertitel und ein kurzer Text,
 rechts das geteilte Portrait (`assets/portrait.webp`, 1200×1200, `fetchpriority="high"`, feste
 `width`/`height`); darunter die Leiste (`.card__bar`) mit „LinkedIn · Buchen Sie meine
@@ -72,10 +72,12 @@ Text (Sora/Inter) — KI-Schrift und KI-Gesichter stimmen nicht verlässlich —
 `assets/og.png` bzw. `assets/og-leistungen.png` (Chrome, 1200×630, Faktor 1, Befehl im
 Dateikopf), danach `scripts/og/quantize.py` (128-Farben-Palette, ~210–225 KB statt ~590 KB;
 WhatsApp verwirft Vorschauen über ~300 KB). Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector). Favicon und Icons
-(`favicon.ico` 16+32, `apple-touch-icon.png`, `assets/icon-192.png`, `assets/icon-512.png`): Monogramm
-„KS“ in Gold auf `#282830`, Higgsfield-Job `77af68f5-9da1-46c7-9804-bae3e3e41cfc`, auf zwei Farben
-gesnappt und heruntergerechnet. Dieser 1024-px-Master liegt **nicht** im Repo; für Änderungen neu
-generieren. `site.webmanifest`: `lang de`, `theme_color`/`background_color` `#282830`.
+(`favicon.ico` 16+32, `apple-touch-icon.png`, `assets/icon-192.png`, `assets/icon-512.png`): das
+Gesicht des Betreibers als Pixel-Art, geteilt wie das Porträt (Wunsch „mein Gesicht in mini“,
+2026-11-16; das Gold-Monogramm „KS“ davor fand er hässlich). Higgsfield `gpt_image_2_6`, Job
+`9b9aeeab-480c-46a1-a659-c258df9f9c7c`, Referenz = Gesichtsausschnitt aus `assets/portrait.webp`.
+Master `scripts/icons/face-master.png` (1024 px, ohne Metadaten) liegt im Repo; alle Größen erzeugt
+`scripts/icons/make-icons.py` (Pillow, BOX-Filter). Beide sind nicht auf der Allow-List. `site.webmanifest`: `lang de`, `theme_color`/`background_color` `#282830`.
 
 Frühere Stände: 40C3-Styleguide „Model Citizens“ (Grün `#75b44b`, Jersey 10 + Hack; Stand von Commit
 `88f0a6b`, 2026-11-06, ansehen mit `git show 88f0a6b:index.html`), Retro-Fenster nach Carrd-Template
@@ -87,9 +89,9 @@ Frühere Stände: 40C3-Styleguide „Model Citizens“ (Grün `#75b44b`, Jersey 
 `leistungen/index.html` (deutsch) ist das Ziel von „Buchen Sie meine Dienstleistungen“ und der
 SEO-Hub für Ruhrgebiet und NRW. Gleiche Basis wie die Startseite: `assets/card.css` (Tokens, Fonts,
 `.btn-gold`, `.pgp`, `.legal-link`) plus `assets/leistungen.css` (Kopfkarte, Blatt, Abschnitte, FAQ,
-Kontaktblock; `/impressum/` lädt dasselbe Paar). Reihenfolge: Kopfkarte, H1, Inhaltsleiste, fünf
+Kontaktblock; `/impressum/` lädt dasselbe Paar; Spalte max. 1000 px, Fließtext 72ch). Reihenfolge: Kopfkarte, H1, Inhaltsleiste, fünf
 Leistungen, Ablauf (Erstgespräch → Angebot → Umsetzung), Kostenlose Werkzeuge (paste., IP-Leak-Test,
-VPN Matrix — vorher auf der Startseite), FAQ, Kontakt (Mail + PGP-Zeile + LinkedIn).
+VPN Matrix — vorher auf der Startseite — und patchletter; Raster 2×2), FAQ, Kontakt (Mail + PGP-Zeile + LinkedIn).
 
 Anker, die `check-pages.py` erzwingt und die das JSON-LD (`url`) nutzt: `#beratung`,
 `#sicherheitstests`, `#microsoft-365`, `#souveraenitaet`, `#workshops`, `#werkzeuge`, `#faq`. Nicht
