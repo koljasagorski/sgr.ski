@@ -19,9 +19,13 @@ rechts das geteilte Portrait (`assets/portrait.webp`, 1200×1200, `fetchpriority
 Dienstleistungen“ (→ `/leistungen/`) links und dem goldenen Mail-Button rechts. Der Hintergrund ist
 `assets/bg.svg`, per `url()` in `body::before` (im Template ein `data:`-SVG, das die CSP verbietet).
 
-**Wortlaut, überall gleich:** Untertitel „Seit über 20 Jahren auf beiden Seiten der Firewall.“ (HTML,
-JSON-LD, Meta, `llms.txt`, `site.webmanifest`, OG-Bilder). Die Zertifizierung heißt „Certified
-Security Analyst“ — nie „Certified IT Security Analyst“ (`check-pages.py` bricht sonst den Build ab).
+**Wortlaut:** Untertitel „Seit über 20 Jahren auf beiden Seiten der Firewall.“, mit Punkt, steht
+wortgleich sichtbar auf `/` und `/leistungen/` (samt `leistungen/index.md`), im JSON-LD (`Person` auf `/`,
+`ProfessionalService` auf `/leistungen/`), in `site.webmanifest`, `llms.txt` und im OG-Bild der Startseite
+(`scripts/home-social.html`). Die Meta- und OG-Descriptions führen ihn mit Doppelpunkt weiter
+(„…Firewall: IT-Sicherheitsberatung, …“); `og-leistungen` trägt ihn nicht. Die Zertifizierung heißt
+„Certified Security Analyst“ — nie „Certified IT Security Analyst“ (`check-pages.py` bricht sonst den
+Build ab).
 
 Palette (Tokens in `assets/card.css`): `--bg #282830`, `--bg-top #36363b`, `--card #424247`, `--text
 #fff`, `--muted #b7b7b9`, `--gold #E3BD52`, `--gold-light #FFEBA3`, `--on-gold #443e35`, `--panel
@@ -217,9 +221,9 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
 - **Impressum ja, Datenschutzseite nein.** Am 2026-08-30 hatte der Betreiber beides abgelehnt;
   am 2026-09-29 ausdrücklich ein kleines Impressum unter `/impressum/` gewünscht (Pflichtangaben
   wie patchletter.com/de/impressum). Seit 2026-11-16 vollständig, **mit USt-IdNr. DE466427019**
-  (§ 27a UStG; dazu HRB 20118, Amtsgericht Gelsenkirchen, § 18 Abs. 2 MStV — `check-pages.py`
-  erzwingt diese Angaben), und im Look der Startseite (`card.css` + `leistungen.css`). Der Link
-  steht auf **allen** Seiten: Startseite (ganz klein am Rand unter der Karte), `/leistungen/`,
+  (§ 27a UStG; dazu HRB 20118 beim Amtsgericht Gelsenkirchen und § 18 Abs. 2 MStV — `check-pages.py`
+  erzwingt USt-IdNr., HRB-Nummer, Straße, die MStV-Zeile und den Rücklink), im Look der Startseite
+  (`card.css` + `leistungen.css`). Der Link steht auf **allen** Seiten: Startseite (ganz klein am Rand unter der Karte), `/leistungen/`,
   `/workshops/` und Quiz im Footer; `/impressum/` selbst verlinkt zurück auf Start, Leistungen und
   Workshops. Nicht übernommen aus patchletter.com: Markenhinweis, „Haftung für Inhalte“ zu
   Release-Daten und der PGP-Block für hello@ (betreffen nur das Produkt). Eine Datenschutzseite
