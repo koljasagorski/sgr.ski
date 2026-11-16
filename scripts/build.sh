@@ -10,6 +10,7 @@ set -eu
 cd "$(dirname "$0")/.."
 
 python3 .github/scripts/check-csp.py
+python3 .github/scripts/check-pages.py
 
 rm -rf _site
 mkdir -p _site
