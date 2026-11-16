@@ -48,6 +48,27 @@ RULES: dict[str, list[tuple[str, str]]] = {
         ("link to /impressum/", r'href="/impressum/"'),
         ("LinkedIn profile", r"linkedin\.com/in/koljasagorski"),
     ],
+    "leistungen/index.html": [
+        (
+            "page title",
+            r"<title>IT-Sicherheitsberatung Ruhrgebiet &amp; NRW · Kolja Sagorski</title>",
+        ),
+        ("anchor #beratung", r'id="beratung"'),
+        ("anchor #sicherheitstests", r'id="sicherheitstests"'),
+        ("anchor #microsoft-365", r'id="microsoft-365"'),
+        ("anchor #souveraenitaet", r'id="souveraenitaet"'),
+        ("anchor #workshops", r'id="workshops"'),
+        ("anchor #werkzeuge", r'id="werkzeuge"'),
+        ("anchor #faq", r'id="faq"'),
+        ("link to /workshops/", r'href="/workshops/"'),
+        ("paste. tool", r"p\.sgr\.ski"),
+        ("IP leak test", r"ipleak\.sgr\.ski"),
+        ("VPN Matrix", r"vpn-matrix\.com"),
+        ("ProfessionalService schema", r'"@type": "ProfessionalService"'),
+        ("areaServed in the schema", r'"areaServed"'),
+        ("link to /impressum/", r'href="/impressum/"'),
+        ("Markdown alternate", r'rel="alternate" type="text/markdown"'),
+    ],
 }
 
 FORBIDDEN_TITLE = "Certified IT Security Analyst"

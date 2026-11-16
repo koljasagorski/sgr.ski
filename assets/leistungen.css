@@ -1,0 +1,400 @@
+/* /leistungen/: a long page in the #318 look. Loaded after card.css and
+   reuses its tokens, fonts, .btn-gold, .pgp, .legal-link, .skip and
+   .sr-only. No inline styles anywhere (CSP).
+
+   Contrast, WCAG formula (recompute on change):
+   --copy on --card 6.8:1, on --panel-soft 8.1:1; --text on --card
+   10.0:1, on --panel-soft 12.0:1; --gold-light on --card 8.4:1;
+   --muted (header role) on --card 5.0:1;
+   --on-gold on --gold (step numbers) 5.9:1. The contact block uses the bar
+   gradient from card.css: only --text (7.9:1) and --gold-light (6.7:1)
+   sit on its gold end, never --muted or --gold. */
+
+:root {
+  --copy: #d4d4d6;          /* running text on the card */
+  --panel-soft: #36363b;    /* step and tool tiles (= --bg-top) */
+  --hair: rgba(255, 255, 255, .14);
+}
+
+.mini,
+.sheet,
+.foot {
+  width: 100%;
+  max-width: 800px;
+}
+
+[id] { scroll-margin-top: 16px; }
+
+/* ── Small header card: avatar, name, back link ───────────────────── */
+
+.mini {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 16px;
+  padding: 14px 24px 14px 16px;
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.mini__id {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.mini__avatar {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1b2024;
+}
+
+.mini__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.mini__name {
+  font: 600 20px/1.2 var(--head);
+  letter-spacing: -.03em;
+}
+.mini__name .gold { color: var(--gold); }
+.mini__role {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.mini__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  font: 600 16px/1.2 var(--head);
+  letter-spacing: -.01em;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color .25s ease;
+}
+.mini__back:hover { color: var(--gold-light); }
+
+/* ── The sheet ────────────────────────────────────────────────────── */
+
+.sheet {
+  overflow: hidden;
+  padding: 64px 56px 0;
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--copy);
+  overflow-wrap: break-word;
+}
+
+.sheet h1,
+.sheet h2,
+.sheet h3 {
+  color: var(--text);
+  font-family: var(--head);
+  font-weight: 600;
+}
+
+.sheet h1 {
+  font-size: 44px;
+  line-height: 1.15;
+  letter-spacing: -.04em;
+  hyphens: manual;
+}
+
+.sheet h2 {
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: -.03em;
+}
+/* Short gold rule above each section heading (decorative). */
+.sheet h2::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 3px;
+  margin-bottom: 16px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.sheet h3 {
+  font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: -.015em;
+}
+
+.sheet strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.sheet a:not(.btn-gold) {
+  color: var(--gold-light);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.sheet a:not(.btn-gold):hover { color: var(--text); }
+
+.intro p {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+/* In-page navigation to the five services. */
+.toc ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+}
+.sheet .toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--hair);
+  border-radius: 36px;
+  color: var(--text);
+  font: 600 14px/1.2 var(--head);
+  text-decoration: none;
+  transition: border-color .25s ease, color .25s ease;
+}
+.sheet .toc a:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+/* ── Sections ─────────────────────────────────────────────────────── */
+
+.service,
+.block {
+  margin-top: 56px;
+  padding-top: 48px;
+  border-top: 1px solid var(--hair);
+}
+.toc + .service { margin-top: 48px; }
+
+.service > p,
+.block > p {
+  margin-top: 16px;
+  max-width: 64ch;
+}
+
+.ticks {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+  color: var(--text);
+}
+.ticks li {
+  position: relative;
+  padding-left: 26px;
+}
+.ticks li + li { margin-top: 6px; }
+.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: .8em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.sheet .more { margin-top: 20px; }
+.more a { display: inline-block; }
+
+/* Three steps and three tools: tiles in a row, stacked when narrow. */
+.steps,
+.tools {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+.steps li,
+.tools li {
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+.steps li { counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--on-gold);
+  font: 600 15px/1 var(--head);
+}
+.steps p,
+.tools p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sheet .tools a {
+  display: inline-block;
+  padding: 2px 0;
+  color: var(--text);
+  font: 600 18px/1.35 var(--head);
+  letter-spacing: -.015em;
+}
+.sheet .tools a:hover { color: var(--gold-light); }
+/* Marks the new tab; the screen-reader text says it in words. */
+.tools a::after {
+  content: " ↗";
+  content: " ↗" / "";
+  color: var(--gold);
+}
+
+/* ── FAQ ──────────────────────────────────────────────────────────── */
+
+.faq { margin-top: 20px; }
+
+.faq details { border-bottom: 1px solid var(--hair); }
+
+.faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding: 14px 0;
+  color: var(--text);
+  font: 600 18px/1.4 var(--head);
+  letter-spacing: -.015em;
+  list-style: none;
+  cursor: pointer;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  flex: none;
+  color: var(--gold);
+  font: 400 26px/1 var(--body);
+  transition: transform .2s ease;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--gold-light); }
+.faq summary:focus-visible {
+  outline: 2px solid var(--gold-light);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.faq details p {
+  max-width: 64ch;
+  padding: 0 0 22px;
+}
+
+/* ── Contact: the bar gradient from the home card ─────────────────── */
+
+.cta {
+  margin: 64px -56px 0;
+  padding: 48px 56px 52px;
+  background:
+    linear-gradient(132deg, rgba(255, 255, 255, .12) 35%, rgba(227, 189, 82, .271) 100%),
+    var(--bg);
+  color: var(--text);
+}
+.cta > p { margin-top: 12px; }
+
+.cta__mail { margin-top: 28px; }
+
+/* card.css turns .pgp into a hover panel on desktop; here it is a plain
+   line under the button at every width. */
+.cta .pgp {
+  position: static;
+  width: auto;
+  margin-top: 14px;
+  padding: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: none;
+}
+.cta .pgp > span {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.cta .cta__alt {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.cta .cta__alt a {
+  display: inline-block;
+  padding: 3px 0;
+}
+
+/* ── Footer ───────────────────────────────────────────────────────── */
+
+.foot {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ── Narrow screens ───────────────────────────────────────────────── */
+
+@media (max-width: 859px) {
+  /* German compounds need hyphenation in the narrow column. */
+  .sheet {
+    padding: 44px 24px 0;
+    hyphens: auto;
+  }
+  .sheet h1 { font-size: clamp(30px, 8vw, 40px); }
+  .sheet h2 { font-size: 24px; }
+  .intro p { font-size: 16px; }
+
+  .service,
+  .block {
+    margin-top: 44px;
+    padding-top: 40px;
+  }
+
+  .steps,
+  .tools { grid-template-columns: 1fr; }
+
+  .cta {
+    margin: 52px -24px 0;
+    padding: 40px 24px 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini { padding: 12px 16px 12px 12px; }
+  .mini__avatar { width: 48px; height: 48px; }
+  .sheet h2 { font-size: 22px; }
+  .faq summary { font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mini__back, .sheet .toc a, .faq summary::after { transition: none !important; }
+}

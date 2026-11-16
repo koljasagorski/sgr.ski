@@ -16,6 +16,7 @@ rm -rf _site
 mkdir -p _site
 for path in \
   index.html \
+  leistungen \
   workshops \
   impressum \
   assets \

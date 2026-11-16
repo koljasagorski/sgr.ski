@@ -13,7 +13,7 @@ import re
 import sys
 
 root = pathlib.Path(__file__).resolve().parents[2]
-PAGES = ["index.html", "workshops/index.html"]
+PAGES = ["index.html", "leistungen/index.html", "workshops/index.html"]
 
 failed = False
 for rel in PAGES:
