@@ -2,7 +2,7 @@
 title: Workshops Digitale Selbstverteidigung & OPSEC · Kolja Sagorski
 url: https://sgr.ski/workshops/
 language: de
-updated: 2026-09-30
+updated: 2026-11-16
 ---
 
 # Workshops: Digitale Selbstverteidigung · OPSEC · Quellenschutz

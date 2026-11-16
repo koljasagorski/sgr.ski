@@ -27,8 +27,10 @@
 }
 
 /* ── Tokens ──────────────────────────────────────────────────────────────── */
-/* Gleiche Werte wie styles.css. --faint bleibt dekorativen, aria-hidden
-   Elementen vorbehalten; sichtbarer Text nutzt --faint-text (WCAG AA). */
+/* Werte aus dem früheren styles.css (Entwurf 1d, gelöscht in c460b5c);
+   eigene Tokens dieser Seite, nicht die von card.css. --faint bleibt
+   dekorativen, aria-hidden Elementen vorbehalten; sichtbarer Text nutzt
+   --faint-text (WCAG AA). */
 :root {
   color-scheme: light;
   --bg:          #fbfbfa;

@@ -1,6 +1,7 @@
 # sgr.ski — Repo-Konventionen
 
-Private Ein-Seiten-Website. **Statisch, kein Build-Step, keine Dependencies.** Nicht auf ein
+Private Website mit mehreren Seiten (Startseite, `/leistungen/`, `/workshops/` samt Quiz,
+`/impressum/`). **Statisch, kein Build-Step, keine Dependencies.** Nicht auf ein
 Framework migrieren, ohne dass es ausdrücklich gewünscht ist.
 
 ## Linear
@@ -66,7 +67,8 @@ Metadaten — nie von Higgsfield/CloudFront einbetten. OG-Hintergrund: `scripts/
 legen `scripts/home-social.html` und `scripts/og-leistungen.html` das echte Portrait und den exakten
 Text (Sora/Inter) — KI-Schrift und KI-Gesichter stimmen nicht verlässlich — und rendern
 `assets/og.png` bzw. `assets/og-leistungen.png` (Chrome, 1200×630, Faktor 1, Befehl im
-Dateikopf). Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector). Favicon und Icons
+Dateikopf), danach `scripts/og/quantize.py` (128-Farben-Palette, ~210–225 KB statt ~590 KB;
+WhatsApp verwirft Vorschauen über ~300 KB). Bei Textänderung neu rendern; LinkedIn cacht Vorschauen (Post Inspector). Favicon und Icons
 (`favicon.ico` 16+32, `apple-touch-icon.png`, `assets/icon-192.png`, `assets/icon-512.png`): Monogramm
 „KS“ in Gold auf `#282830`, Higgsfield-Job `77af68f5-9da1-46c7-9804-bae3e3e41cfc`, auf zwei Farben
 gesnappt und heruntergerechnet. Dieser 1024-px-Master liegt **nicht** im Repo; für Änderungen neu
@@ -206,14 +208,14 @@ Kein Ranking-Hebel für Google (laut Google selbst), aber Agenten lesen es.
   Dritt-Requests. **Ausnahmen, beide auf eigener Infrastruktur des Betreibers:** `ip.sgr.ski`
   (siehe Workshops) und die Besuchsstatistik **Umami** (`umami.patchletter.com`, Website-ID
   `a9dbeae1-3e8d-4a32-9c86-647bfbb62c09`, auf Wunsch des Betreibers seit 2026-09-30) auf allen
-  drei Seiten — cookielos, mit `data-domains="sgr.ski"`, `data-do-not-track`,
-  `data-exclude-search`. Das Tracker-Skript ist **selbst gehostet** (`assets/umami.js`, per
+  fünf Seiten (`/`, `/leistungen/`, `/impressum/`, `/workshops/`, `/workshops/quiz/`) — cookielos,
+  mit `data-domains="sgr.ski"`, `data-do-not-track`, `data-exclude-search`. Das Tracker-Skript ist **selbst gehostet** (`assets/umami.js`, per
   `data-host-url` an die Instanz): so darf `umami.patchletter.com` in der CSP nur unter
   `connect-src` stehen, nie unter `script-src` — ein kompromittierter Umami-Server kann damit keinen
   Code auf sgr.ski ausführen. Bei Umami-Updates das Skript neu herunterladen. Texte, die
   „speichert nichts“ behaupten, sind deshalb angepasst — nicht zurückschreiben.
   Heatmaps und Sitzungsaufzeichnungen sind seit 2026-09-30 ebenfalls gewünscht.
-  `assets/umami-recorder.js` wird lokal ausgeliefert, nach `umami.js` auf allen vier
+  `assets/umami-recorder.js` wird lokal ausgeliefert, nach `umami.js` auf allen fünf
   Seiten. Update nur über `scripts/prepare-umami-recorder.py`: der Patch respektiert
   DNT, beschränkt auf sgr.ski und lässt auch Heatmap-Klicks `.rr-block` ausnehmen.
   Quiz-Antworten, Ergebnisse und `[data-bv]`/`[data-net]` tragen `.rr-block`; diese

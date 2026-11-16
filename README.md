@@ -1,6 +1,7 @@
 # sgr.ski
 
-Personal one-page site for Kolja Sagorski. Static HTML and CSS; the home page needs no JavaScript —
+Personal website of Kolja Sagorski: home page, /leistungen, /workshops (with a quiz) and
+/impressum. Static HTML and CSS; the home page needs no JavaScript —
 no build step, no framework, no dependencies, no third-party requests.
 
 Live at **https://sgr.ski**
