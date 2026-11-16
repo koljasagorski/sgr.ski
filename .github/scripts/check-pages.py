@@ -64,6 +64,7 @@ RULES: dict[str, list[tuple[str, str]]] = {
         ("paste. tool", r"p\.sgr\.ski"),
         ("IP leak test", r"ipleak\.sgr\.ski"),
         ("VPN Matrix", r"vpn-matrix\.com"),
+        ("patchletter", r"patchletter\.com/de/"),
         ("ProfessionalService schema", r'"@type": "ProfessionalService"'),
         ("areaServed in the schema", r'"areaServed"'),
         ("link to /impressum/", r'href="/impressum/"'),

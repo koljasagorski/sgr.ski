@@ -148,6 +148,7 @@
 
 .intro p {
   margin-top: 24px;
+  max-width: 72ch;
   font-size: 17px;
   line-height: 1.75;
 }
@@ -219,7 +220,7 @@
 .sheet .more { margin-top: 20px; }
 .more a { display: inline-block; }
 
-/* Three steps and three tools: tiles in a row, stacked when narrow. */
+/* Three steps in a row, four tools two by two; stacked when narrow. */
 .steps,
 .tools {
   display: grid;
