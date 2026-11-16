@@ -2,7 +2,8 @@
 
 Personal website of Kolja Sagorski: home page, /leistungen, /workshops (with a quiz) and
 /impressum. Static HTML and CSS; the home page needs no JavaScript —
-no build step, no framework, no dependencies, no third-party requests.
+no build step, no framework, no dependencies. The only outside requests go to the
+operator's own `ip.sgr.ski` worker (/workshops) and self-hosted Umami statistics.
 
 Live at **https://sgr.ski**
 
