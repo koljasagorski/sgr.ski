@@ -4,6 +4,8 @@
        "Google Chrome" --headless=new --hide-scrollbars --force-device-scale-factor=1 \
          --window-size=1200,630 --virtual-time-budget=5000 \
          --screenshot=assets/og-leistungen.png file://$PWD/scripts/og-leistungen.html
+     Then shrink it to a 128-colour palette PNG (WhatsApp drops previews above ~300 KB):
+       python3 scripts/og/quantize.py assets/og-leistungen.png   (needs Pillow + imagequant; see the script)
      Same Higgsfield background (scripts/og/bg.png) and layout as scripts/home-social.html.
      Only the resulting PNG is published by scripts/build.sh. -->
 <meta charset="utf-8">

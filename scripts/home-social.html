@@ -4,6 +4,8 @@
        "Google Chrome" --headless=new --hide-scrollbars --force-device-scale-factor=1 \
          --window-size=1200,630 --virtual-time-budget=5000 \
          --screenshot=assets/og.png file://$PWD/scripts/home-social.html
+     Then shrink it to a 128-colour palette PNG (WhatsApp drops previews above ~300 KB):
+       python3 scripts/og/quantize.py assets/og.png   (needs Pillow + imagequant; see the script)
      Background: scripts/og/bg.png, generated with Higgsfield (gpt_image_2_6), cropped to
      1200 × 630 and re-encoded without metadata. Portrait and text are real, laid over it here.
      Only the resulting PNG is published by scripts/build.sh. -->
