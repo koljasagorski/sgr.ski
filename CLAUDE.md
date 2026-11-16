@@ -46,13 +46,16 @@ JavaScript. Markup-Vertrag: `.mail` (`position: relative`) enthält `a.btn-gold`
 Ab 860 px mit `(hover: hover)` ist `.pgp` ein Panel über dem Button, sichtbar bei `.mail:hover` und
 `.mail:focus-within`; sein Innenabstand unten (12 px) gehört zum Panel, damit die Maus ohne Lücke in
 den Link fahren kann. Sonst (Touch, schmal, kein Hover) steht der Hinweis als sichtbare Zeile unter
-dem Button, weil ein Tipp auf den Button sofort `mailto:` auslöst. Bekannte Grenzen: kein Esc zum
-Schließen, und das Panel ist bis zum Fokus auf dem Button für Screenreader nicht im Baum
-(`visibility: hidden`). Auf `/leistungen/` zeigt `.cta .pgp` (`leistungen.css`) die Zeile in jeder
-Breite dauerhaft, ohne Panel.
+dem Button, weil ein Tipp auf den Button sofort `mailto:` auslöst; ab 860 px mit `(hover: none)`
+(iPad quer) bekommt `.mail` dafür `flex: 0 1 300px`, damit die Links einzeilig bleiben. Das Panel ist
+per `opacity: 0` + `pointer-events: none` versteckt, **nicht** per `visibility` — so bleibt der
+Schlüssel-Link in der Tab-Reihenfolge (Shift+Tab vom Impressum öffnet das Panel) und für
+Screenreader im Baum. Bekannte Grenze: kein Esc zum Schließen. Schmal-Umbruch bei
+`(max-width: 859.98px)` (auch für gebrochene Breiten durch Zoom). Auf `/leistungen/` zeigt
+`.cta .pgp` (`leistungen.css`) die Zeile in jeder Breite dauerhaft, ohne Panel.
 
-**Impressum-Link am Rand:** `a.legal-link`, 12 px, `--muted`, unter der Karte rechts, mit ≥ 24 px
-Höhe als Tippfläche. Bewusst klein, aber lesbar (≥ 4,5:1) und von jeder anderen Seite verlinkt.
+**Impressum-Link am Rand:** `a.legal-link` in `<footer class="home-foot">` (Landmark), 12 px,
+`--muted`, unter der Karte rechts, mit ≥ 24 px Höhe als Tippfläche. Bewusst klein, aber lesbar (≥ 4,5:1) und von jeder anderen Seite verlinkt.
 
 Kein JavaScript auf der Seite (außer dem selbst gehosteten Umami), die CSP braucht nur
 `connect-src https://umami.patchletter.com`. JSON-LD `Person` mit `@id https://sgr.ski/#person`
