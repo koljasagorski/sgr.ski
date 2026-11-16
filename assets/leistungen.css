@@ -333,7 +333,7 @@
   margin-top: 14px;
   padding: 0;
   opacity: 1;
-  visibility: visible;
+  pointer-events: auto;
   transform: none;
   transition: none;
 }
@@ -391,7 +391,7 @@
 
 /* ── Narrow screens ───────────────────────────────────────────────── */
 
-@media (max-width: 859px) {
+@media (max-width: 859.98px) {
   /* German compounds need hyphenation in the narrow column. */
   .sheet {
     padding: 44px 24px 0;

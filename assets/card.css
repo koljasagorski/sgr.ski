@@ -277,9 +277,25 @@ a:focus-visible {
 }
 .pgp a:hover { color: var(--text); }
 
+/* Wide touch screens (iPad landscape and the like): the line stays
+   visible under the button, so the mail column gets a fixed share of the
+   bar and the hint wraps inside it, instead of pushing the links onto
+   two lines. */
+@media (min-width: 860px) and (hover: none) {
+  .links { flex: none; }
+  .mail {
+    flex: 0 1 300px;
+    text-align: right;
+  }
+}
+
 /* Desktop with a mouse: the hint is a panel above the button, shown on
    hover and keyboard focus. Its bottom padding is part of the panel, so
-   the pointer can travel from the button into the link without a gap. */
+   the pointer can travel from the button into the link without a gap.
+   Hidden with opacity, not visibility, so the key link stays in the tab
+   order (Shift+Tab from the Impressum link lands on it and opens the
+   panel) and in screen-reader browse mode; pointer-events keeps the
+   invisible panel from catching clicks. */
 @media (min-width: 860px) and (hover: hover) {
   .pgp {
     position: absolute;
@@ -290,9 +306,9 @@ a:focus-visible {
     margin: 0;
     padding-bottom: 12px;
     opacity: 0;
-    visibility: hidden;
+    pointer-events: none;
     transform: translateY(4px);
-    transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+    transition: opacity .2s ease, transform .2s ease;
   }
   .pgp > span {
     display: block;
@@ -305,13 +321,19 @@ a:focus-visible {
   .mail:hover .pgp,
   .mail:focus-within .pgp {
     opacity: 1;
-    visibility: visible;
+    pointer-events: auto;
     transform: none;
-    transition: opacity .2s ease, transform .2s ease, visibility 0s;
   }
 }
 
 /* ── Impressum link: tiny, under the card on the right ────────────── */
+
+/* Home page footer: a landmark around the Impressum link, pushed to the
+   right edge of the page column. */
+.home-foot {
+  align-self: flex-end;
+  display: flex;
+}
 
 .legal-link {
   align-self: flex-end;
@@ -332,7 +354,7 @@ a:focus-visible {
 
 /* ── Narrow screens: photo on top, everything centred ─────────────── */
 
-@media (max-width: 859px) {
+@media (max-width: 859.98px) {
   body { padding-top: 16px; }
 
   .card {
